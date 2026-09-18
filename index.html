@@ -130,6 +130,11 @@
             color: var(--dark);
             background: var(--white);
             -webkit-font-smoothing: antialiased;
+            padding-bottom: 70px;
+        }
+
+        @media (min-width: 769px) {
+            body { padding-bottom: 0; }
         }
 
         .skip-link {
@@ -143,9 +148,7 @@
             text-decoration: none;
             border-radius: 0 0 6px 0;
         }
-        .skip-link:focus {
-            top: 0;
-        }
+        .skip-link:focus { top: 0; }
 
         /* Header */
         header {
@@ -163,6 +166,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 1rem;
         }
 
         .logo {
@@ -171,11 +175,12 @@
             color: var(--teal);
             letter-spacing: -0.5px;
             text-decoration: none;
+            flex-shrink: 0;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             align-items: center;
         }
 
@@ -188,9 +193,7 @@
         }
 
         .nav-link:hover,
-        .nav-link:focus {
-            color: var(--teal);
-        }
+        .nav-link:focus { color: var(--teal); }
 
         .nav-cta {
             background: var(--teal);
@@ -205,8 +208,84 @@
         }
 
         .nav-cta:hover,
-        .nav-cta:focus {
-            background: var(--teal-dark);
+        .nav-cta:focus { background: var(--teal-dark); }
+
+        /* Language Toggle */
+        .lang-toggle {
+            display: inline-flex;
+            background: var(--gray-light);
+            border-radius: 999px;
+            padding: 3px;
+            gap: 2px;
+            flex-shrink: 0;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            font-family: inherit;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.2s;
+            letter-spacing: 0.5px;
+        }
+
+        .lang-btn.active {
+            background: var(--white);
+            color: var(--teal);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: var(--gray-dark);
+        }
+
+        /* Sticky Mobile CTA */
+        .mobile-sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--dark);
+            padding: 0.75rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 99;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .mobile-sticky-cta .cta-text {
+            color: var(--white);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .mobile-sticky-cta .cta-text span {
+            color: #5eead4;
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 400;
+        }
+
+        .mobile-sticky-btn {
+            background: var(--teal);
+            color: var(--white);
+            padding: 0.6rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        @media (min-width: 769px) {
+            .mobile-sticky-cta { display: none; }
         }
 
         /* Promo Banner */
@@ -220,9 +299,7 @@
             letter-spacing: 0.2px;
         }
 
-        .promo-banner strong {
-            font-weight: 800;
-        }
+        .promo-banner strong { font-weight: 800; }
 
         /* Hero */
         .hero {
@@ -240,9 +317,7 @@
             align-items: center;
         }
 
-        .hero-content {
-            text-align: left;
-        }
+        .hero-content { text-align: left; }
 
         .founding-badge {
             display: inline-flex;
@@ -329,6 +404,7 @@
             white-space: nowrap;
             display: inline-block;
             text-align: center;
+            font-family: inherit;
         }
 
         .btn-primary {
@@ -354,36 +430,19 @@
             border-color: rgba(255, 255, 255, 0.5);
         }
 
-        /* Hero Image Placeholder */
-        .hero-image {
-            background: rgba(255, 255, 255, 0.08);
-            border: 2px dashed rgba(255, 255, 255, 0.3);
+        .hero-image-wrapper {
+            position: relative;
             border-radius: 12px;
-            padding: 3rem 2rem;
-            text-align: center;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
             aspect-ratio: 4 / 5;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
         }
 
-        .hero-image svg {
-            width: 200px;
-            height: 200px;
-            stroke: rgba(255, 255, 255, 0.6);
-            stroke-width: 1.2;
-            fill: none;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        .hero-image-label {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 500;
-            letter-spacing: 0.5px;
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         /* Trust Badges */
@@ -427,9 +486,7 @@
         }
 
         /* Sections */
-        section {
-            padding: 4rem 1.5rem;
-        }
+        section { padding: 4rem 1.5rem; }
 
         .container {
             max-width: 1100px;
@@ -451,10 +508,8 @@
             max-width: 600px;
         }
 
-        /* Product Showcase (moved up) */
-        .product-showcase-section {
-            background: var(--white);
-        }
+        /* Product Showcase */
+        .product-showcase-section { background: var(--white); }
 
         .product-showcase {
             display: grid;
@@ -463,31 +518,19 @@
             align-items: center;
         }
 
-        .product-image {
-            background: linear-gradient(135deg, var(--teal-light) 0%, #ccfbf1 100%);
-            padding: 3rem 2rem;
+        .product-image-wrapper {
             border-radius: 12px;
-            text-align: center;
+            overflow: hidden;
             border: 1px solid rgba(15, 118, 110, 0.15);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            aspect-ratio: 4 / 3;
         }
 
-        .product-image svg {
-            width: 200px;
-            height: 200px;
-            stroke: var(--teal);
-            stroke-width: 1.2;
-            fill: none;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        .product-image-label {
-            margin-top: 1rem;
-            font-size: 0.85rem;
-            color: var(--teal);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .product-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .product-content h3 {
@@ -499,9 +542,7 @@
             letter-spacing: 1px;
         }
 
-        .product-content h2 {
-            margin-bottom: 1rem;
-        }
+        .product-content h2 { margin-bottom: 1rem; }
 
         .spec-list {
             list-style: none;
@@ -514,6 +555,7 @@
             position: relative;
             color: var(--gray-dark);
             font-size: 0.95rem;
+            line-height: 1.55;
         }
 
         .spec-list li::before {
@@ -528,10 +570,26 @@
             background-repeat: no-repeat;
         }
 
-        /* Problem Section - two columns */
-        .problem {
-            background: var(--gray-light);
+        .spec-list li strong {
+            color: var(--dark);
+            font-weight: 700;
         }
+
+        .energy-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #e0f2fe;
+            color: var(--blue);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+        }
+
+        /* Problem Section */
+        .problem { background: var(--gray-light); }
 
         .compare-grid {
             display: grid;
@@ -547,9 +605,7 @@
             border: 2px solid transparent;
         }
 
-        .compare-col.old {
-            border-color: #fecaca;
-        }
+        .compare-col.old { border-color: #fecaca; }
 
         .compare-col.new {
             border-color: var(--teal);
@@ -565,17 +621,10 @@
             font-weight: 700;
         }
 
-        .compare-col.old h3 {
-            color: var(--red);
-        }
+        .compare-col.old h3 { color: var(--red); }
+        .compare-col.new h3 { color: var(--teal); }
 
-        .compare-col.new h3 {
-            color: var(--teal);
-        }
-
-        .compare-col ul {
-            list-style: none;
-        }
+        .compare-col ul { list-style: none; }
 
         .compare-col li {
             padding: 0.7rem 0;
@@ -588,9 +637,7 @@
             align-items: flex-start;
         }
 
-        .compare-col li:last-child {
-            border-bottom: none;
-        }
+        .compare-col li:last-child { border-bottom: none; }
 
         .compare-col.old li::before {
             content: '✕';
@@ -611,9 +658,7 @@
         }
 
         /* Features */
-        .features {
-            background: var(--white);
-        }
+        .features { background: var(--white); }
 
         .features-grid {
             display: grid;
@@ -659,10 +704,77 @@
             line-height: 1.55;
         }
 
-        /* How It Works */
-        .how-it-works {
+        /* Calculator */
+        .calculator-card {
             background: var(--white);
+            border: 2px solid var(--teal);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 20px rgba(15, 118, 110, 0.08);
         }
+
+        .calc-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .calc-header h3 {
+            font-size: 1.4rem;
+            color: var(--teal);
+            font-weight: 800;
+        }
+
+        .calc-slider-group {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .calc-slider-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .calc-slider-group input[type=range] {
+            width: 100%;
+            max-width: 500px;
+            accent-color: var(--teal);
+            height: 8px;
+            cursor: pointer;
+        }
+
+        .calc-employee-count {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--teal);
+        }
+
+        .calc-results {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            background: var(--teal-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .calc-metric-val {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--teal);
+        }
+
+        .calc-metric-lbl {
+            font-size: 0.85rem;
+            color: var(--gray-dark);
+            font-weight: 600;
+        }
+
+        /* How It Works */
+        .how-it-works { background: var(--white); }
 
         .steps-grid {
             display: grid;
@@ -763,11 +875,8 @@
             margin-top: 1rem;
         }
 
-        .revenue-compare strong {
-            color: var(--teal);
-        }
+        .revenue-compare strong { color: var(--teal); }
 
-        /* Payment Note */
         .payment-note {
             background: var(--white);
             border: 2px solid var(--teal);
@@ -880,13 +989,8 @@
         }
 
         /* Why New */
-        .why-new {
-            background: var(--blue-light);
-        }
-
-        .why-new h2 {
-            margin-bottom: 1rem;
-        }
+        .why-new { background: var(--blue-light); }
+        .why-new h2 { margin-bottom: 1rem; }
 
         .why-new-intro {
             font-size: 1.05rem;
@@ -983,22 +1087,15 @@
         }
 
         /* FAQ */
-        .faq {
-            background: var(--white);
-        }
+        .faq { background: var(--white); }
 
         .faq-list {
             max-width: 800px;
             margin-top: 2rem;
         }
 
-        .faq-item {
-            border-bottom: 1px solid var(--gray-light);
-        }
-
-        .faq-item:last-child {
-            border-bottom: none;
-        }
+        .faq-item { border-bottom: 1px solid var(--gray-light); }
+        .faq-item:last-child { border-bottom: none; }
 
         .faq-q {
             width: 100%;
@@ -1017,9 +1114,7 @@
             gap: 1rem;
         }
 
-        .faq-q:hover {
-            color: var(--teal);
-        }
+        .faq-q:hover { color: var(--teal); }
 
         .faq-q .faq-icon {
             flex-shrink: 0;
@@ -1065,9 +1160,7 @@
             padding-bottom: 1.3rem;
         }
 
-        .faq-item.open .faq-a {
-            display: block;
-        }
+        .faq-item.open .faq-a { display: block; }
 
         /* Guarantee */
         .guarantee {
@@ -1075,9 +1168,7 @@
             color: var(--white);
         }
 
-        .guarantee h2 {
-            color: var(--white);
-        }
+        .guarantee h2 { color: var(--white); }
 
         .guarantee-list {
             list-style: none;
@@ -1120,9 +1211,7 @@
         }
 
         /* Contact */
-        .contact {
-            background: var(--gray-light);
-        }
+        .contact { background: var(--gray-light); }
 
         .contact-grid {
             display: grid;
@@ -1139,19 +1228,19 @@
             border: 1px solid var(--gray-light);
         }
 
-        .founder-photo {
+        .founder-photo-wrapper {
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--teal-light) 0%, #ccfbf1 100%);
+            overflow: hidden;
             border: 3px solid var(--teal);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--teal);
-            font-weight: 800;
             margin-bottom: 1rem;
+        }
+
+        .founder-photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .contact-info h3 {
@@ -1203,9 +1292,7 @@
             font-weight: 500;
         }
 
-        .contact-direct li a:hover {
-            color: var(--teal);
-        }
+        .contact-direct li a:hover { color: var(--teal); }
 
         .what-next {
             background: var(--teal-light);
@@ -1229,13 +1316,8 @@
             border: 1px solid var(--gray-light);
         }
 
-        .form-step {
-            display: none;
-        }
-
-        .form-step.active {
-            display: block;
-        }
+        .form-step { display: none; }
+        .form-step.active { display: block; }
 
         .form-step-indicator {
             display: flex;
@@ -1267,9 +1349,7 @@
             color: var(--white);
         }
 
-        .form-group {
-            margin-bottom: 1.3rem;
-        }
+        .form-group { margin-bottom: 1.3rem; }
 
         .form-group label {
             display: block;
@@ -1346,9 +1426,7 @@
         }
 
         .back-btn:hover,
-        .back-btn:focus {
-            background: #e2e8f0;
-        }
+        .back-btn:focus { background: #e2e8f0; }
 
         .form-note {
             font-size: 0.82rem;
@@ -1389,9 +1467,7 @@
             margin-bottom: 1.2rem;
         }
 
-        .footer-contact {
-            list-style: none;
-        }
+        .footer-contact { list-style: none; }
 
         .footer-contact li {
             padding: 0.3rem 0;
@@ -1407,9 +1483,7 @@
             text-decoration: none;
         }
 
-        .footer-contact li a:hover {
-            text-decoration: underline;
-        }
+        .footer-contact li a:hover { text-decoration: underline; }
 
         .footer-col h4 {
             font-size: 0.85rem;
@@ -1420,24 +1494,23 @@
             margin-bottom: 1rem;
         }
 
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col li {
-            padding: 0.35rem 0;
-        }
+        .footer-col ul { list-style: none; }
+        .footer-col li { padding: 0.35rem 0; }
 
         .footer-col a {
             color: rgba(255, 255, 255, 0.75);
             text-decoration: none;
             font-size: 0.9rem;
             transition: color 0.2s;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            padding: 0;
+            text-align: left;
         }
 
-        .footer-col a:hover {
-            color: var(--white);
-        }
+        .footer-col a:hover { color: var(--white); }
 
         .footer-bottom {
             max-width: 1100px;
@@ -1462,8 +1535,162 @@
             text-decoration: none;
         }
 
-        .footer-legal a:hover {
-            color: var(--white);
+        .footer-legal a:hover { color: var(--white); }
+
+        /* Feedback Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.7);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--white);
+            border-radius: 12px;
+            max-width: 520px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+            animation: modalIn 0.25s ease-out;
+        }
+
+        @keyframes modalIn {
+            from { opacity: 0; transform: translateY(20px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .modal-header {
+            padding: 1.5rem 1.8rem 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .modal-header h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.3;
+        }
+
+        .modal-header p {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 0.3rem;
+            line-height: 1.5;
+        }
+
+        .modal-close {
+            background: var(--gray-light);
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            color: var(--gray-dark);
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: all 0.2s;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: #e2e8f0;
+            color: var(--dark);
+        }
+
+        .modal-body {
+            padding: 1rem 1.8rem 1.8rem;
+        }
+
+        .feedback-type-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.6rem;
+            margin-bottom: 1.3rem;
+        }
+
+        .feedback-type-btn {
+            background: var(--gray-light);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            padding: 0.9rem 0.5rem;
+            font-family: inherit;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--gray-dark);
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .feedback-type-btn:hover {
+            background: #e2e8f0;
+        }
+
+        .feedback-type-btn.selected {
+            background: var(--teal-light);
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+
+        .feedback-type-btn .type-icon {
+            display: block;
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .modal-success {
+            text-align: center;
+            padding: 2rem 1rem;
+            display: none;
+        }
+
+        .modal-success.show { display: block; }
+
+        .modal-success .success-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--green-light);
+            color: var(--green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+        }
+
+        .modal-success h4 {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .modal-success p {
+            color: var(--gray-dark);
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
 
         /* Mobile */
@@ -1473,18 +1700,9 @@
                 gap: 2rem;
             }
 
-            .hero-content {
-                text-align: center;
-            }
-
-            .hero-bullets {
-                display: inline-block;
-                text-align: left;
-            }
-
-            .hero-ctas {
-                justify-content: center;
-            }
+            .hero-content { text-align: center; }
+            .hero-bullets { display: inline-block; text-align: left; }
+            .hero-ctas { justify-content: center; }
 
             .contact-grid {
                 grid-template-columns: 1fr;
@@ -1497,9 +1715,8 @@
                 text-align: center;
             }
 
-            .footer-contact li {
-                justify-content: center;
-            }
+            .footer-contact li { justify-content: center; }
+            .footer-col a { text-align: center; }
         }
 
         @media (max-width: 768px) {
@@ -1524,17 +1741,9 @@
                 letter-spacing: -0.5px;
             }
 
-            .hero-subheader {
-                font-size: 1rem;
-            }
-
-            .hero-ctas {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
+            .hero-subheader { font-size: 1rem; }
+            .hero-ctas { flex-direction: column; }
+            .btn { width: 100%; }
 
             .trust-badges {
                 grid-template-columns: 1fr 1fr;
@@ -1542,64 +1751,44 @@
                 padding: 1.5rem 1rem;
             }
 
-            .trust-number {
-                font-size: 1.3rem;
-            }
-
-            h2 {
-                font-size: 1.7rem;
-            }
-
-            section {
-                padding: 3rem 1.5rem;
-            }
+            .trust-number { font-size: 1.3rem; }
+            h2 { font-size: 1.7rem; }
+            section { padding: 3rem 1.5rem; }
 
             .product-showcase {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
-            .compare-grid {
-                grid-template-columns: 1fr;
-            }
+            .compare-grid { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: 1fr; }
+            .snack-split { grid-template-columns: 1fr; }
+            .beverage-list { grid-template-columns: 1fr; }
+            .promo-features { grid-template-columns: 1fr; }
 
-            .steps-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .snack-split {
-                grid-template-columns: 1fr;
-            }
-
-            .beverage-list {
-                grid-template-columns: 1fr;
-            }
-
-            .promo-features {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-form {
-                padding: 1.5rem;
-            }
-
-            .contact-info {
-                padding: 1.5rem;
-            }
-
-            .form-actions {
-                flex-direction: column;
-            }
+            .contact-form { padding: 1.5rem; }
+            .contact-info { padding: 1.5rem; }
+            .form-actions { flex-direction: column; }
 
             .promo-banner {
                 font-size: 0.8rem;
                 padding: 0.6rem 1rem;
             }
+
+            .calc-results { grid-template-columns: 1fr; }
+
+            .feedback-type-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-header,
+            .modal-body {
+                padding-left: 1.3rem;
+                padding-right: 1.3rem;
+            }
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
@@ -1609,11 +1798,21 @@
 </head>
 <body>
 
-    <a href="#main" class="skip-link">Skip to main content</a>
+    <a href="#main" class="skip-link" data-en="Skip to main content" data-es="Saltar al contenido principal">Skip to main content</a>
+
+    <!-- Sticky Mobile Bar -->
+    <div class="mobile-sticky-cta">
+        <div class="cta-text">
+            <span data-en="40% Net Revenue Share" data-es="40% de Ganancia Neta">40% Net Revenue Share</span>
+            <span data-en="Zero cost to your business" data-es="Cero costo para tu negocio">Zero cost to your business</span>
+        </div>
+        <a href="#contact" class="mobile-sticky-btn" data-en="Get Started" data-es="Empezar">Get Started</a>
+    </div>
 
     <!-- Promo Banner -->
     <div class="promo-banner">
-        🎉 <strong>Grand Opening Week:</strong> 50% off all items for your team's first 7 days - funded by us, not your revenue share.
+        🎉 <strong data-en="Grand Opening Week:" data-es="Semana de Apertura:">Grand Opening Week:</strong>
+        <span data-en="50% off all items for your team's first 7 days - funded by us, not your revenue share." data-es="50% de descuento en todo durante los primeros 7 días - lo pagamos nosotros, no tu parte.">50% off all items for your team's first 7 days - funded by us, not your revenue share.</span>
     </div>
 
     <!-- Header -->
@@ -1621,10 +1820,15 @@
         <nav aria-label="Main navigation">
             <a href="#" class="logo">ThriveBreak</a>
             <div class="nav-links">
-                <a href="#how" class="nav-link">How it works</a>
-                <a href="#products" class="nav-link">Top products</a>
-                <a href="#faq" class="nav-link">FAQ</a>
-                <a href="#contact" class="nav-cta">Get started</a>
+                <a href="#how" class="nav-link" data-en="How it works" data-es="Cómo funciona">How it works</a>
+                <a href="#calculator" class="nav-link" data-en="Calculate" data-es="Calculadora">Calculate</a>
+                <a href="#products" class="nav-link" data-en="Products" data-es="Productos">Products</a>
+                <a href="#faq" class="nav-link" data-en="FAQ" data-es="Preguntas">FAQ</a>
+                <div class="lang-toggle" role="group" aria-label="Language">
+                    <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+                    <button type="button" class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+                </div>
+                <a href="#contact" class="nav-cta" data-en="Get started" data-es="Empezar">Get started</a>
             </div>
         </nav>
     </header>
@@ -1637,40 +1841,22 @@
             <div class="hero-content">
                 <div class="founding-badge">
                     <span class="pulse" aria-hidden="true"></span>
-                    Now onboarding first 10 NJ locations
+                    <span data-en="Now onboarding first 10 NJ locations" data-es="Aceptando las primeras 10 ubicaciones en NJ">Now onboarding first 10 NJ locations</span>
                 </div>
-                <h1>Your break room.<br>Your revenue.<br>Zero cost.</h1>
-                <p class="hero-subheader">
-                    Brand new AI vending machines for NJ offices and warehouses.
-                    You keep 40% of net profit - 3x more than legacy operators pay.
-                </p>
+                <h1 data-en="Your break room.<br>Your revenue.<br>Zero cost." data-es="Tu sala de descanso.<br>Tu ingreso.<br>Cero costo.">Your break room.<br>Your revenue.<br>Zero cost.</h1>
+                <p class="hero-subheader" data-en="Brand new AI vending machines for NJ offices and warehouses. You keep 40% of net profit - 3x more than legacy operators pay." data-es="Máquinas expendedoras con IA, nuevas de fábrica, para oficinas y almacenes en NJ. Tú te quedas con el 40% de la ganancia neta - 3 veces más de lo que pagan los operadores tradicionales.">Brand new AI vending machines for NJ offices and warehouses. You keep 40% of net profit - 3x more than legacy operators pay.</p>
                 <ul class="hero-bullets">
-                    <li>Brand new machines. Never refurbished.</li>
-                    <li>40% of net profit, paid on the 15th.</li>
-                    <li>Weekly restocking. 24h local NJ response.</li>
+                    <li data-en="Brand new machines. Never refurbished." data-es="Máquinas nuevas de fábrica. Nunca reacondicionadas.">Brand new machines. Never refurbished.</li>
+                    <li data-en="40% of net profit, paid on the 15th." data-es="40% de la ganancia neta, pagado el día 15.">40% of net profit, paid on the 15th.</li>
+                    <li data-en="Weekly restocking & sanitization. 24h local NJ response." data-es="Reabastecimiento y sanitización semanal. Respuesta local en NJ en 24h.">Weekly restocking & sanitization. 24h local NJ response.</li>
                 </ul>
                 <div class="hero-ctas">
-                    <a href="#contact" class="btn btn-primary">Get Started</a>
-                    <a href="#how" class="btn btn-secondary">See How It Works</a>
+                    <a href="#contact" class="btn btn-primary" data-en="Get Started" data-es="Empezar">Get Started</a>
+                    <a href="#how" class="btn btn-secondary" data-en="See How It Works" data-es="Ver Cómo Funciona">See How It Works</a>
                 </div>
             </div>
-            <div class="hero-image">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <rect x="3" y="2" width="18" height="20" rx="2"/>
-                    <line x1="3" y1="8" x2="21" y2="8"/>
-                    <line x1="3" y1="14" x2="21" y2="14"/>
-                    <line x1="9" y1="2" x2="9" y2="22"/>
-                    <circle cx="6" cy="5" r="0.5"/>
-                    <circle cx="6" cy="11" r="0.5"/>
-                    <circle cx="6" cy="17" r="0.5"/>
-                    <circle cx="15" cy="5" r="0.5"/>
-                    <circle cx="18" cy="5" r="0.5"/>
-                    <circle cx="15" cy="11" r="0.5"/>
-                    <circle cx="18" cy="11" r="0.5"/>
-                    <circle cx="15" cy="17" r="0.5"/>
-                    <circle cx="18" cy="17" r="0.5"/>
-                </svg>
-                <div class="hero-image-label">Photo coming soon</div>
+            <div class="hero-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1585399000684-d2f72660f092?auto=format&fit=crop&w=800&q=80" alt="Modern AI Vending Machine in a clean office breakroom" loading="eager">
             </div>
         </div>
     </section>
@@ -1679,98 +1865,88 @@
     <section class="trust-badges" aria-label="Key terms">
         <div class="trust-item">
             <div class="trust-number">40%</div>
-            <div class="trust-label">of net profit, yours</div>
+            <div class="trust-label" data-en="of net profit, yours" data-es="de la ganancia neta, tuya">of net profit, yours</div>
         </div>
         <div class="trust-item">
             <div class="trust-number">3x</div>
-            <div class="trust-label">more than legacy</div>
+            <div class="trust-label" data-en="more than legacy" data-es="más que los tradicionales">more than legacy</div>
         </div>
         <div class="trust-item">
             <div class="trust-number">$0</div>
-            <div class="trust-label">cost to you</div>
+            <div class="trust-label" data-en="cost to you" data-es="costo para ti">cost to you</div>
         </div>
         <div class="trust-item">
-            <div class="trust-number">1 week</div>
-            <div class="trust-label">install after signing</div>
+            <div class="trust-number">1</div>
+            <div class="trust-label" data-en="week install after signing" data-es="semana para instalar tras firmar">week install after signing</div>
         </div>
         <div class="trust-item">
             <div class="trust-number">&lt;24h</div>
-            <div class="trust-label">local NJ response</div>
+            <div class="trust-label" data-en="local NJ response" data-es="respuesta local en NJ">local NJ response</div>
         </div>
     </section>
-    <p class="disclaimer">
-        Revenue projections based on published industry data (Nayax, VendSoft, WEIMI 2024–2025). Actual results depend on location and employee adoption.
-    </p>
+    <p class="disclaimer" data-en="Revenue projections based on published industry data (Nayax, VendSoft, WEIMI 2024–2025). Actual results depend on location and employee adoption." data-es="Proyecciones basadas en datos públicos de la industria (Nayax, VendSoft, WEIMI 2024–2025). Los resultados reales dependen de la ubicación y la adopción de los empleados.">Revenue projections based on published industry data (Nayax, VendSoft, WEIMI 2024–2025). Actual results depend on location and employee adoption.</p>
 
-    <!-- Product Showcase (moved up) -->
+    <!-- Product Showcase -->
     <section class="product-showcase-section">
         <div class="container">
             <div class="product-showcase">
-                <div class="product-image">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <rect x="3" y="2" width="18" height="20" rx="2"/>
-                        <line x1="3" y1="8" x2="21" y2="8"/>
-                        <line x1="3" y1="14" x2="21" y2="14"/>
-                        <line x1="9" y1="2" x2="9" y2="22"/>
-                        <circle cx="6" cy="5" r="0.5"/>
-                        <circle cx="6" cy="11" r="0.5"/>
-                        <circle cx="6" cy="17" r="0.5"/>
-                        <circle cx="15" cy="5" r="0.5"/>
-                        <circle cx="18" cy="5" r="0.5"/>
-                        <circle cx="15" cy="11" r="0.5"/>
-                        <circle cx="18" cy="11" r="0.5"/>
-                        <circle cx="15" cy="17" r="0.5"/>
-                        <circle cx="18" cy="17" r="0.5"/>
-                    </svg>
-                    <div class="product-image-label">Smart Combo 360</div>
+                <div class="product-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1625650484478-113df2bfc12d?auto=format&fit=crop&w=800&q=80" alt="Smart Combo 360 Refrigerated Vending Unit" loading="lazy">
                 </div>
                 <div class="product-content">
-                    <h3>The Hardware</h3>
-                    <h2>Brand New Smart Refrigerated Combo 360</h2>
-                    <p style="color: var(--gray-dark); margin-bottom: 1rem;">216-bottle capacity (snacks + beverages). Brand new, state-of-the-art AI powered. Not a refurbished or used machine.</p>
+                    <h3 data-en="The Hardware" data-es="El Equipo">The Hardware</h3>
+                    <h2 data-en="Brand New Smart Refrigerated Combo 360" data-es="Combo 360 Refrigerado Inteligente, Nuevo de Fábrica">Brand New Smart Refrigerated Combo 360</h2>
+                    <p style="color: var(--gray-dark); margin-bottom: 0.5rem;" data-en="216-unit capacity (snacks + beverages). Brand new, state-of-the-art AI powered. Never refurbished or used." data-es="Capacidad de 216 unidades (snacks + bebidas). Nueva de fábrica, con IA de última generación. Jamás reacondicionada ni usada.">216-unit capacity (snacks + beverages). Brand new, state-of-the-art AI powered. Never refurbished or used.</p>
                     
+                    <div class="energy-badge" data-en="⚡ Energy Star Certified (Ultra-Low Power Draw)" data-es="⚡ Certificación Energy Star (Consumo Ultra Bajo)">⚡ Energy Star Certified (Ultra-Low Power Draw)</div>
+
                     <ul class="spec-list">
-                        <li>216-bottle capacity (snacks + beverages)</li>
-                        <li>100% cashless - tap card or phone</li>
-                        <li>AI demand prediction engine</li>
-                        <li>Real-time inventory cloud dashboard</li>
-                        <li>Uptime guarantee with remote monitoring</li>
-                        <li>Brand new - never refurbished or used</li>
+                        <li data-en="<strong>216-unit capacity:</strong> Optimized for a perfect mix of fresh beverages and snacks." data-es="<strong>Capacidad de 216 unidades:</strong> Optimizado para una combinación perfecta de bebidas y snacks frescos."><strong>216-unit capacity:</strong> Optimized for a perfect mix of fresh beverages and snacks.</li>
+                        <li data-en="<strong>100% Grab & Go experience (frictionless):</strong> Forget pressing buttons, dealing with coils, or stuck products." data-es="<strong>Experiencia 100% estilo Grab & Go (sin fricción):</strong> Olvídate de presionar botones, lidiar con espirales o sufrir por productos atrapados."><strong>100% Grab & Go experience (frictionless):</strong> Forget pressing buttons, dealing with coils, or stuck products.</li>
+                        <li data-en="<strong>Zero cash, zero jams:</strong> No wrinkled bills, stuck coins, or change not dispensed." data-es="<strong>Cero efectivo y cero atascos:</strong> Sin billetes arrugados, monedas atoradas ni problemas con el cambio no entregado."><strong>Zero cash, zero jams:</strong> No wrinkled bills, stuck coins, or change not dispensed.</li>
+                        <li data-en="<strong>Instant access with Tap & Open:</strong> Tap your card or phone, the door opens automatically, take what you want, close it, done." data-es="<strong>Acceso instantáneo con Tap & Open:</strong> Apoya tu tarjeta o teléfono, la puerta abre automáticamente, tomas lo que quieras, la cierras y listo."><strong>Instant access with Tap & Open:</strong> Tap your card or phone, the door opens automatically, take what you want, close it, done.</li>
+                        <li data-en="<strong>Automatic AI charging:</strong> Computer vision and AI recognize exactly which products you took and charge them directly to your payment method when the door closes." data-es="<strong>Cobro automático por Inteligencia Artificial:</strong> La visión por computadora e IA reconoce exactamente qué productos retiraste y los cobra directamente a tu método de pago al cerrar la puerta."><strong>Automatic AI charging:</strong> Computer vision and AI recognize exactly which products you took and charge them directly to your payment method when the door closes.</li>
+                        <li data-en="<strong>AI demand prediction engine:</strong> Analyzes your team's consumption habits to always restock what they like most." data-es="<strong>Motor de predicción de demanda por IA:</strong> Analiza los hábitos de consumo de tu equipo para reabastecer siempre lo que más les gusta."><strong>AI demand prediction engine:</strong> Analyzes your team's consumption habits to always restock what they like most.</li>
+                        <li data-en="<strong>Real-time cloud inventory dashboard:</strong> Constant stock monitoring and control, remotely." data-es="<strong>Panel de inventario en la nube en tiempo real:</strong> Control y monitoreo constante de stock de forma remota."><strong>Real-time cloud inventory dashboard:</strong> Constant stock monitoring and control, remotely.</li>
+                        <li data-en="<strong>Uptime guarantee with remote monitoring:</strong> Continuous diagnostics to resolve any operational issue immediately." data-es="<strong>Garantía de disponibilidad con monitoreo remoto:</strong> Diagnóstico continuo para resolver cualquier detalle operativo de inmediato."><strong>Uptime guarantee with remote monitoring:</strong> Continuous diagnostics to resolve any operational issue immediately.</li>
+                        <li data-en="<strong>100% new from factory:</strong> Completely new equipment, never refurbished or used." data-es="<strong>100% Nueva de fábrica:</strong> Equipo completamente nuevo, jamás reacondicionado ni usado."><strong>100% new from factory:</strong> Completely new equipment, never refurbished or used.</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Problem Section - two columns -->
+    <!-- Problem Section -->
     <section class="problem">
         <div class="container">
-            <h2>The Problem Nobody Talks About</h2>
-            <p class="section-intro">Most vending companies pay you 10–15% of gross sales. Here's the side-by-side.</p>
+            <h2 data-en="The Problem Nobody Talks About" data-es="El Problema del que Nadie Habla">The Problem Nobody Talks About</h2>
+            <p class="section-intro" data-en="Most vending companies pay you 10–15% of gross sales and ignore your breakroom. Here's the side-by-side." data-es="La mayoría de las empresas de vending te pagan 10–15% de las ventas brutas e ignoran tu sala de descanso. Aquí el comparativo.">Most vending companies pay you 10–15% of gross sales and ignore your breakroom. Here's the side-by-side.</p>
 
             <div class="compare-grid">
                 <div class="compare-col old">
-                    <h3>✕ The Old Way</h3>
+                    <h3 data-en="✕ The Old Way" data-es="✕ La Forma Tradicional">✕ The Old Way</h3>
                     <ul>
-                        <li>Coil machines that jam</li>
-                        <li>10–15% of gross sales</li>
-                        <li>2–3 day wait for service</li>
-                        <li>You make $100–200/month</li>
-                        <li>No transparency on revenue</li>
-                        <li>Refurbished or used machines</li>
-                        <li>Call centers and phone trees</li>
+                        <li data-en="Coil machines that jam and drop items" data-es="Máquinas de espiral que se atascan y caen productos">Coil machines that jam and drop items</li>
+                        <li data-en="10–15% of gross sales" data-es="10–15% de las ventas brutas">10–15% of gross sales</li>
+                        <li data-en="2–3 day wait for emergency service" data-es="2–3 días de espera para servicio de emergencia">2–3 day wait for emergency service</li>
+                        <li data-en="Dirty units that attract pests" data-es="Unidades sucias que atraen plagas">Dirty units that attract pests</li>
+                        <li data-en="You make $100–200/month" data-es="Ganas $100–200 al mes">You make $100–200/month</li>
+                        <li data-en="No transparency on revenue" data-es="Sin transparencia en los ingresos">No transparency on revenue</li>
+                        <li data-en="Refurbished or used machines" data-es="Máquinas reacondicionadas o usadas">Refurbished or used machines</li>
+                        <li data-en="Call centers and automated phone trees" data-es="Call centers y menús telefónicos automáticos">Call centers and automated phone trees</li>
                     </ul>
                 </div>
                 <div class="compare-col new">
-                    <h3>✓ The ThriveBreak Way</h3>
+                    <h3 data-en="✓ The ThriveBreak Way" data-es="✓ La Forma ThriveBreak">✓ The ThriveBreak Way</h3>
                     <ul>
-                        <li>Brand new AI machines</li>
-                        <li>40% of net profit</li>
-                        <li>24h response, local NJ</li>
-                        <li>You make $400–650/month</li>
-                        <li>Monthly report emailed to you</li>
-                        <li>Brand new - never used</li>
-                        <li>You call, the founder answers</li>
+                        <li data-en="Brand new AI machines with smart sensors" data-es="Máquinas con IA, nuevas de fábrica, con sensores inteligentes">Brand new AI machines with smart sensors</li>
+                        <li data-en="40% of net profit" data-es="40% de la ganancia neta">40% of net profit</li>
+                        <li data-en="24h response, local NJ service" data-es="Respuesta en 24h, servicio local en NJ">24h response, local NJ service</li>
+                        <li data-en="Weekly deep cleaning & sanitization" data-es="Limpieza profunda y sanitización semanal">Weekly deep cleaning & sanitization</li>
+                        <li data-en="You make $400–650/month" data-es="Ganas $400–650 al mes">You make $400–650/month</li>
+                        <li data-en="Monthly report emailed to you" data-es="Reporte mensual enviado a tu correo">Monthly report emailed to you</li>
+                        <li data-en="100% Brand new equipment" data-es="100% Equipo nuevo de fábrica">100% Brand new equipment</li>
+                        <li data-en="You call, the founder answers" data-es="Tú llamas, el fundador contesta">You call, the founder answers</li>
                     </ul>
                 </div>
             </div>
@@ -1780,40 +1956,40 @@
     <!-- Features -->
     <section class="features">
         <div class="container">
-            <h2>What You Get</h2>
-            <p class="section-intro">Everything included. Nothing extra to buy.</p>
+            <h2 data-en="What You Get" data-es="Lo Que Recibes">What You Get</h2>
+            <p class="section-intro" data-en="Everything included. Nothing extra to buy." data-es="Todo incluido. Nada extra que comprar.">Everything included. Nothing extra to buy.</p>
 
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/><circle cx="7.5" cy="14.5" r=".5"/><circle cx="16.5" cy="14.5" r=".5"/></svg>
                     </div>
-                    <h3>Brand New AI Machines</h3>
-                    <p>Never refurbished or used. State-of-the-art hardware with real-time inventory tracking and predictive maintenance.</p>
+                    <h3 data-en="Brand New AI Machines" data-es="Máquinas con IA, Nuevas de Fábrica">Brand New AI Machines</h3>
+                    <p data-en="Never refurbished or used. State-of-the-art hardware with real-time inventory tracking and predictive maintenance." data-es="Nunca reacondicionadas ni usadas. Hardware de última generación con seguimiento de inventario en tiempo real y mantenimiento predictivo.">Never refurbished or used. State-of-the-art hardware with real-time inventory tracking and predictive maintenance.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                     </div>
-                    <h3>40% of Net Profit</h3>
-                    <p>Paid on the 15th of each month via ACH. Monthly report emailed to you so you see exactly what sold, when, and for how much.</p>
+                    <h3 data-en="40% of Net Profit" data-es="40% de la Ganancia Neta">40% of Net Profit</h3>
+                    <p data-en="Paid on the 15th of each month via ACH. Monthly report emailed to you so you see exactly what sold, when, and for how much." data-es="Pagado el día 15 de cada mes vía ACH. Reporte mensual por correo para que veas exactamente qué se vendió, cuándo y por cuánto.">Paid on the 15th of each month via ACH. Monthly report emailed to you so you see exactly what sold, when, and for how much.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-6.219-8.56"/><polyline points="21 3 21 9 15 9"/></svg>
                     </div>
-                    <h3>Weekly Restocking</h3>
-                    <p>We show up every week. The machine is always stocked. You never think about it again.</p>
+                    <h3 data-en="Weekly Restocking" data-es="Reabastecimiento Semanal">Weekly Restocking</h3>
+                    <p data-en="We show up every week to restock and sanitize the unit. Your team enjoys fresh products without you lifting a finger." data-es="Llegamos cada semana a reabastecer y sanitizar la unidad. Tu equipo disfruta productos frescos sin que muevas un dedo.">We show up every week to restock and sanitize the unit. Your team enjoys fresh products without you lifting a finger.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                     </div>
-                    <h3>24h Local NJ Response</h3>
-                    <p>Machine breaks? We fix same day or first thing next morning. You call, I answer. No call centers.</p>
+                    <h3 data-en="24h Local NJ Response" data-es="Respuesta Local en NJ en 24h">24h Local NJ Response</h3>
+                    <p data-en="Machine breaks? We fix same day or first thing next morning. You call, I answer. No call centers." data-es="¿Se rompe la máquina? La reparamos el mismo día o a primera hora del día siguiente. Tú llamas, yo contesto. Sin call centers.">Machine breaks? We fix same day or first thing next morning. You call, I answer. No call centers.</p>
                 </div>
             </div>
         </div>
@@ -1822,112 +1998,127 @@
     <!-- How It Works -->
     <section class="how-it-works" id="how">
         <div class="container">
-            <h2>From Handshake to Live in 1 Week</h2>
-            <p class="section-intro">Simple process. No pressure. No fine print.</p>
+            <h2 data-en="From Handshake to Live in 1 Week" data-es="Del Apretón de Manos a Operativo en 1 Semana">From Handshake to Live in 1 Week</h2>
+            <p class="section-intro" data-en="Simple process. No pressure. No fine print." data-es="Proceso simple. Sin presión. Sin letras chiquitas.">Simple process. No pressure. No fine print.</p>
 
             <div class="steps-grid">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>15-Min Appointment</h3>
-                    <p>I come to you, see your space, answer your questions. No pressure, no scripts.</p>
+                    <h3 data-en="15-Min Appointment" data-es="Cita de 15 Minutos">15-Min Appointment</h3>
+                    <p data-en="I come to you, see your space, answer your questions. No pressure, no scripts." data-es="Voy a verte, conozco tu espacio, contesto tus preguntas. Sin presión, sin guiones.">I come to you, see your space, answer your questions. No pressure, no scripts.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3>Review the Deal</h3>
-                    <p>We review the deal together. Half-page contract, big letters. If you like it, we sign. If not, no hard feelings.</p>
+                    <h3 data-en="Review the Deal" data-es="Revisamos el Trato">Review the Deal</h3>
+                    <p data-en="We review the deal together. Half-page contract, big letters. If you like it, we sign. If not, no hard feelings." data-es="Revisamos el trato juntos. Contrato de media página, letras grandes. Si te gusta, firmamos. Si no, no pasa nada.">We review the deal together. Half-page contract, big letters. If you like it, we sign. If not, no hard feelings.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3>Machine Arrives</h3>
-                    <p>In 1 week, a brand new AI machine arrives. Setup takes 30 minutes. Your team is ready immediately.</p>
+                    <h3 data-en="Machine Arrives" data-es="Llega la Máquina">Machine Arrives</h3>
+                    <p data-en="In 1 week, a brand new AI machine arrives. Setup takes 30 minutes. Your team is ready immediately." data-es="En 1 semana llega una máquina nueva con IA. La instalación toma 30 minutos. Tu equipo queda listo de inmediato.">In 1 week, a brand new AI machine arrives. Setup takes 30 minutes. Your team is ready immediately.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
-                    <h3>Get Paid Monthly</h3>
-                    <p>Employees buy snacks, we restock, you get paid. ACH deposit on the 15th, starting month 2. Report emailed to you.</p>
+                    <h3 data-en="Get Paid Monthly" data-es="Cobras Mensual">Get Paid Monthly</h3>
+                    <p data-en="Employees buy snacks, we restock, you get paid. ACH deposit on the 15th, starting month 2. Report emailed to you." data-es="Los empleados compran, reabastecemos, tú cobras. Depósito ACH el día 15, comenzando el mes 2. Reporte enviado a tu correo.">Employees buy snacks, we restock, you get paid. ACH deposit on the 15th, starting month 2. Report emailed to you.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Revenue Model -->
-    <section class="revenue-section">
+    <!-- Interactive Calculator -->
+    <section class="revenue-section" id="calculator">
         <div class="container">
-            <h2>How the Money Works</h2>
-            <p class="section-intro">Conservative numbers. No hidden assumptions.</p>
+            <h2 data-en="Calculate Your Potential Earnings" data-es="Calcula tus Ganancias Potenciales">Calculate Your Potential Earnings</h2>
+            <p class="section-intro" data-en="See how much revenue your breakroom can generate with our 40% net profit model." data-es="Mira cuánto puede generar tu sala de descanso con nuestro modelo de 40% de ganancia neta.">See how much revenue your breakroom can generate with our 40% net profit model.</p>
+
+            <div class="calculator-card">
+                <div class="calc-header">
+                    <h3 data-en="Interactive Revenue Estimator" data-es="Estimador de Ingresos Interactivo">Interactive Revenue Estimator</h3>
+                </div>
+                <div class="calc-slider-group">
+                    <label for="empRange" data-en="Number of On-Site Employees/Staff:" data-es="Número de Empleados en Sitio:">Number of On-Site Employees/Staff:</label>
+                    <div class="calc-employee-count" id="empVal">75</div>
+                    <input type="range" id="empRange" min="20" max="300" step="5" value="75">
+                </div>
+                <div class="calc-results">
+                    <div>
+                        <div class="calc-metric-val" id="monthlyVal">$319 / mo</div>
+                        <div class="calc-metric-lbl" data-en="Your Monthly Profit (40%)" data-es="Tu Ganancia Mensual (40%)">Your Monthly Profit (40%)</div>
+                    </div>
+                    <div>
+                        <div class="calc-metric-val" id="yearlyVal">$3,828 / yr</div>
+                        <div class="calc-metric-lbl" data-en="Your Annual Income" data-es="Tu Ingreso Anual">Your Annual Income</div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 data-en="How the Money Works" data-es="Cómo Funciona el Dinero">How the Money Works</h2>
+            <p class="section-intro" data-en="Conservative numbers. No hidden assumptions." data-es="Números conservadores. Sin suposiciones ocultas.">Conservative numbers. No hidden assumptions.</p>
 
             <div class="model-box">
-                <div class="example-label">Example: Office or Warehouse (65% adoption, realistic case)</div>
+                <div class="example-label" data-en="Example: Office or Warehouse (65% adoption, realistic case)" data-es="Ejemplo: Oficina o Almacén (65% de adopción, caso realista)">Example: Office or Warehouse (65% adoption, realistic case)</div>
                 
                 <div class="revenue-line">
-                    <span>Machine gross sales/month</span>
+                    <span data-en="Machine gross sales/month" data-es="Ventas brutas de la máquina/mes">Machine gross sales/month</span>
                     <span style="font-weight: 600;">$1,977</span>
                 </div>
                 <div class="revenue-line">
-                    <span>Product costs (snacks, drinks)</span>
+                    <span data-en="Product costs (snacks, drinks)" data-es="Costo de productos (snacks, bebidas)">Product costs (snacks, drinks)</span>
                     <span style="font-weight: 600;">−$791</span>
                 </div>
                 <div class="revenue-line">
-                    <span>Restocking + logistics</span>
+                    <span data-en="Restocking + logistics" data-es="Reabastecimiento + logística">Restocking + logistics</span>
                     <span style="font-weight: 600;">−$296</span>
                 </div>
                 <div class="revenue-line">
-                    <span>Machine maintenance + tech</span>
+                    <span data-en="Machine maintenance + tech" data-es="Mantenimiento + tecnología">Machine maintenance + tech</span>
                     <span style="font-weight: 600;">−$198</span>
                 </div>
                 <div class="revenue-line highlight">
-                    Net profit for us to split
+                    <span data-en="Net profit for us to split" data-es="Ganancia neta a repartir">Net profit for us to split</span>
                     <span>$692</span>
                 </div>
                 <div class="revenue-total">
-                    <span>You get 40%: $277/month = $3,321/year</span>
+                    <span data-en="You get 40%: $277/month = $3,321/year" data-es="Tú recibes 40%: $277/mes = $3,321/año">You get 40%: $277/month = $3,321/year</span>
                 </div>
-                <p class="revenue-compare">
-                    Compare: legacy operators give you 10–15% of gross = $198–296/month on the same machine.<br>
-                    <strong>You make 3x MORE net profit with ThriveBreak.</strong>
-                </p>
+                <p class="revenue-compare" data-en="Compare: legacy operators give you 10–15% of gross = $198–296/month on the same machine.<br><strong>You make 3x MORE net profit with ThriveBreak.</strong>" data-es="Compara: los operadores tradicionales te dan 10–15% de lo bruto = $198–296/mes en la misma máquina.<br><strong>Ganas 3 veces MÁS ganancia neta con ThriveBreak.</strong>">Compare: legacy operators give you 10–15% of gross = $198–296/month on the same machine.<br><strong>You make 3x MORE net profit with ThriveBreak.</strong></p>
             </div>
 
             <div class="model-box" style="background: var(--teal-light); border-color: var(--teal);">
-                <div class="example-label">Warehouse Specific: 24/7 multi-shift (excellent case)</div>
+                <div class="example-label" data-en="Warehouse Specific: 24/7 multi-shift (excellent case)" data-es="Específico para Almacén: 24/7 multi-turno (caso excelente)">Warehouse Specific: 24/7 multi-shift (excellent case)</div>
                 <div class="revenue-line" style="border-bottom-color: rgba(15,118,110,0.2);">
-                    <span>Machine gross sales/month</span>
+                    <span data-en="Machine gross sales/month" data-es="Ventas brutas de la máquina/mes">Machine gross sales/month</span>
                     <span style="font-weight: 600;">$3,600</span>
                 </div>
                 <div class="revenue-line" style="border-bottom-color: rgba(15,118,110,0.2);">
-                    <span>Net profit (30% margin)</span>
+                    <span data-en="Net profit (30% margin)" data-es="Ganancia neta (30% de margen)">Net profit (30% margin)</span>
                     <span style="font-weight: 600;">$1,080</span>
                 </div>
                 <div class="revenue-total">
-                    <span>You get 40%: $432/month = $5,184/year</span>
+                    <span data-en="You get 40%: $432/month = $5,184/year" data-es="Tú recibes 40%: $432/mes = $5,184/año">You get 40%: $432/month = $5,184/year</span>
                 </div>
             </div>
 
             <div class="model-box" style="background: #fef2f2; border-color: #fca5a5;">
-                <div class="example-label" style="color: var(--red);">Worst Case: Only 30% adoption</div>
+                <div class="example-label" style="color: var(--red);" data-en="Worst Case: Only 30% adoption" data-es="Peor Caso: Solo 30% de adopción">Worst Case: Only 30% adoption</div>
                 <div class="revenue-line" style="border-bottom-color: rgba(220,38,38,0.15);">
-                    <span>Machine gross sales/month</span>
+                    <span data-en="Machine gross sales/month" data-es="Ventas brutas de la máquina/mes">Machine gross sales/month</span>
                     <span style="font-weight: 600;">$912</span>
                 </div>
                 <div class="revenue-line" style="border-bottom-color: rgba(220,38,38,0.15);">
-                    <span>Net profit (35% margin)</span>
+                    <span data-en="Net profit (35% margin)" data-es="Ganancia neta (35% de margen)">Net profit (35% margin)</span>
                     <span style="font-weight: 600;">$319</span>
                 </div>
                 <div class="revenue-total" style="color: var(--red);">
-                    <span>You still get 40%: $128/month = $1,536/year</span>
+                    <span data-en="You still get 40%: $128/month = $1,536/year" data-es="Aun así recibes 40%: $128/mes = $1,536/año">You still get 40%: $128/month = $1,536/year</span>
                 </div>
-                <p class="revenue-compare">
-                    Even in the worst case, you make more than most legacy operators pay on a full-adoption machine.
-                </p>
+                <p class="revenue-compare" data-en="Even in the worst case, you make more than most legacy operators pay on a full-adoption machine." data-es="Incluso en el peor caso, ganas más de lo que pagan la mayoría de operadores tradicionales en una máquina con adopción total.">Even in the worst case, you make more than most legacy operators pay on a full-adoption machine.</p>
             </div>
 
-            <!-- Payment Note -->
             <div class="payment-note">
-                <h3>About Month 1</h3>
-                <p>
-                    Month 1 covers shipping, setup, and initial inventory for the Grand Opening Week promo.
-                    From month 2, you get your 40% via ACH on the 15th. Monthly report emailed to you.
-                </p>
+                <h3 data-en="About Month 1" data-es="Sobre el Mes 1">About Month 1</h3>
+                <p data-en="Month 1 covers shipping, setup, and initial inventory for the Grand Opening Week promo. From month 2, you get your 40% via ACH on the 15th. Monthly report emailed to you." data-es="El mes 1 cubre envío, instalación e inventario inicial para la promo de Semana de Apertura. Desde el mes 2, recibes tu 40% vía ACH el día 15. Reporte mensual enviado a tu correo.">Month 1 covers shipping, setup, and initial inventory for the Grand Opening Week promo. From month 2, you get your 40% via ACH on the 15th. Monthly report emailed to you.</p>
             </div>
         </div>
     </section>
@@ -1936,33 +2127,30 @@
     <section class="promo-section">
         <div class="container">
             <div class="promo-content">
-                <div class="promo-badge">Limited Launch Offer</div>
-                <h2>Grand Opening Week - 50% Off</h2>
-                <p>
-                    To kickstart adoption, we fund a <strong>50% discount on all items</strong> for your team's first 7 days.
-                    You keep your full 40% revenue share. We absorb the entire discount cost.
-                </p>
+                <div class="promo-badge" data-en="Limited Launch Offer" data-es="Oferta Limitada de Lanzamiento">Limited Launch Offer</div>
+                <h2 data-en="Grand Opening Week - 50% Off" data-es="Semana de Apertura - 50% de Descuento">Grand Opening Week - 50% Off</h2>
+                <p data-en="To kickstart adoption, we fund a <strong>50% discount on all items</strong> for your team's first 7 days. You keep your full 40% revenue share. We absorb the entire discount cost." data-es="Para impulsar la adopción, financiamos un <strong>50% de descuento en todos los productos</strong> durante los primeros 7 días de tu equipo. Tú conservas tu 40% completo. Nosotros absorbemos todo el costo del descuento.">To kickstart adoption, we fund a <strong>50% discount on all items</strong> for your team's first 7 days. You keep your full 40% revenue share. We absorb the entire discount cost.</p>
 
                 <div class="promo-features">
                     <div class="promo-feature">
-                        <strong>50% OFF</strong>
-                        <span>All snacks and beverages for the first 7 days after installation.</span>
+                        <strong data-en="50% OFF" data-es="50% DE DESCUENTO">50% OFF</strong>
+                        <span data-en="All snacks and beverages for the first 7 days after installation." data-es="Todos los snacks y bebidas durante los primeros 7 días tras la instalación.">All snacks and beverages for the first 7 days after installation.</span>
                     </div>
                     <div class="promo-feature">
-                        <strong>Funded by ThriveBreak</strong>
-                        <span>The discount comes out of our share, not yours. Your 40% is protected.</span>
+                        <strong data-en="Funded by ThriveBreak" data-es="Financiado por ThriveBreak">Funded by ThriveBreak</strong>
+                        <span data-en="The discount comes out of our share, not yours. Your 40% is protected." data-es="El descuento sale de nuestra parte, no de la tuya. Tu 40% está protegido.">The discount comes out of our share, not yours. Your 40% is protected.</span>
                     </div>
                     <div class="promo-feature">
-                        <strong>Capped Budget</strong>
-                        <span>We agree on a maximum discount amount in advance. No surprises.</span>
+                        <strong data-en="Capped Budget" data-es="Presupuesto con Tope">Capped Budget</strong>
+                        <span data-en="We agree on a maximum discount amount in advance. No surprises." data-es="Acordamos un monto máximo de descuento por adelantado. Sin sorpresas.">We agree on a maximum discount amount in advance. No surprises.</span>
                     </div>
                     <div class="promo-feature">
-                        <strong>Boosts Adoption</strong>
-                        <span>Employees try the machine early and build the habit. Data-backed tactic.</span>
+                        <strong data-en="Boosts Adoption" data-es="Impulsa la Adopción">Boosts Adoption</strong>
+                        <span data-en="Employees try the machine early and build the habit. Data-backed tactic." data-es="Los empleados prueban la máquina temprano y crean el hábito. Táctica respaldada por datos.">Employees try the machine early and build the habit. Data-backed tactic.</span>
                     </div>
                 </div>
 
-                <a href="#contact" class="promo-cta">Ask About Launch Promo →</a>
+                <a href="#contact" class="promo-cta" data-en="Ask About Launch Promo →" data-es="Pregunta por la Promo de Lanzamiento →">Ask About Launch Promo →</a>
             </div>
         </div>
     </section>
@@ -1970,42 +2158,40 @@
     <!-- Why a New Company -->
     <section class="why-new">
         <div class="container">
-            <h2>Founder-Led. Not a Call Center.</h2>
-            <p class="why-new-intro">
-                We're new. That's exactly why you should talk to us. We can't afford to lose a single client - so you get terms the big guys will never offer.
-            </p>
+            <h2 data-en="Founder-Led. Not a Call Center." data-es="Liderado por el Fundador. No un Call Center.">Founder-Led. Not a Call Center.</h2>
+            <p class="why-new-intro" data-en="We're new. That's exactly why you should talk to us. We can't afford to lose a single client - so you get terms the big guys will never offer." data-es="Somos nuevos. Esa es exactamente la razón para hablar con nosotros. No podemos darnos el lujo de perder ni un cliente - así que recibes términos que los grandes jamás ofrecerán.">We're new. That's exactly why you should talk to us. We can't afford to lose a single client - so you get terms the big guys will never offer.</p>
 
             <div class="features-grid">
                 <div class="feature-card" style="background: var(--white); border-top-color: var(--blue);">
                     <div class="feature-icon" aria-hidden="true" style="color: var(--blue);">
                         <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                     </div>
-                    <h3>You Talk to the Founder</h3>
-                    <p>No call centers. No ticket queues. You call, I answer. Direct line to the person who owns the outcome.</p>
+                    <h3 data-en="You Talk to the Founder" data-es="Hablas con el Fundador">You Talk to the Founder</h3>
+                    <p data-en="No call centers. No ticket queues. You call, I answer. Direct line to the person who owns the outcome." data-es="Sin call centers. Sin colas de tickets. Tú llamas, yo contesto. Línea directa con la persona responsable del resultado.">No call centers. No ticket queues. You call, I answer. Direct line to the person who owns the outcome.</p>
                 </div>
 
                 <div class="feature-card" style="background: var(--white); border-top-color: var(--blue);">
                     <div class="feature-icon" aria-hidden="true" style="color: var(--blue);">
                         <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
                     </div>
-                    <h3>Founder Pricing</h3>
-                    <p>First 10 NJ locations get a locked-in 40% net split. Future clients may see different terms. You get the best deal we'll ever offer.</p>
+                    <h3 data-en="Founder Pricing" data-es="Precio de Fundador">Founder Pricing</h3>
+                    <p data-en="First 10 NJ locations get a locked-in 40% net split. Future clients may see different terms. You get the best deal we'll ever offer." data-es="Las primeras 10 ubicaciones en NJ obtienen un 40% neto fijo. Clientes futuros podrían ver términos distintos. Recibes la mejor oferta que haremos.">First 10 NJ locations get a locked-in 40% net split. Future clients may see different terms. You get the best deal we'll ever offer.</p>
                 </div>
 
                 <div class="feature-card" style="background: var(--white); border-top-color: var(--blue);">
                     <div class="feature-icon" aria-hidden="true" style="color: var(--blue);">
                         <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     </div>
-                    <h3>We Carry All the Risk</h3>
-                    <p>We buy the brand new machine, stock it, service it, and guarantee uptime. You risk nothing. If it doesn't work, cancel in 30 days.</p>
+                    <h3 data-en="We Carry All the Risk" data-es="Nosotros Asumimos Todo el Riesgo">We Carry All the Risk</h3>
+                    <p data-en="We buy the brand new machine, stock it, service it, and guarantee uptime. You risk nothing. If it doesn't work, cancel in 30 days." data-es="Compramos la máquina nueva, la abastecemos, le damos servicio y garantizamos disponibilidad. Tú no arriesgas nada. Si no funciona, cancelas en 30 días.">We buy the brand new machine, stock it, service it, and guarantee uptime. You risk nothing. If it doesn't work, cancel in 30 days.</p>
                 </div>
 
                 <div class="feature-card" style="background: var(--white); border-top-color: var(--blue);">
                     <div class="feature-icon" aria-hidden="true" style="color: var(--blue);">
                         <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
-                    <h3>Your Success = Our Success</h3>
-                    <p>We can't grow without happy clients. Every early customer gets white-glove attention because we need your referral.</p>
+                    <h3 data-en="Your Success = Our Success" data-es="Tu Éxito = Nuestro Éxito">Your Success = Our Success</h3>
+                    <p data-en="We can't grow without happy clients. Every early customer gets white-glove attention because we need your referral." data-es="No podemos crecer sin clientes satisfechos. Cada cliente temprano recibe atención de primera porque necesitamos tu recomendación.">We can't grow without happy clients. Every early customer gets white-glove attention because we need your referral.</p>
                 </div>
             </div>
         </div>
@@ -2014,161 +2200,161 @@
     <!-- Top Products -->
     <section id="products" style="background: var(--gray-light);">
         <div class="container">
-            <h2>What's Inside the Machine</h2>
-            <p class="section-intro">Based on published Nayax, VendSoft, WEIMI, and Genius Vend industry reports.</p>
+            <h2 data-en="What's Inside the Machine" data-es="Qué Hay Dentro de la Máquina">What's Inside the Machine</h2>
+            <p class="section-intro" data-en="Based on published Nayax, VendSoft, WEIMI, and Genius Vend industry reports." data-es="Basado en reportes publicados de Nayax, VendSoft, WEIMI y Genius Vend.">Based on published Nayax, VendSoft, WEIMI, and Genius Vend industry reports.</p>
 
             <div class="snacks-table">
-                <h3>Product Mix Breakdown</h3>
+                <h3 data-en="Product Mix Breakdown" data-es="Mezcla de Productos">Product Mix Breakdown</h3>
                 <div class="snack-split">
                     <div class="snack-category">
-                        <h4>60% Traditional</h4>
+                        <h4 data-en="60% Traditional" data-es="60% Tradicional">60% Traditional</h4>
                         <ul class="snack-list">
                             <li><span>Doritos</span></li>
                             <li><span>Cheetos</span></li>
                             <li><span>Lay's Chips</span></li>
                             <li><span>Snickers</span></li>
                             <li><span>Reese's Cups</span></li>
-                            <li><span>Pretzels</span></li>
+                            <li><span data-en="Pretzels" data-es="Pretzels">Pretzels</span></li>
                         </ul>
                     </div>
                     <div class="snack-category">
-                        <h4>40% Healthy</h4>
+                        <h4 data-en="40% Healthy" data-es="40% Saludable">40% Healthy</h4>
                         <ul class="snack-list">
-                            <li><span>Protein Bars</span></li>
-                            <li><span>Beef Jerky</span></li>
-                            <li><span>Mixed Nuts</span></li>
-                            <li><span>Granola Bars</span></li>
-                            <li><span>Baked Chips</span></li>
-                            <li><span>Bottled Water</span></li>
+                            <li><span data-en="Protein Bars" data-es="Barras de Proteína">Protein Bars</span></li>
+                            <li><span data-en="Beef Jerky" data-es="Carne Seca">Beef Jerky</span></li>
+                            <li><span data-en="Mixed Nuts" data-es="Frutos Secos">Mixed Nuts</span></li>
+                            <li><span data-en="Granola Bars" data-es="Barras de Granola">Granola Bars</span></li>
+                            <li><span data-en="Baked Chips" data-es="Chips Horneadas">Baked Chips</span></li>
+                            <li><span data-en="Bottled Water" data-es="Agua Embotellada">Bottled Water</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
 
             <div class="snacks-table" style="margin-top: 2rem; background: var(--blue-light);">
-                <h3 style="color: var(--blue);">Most Popular Categories</h3>
+                <h3 style="color: var(--blue);" data-en="Most Popular Categories" data-es="Categorías Más Populares">Most Popular Categories</h3>
                 <ul class="beverage-list">
-                    <li><strong>Water</strong> - Highest margin</li>
-                    <li><strong>Energy Drinks</strong> - Top seller in warehouses</li>
-                    <li><strong>Cold Brew Coffee</strong> - Morning spike demand</li>
-                    <li><strong>Soda</strong> - Still dominant habit</li>
-                    <li><strong>Sports Drinks</strong> - Post-shift hydration</li>
+                    <li data-en="<strong>Water</strong> - Highest margin" data-es="<strong>Agua</strong> - Mayor margen"><strong>Water</strong> - Highest margin</li>
+                    <li data-en="<strong>Energy Drinks</strong> - Top seller in warehouses" data-es="<strong>Bebidas Energéticas</strong> - Más vendidas en almacenes"><strong>Energy Drinks</strong> - Top seller in warehouses</li>
+                    <li data-en="<strong>Cold Brew Coffee</strong> - Morning spike demand" data-es="<strong>Café Cold Brew</strong> - Mayor demanda en la mañana"><strong>Cold Brew Coffee</strong> - Morning spike demand</li>
+                    <li data-en="<strong>Soda</strong> - Still dominant habit" data-es="<strong>Refrescos</strong> - Hábito aún dominante"><strong>Soda</strong> - Still dominant habit</li>
+                    <li data-en="<strong>Sports Drinks</strong> - Post-shift hydration" data-es="<strong>Bebidas Deportivas</strong> - Hidratación post-turno"><strong>Sports Drinks</strong> - Post-shift hydration</li>
                 </ul>
             </div>
 
-            <p class="source-note">Sources: Nayax State of Vending 2024, VendSoft Industry Report 2025, WEIMI Operator Data 2024.</p>
+            <p class="source-note" data-en="Sources: Nayax State of Vending 2024, VendSoft Industry Report 2025, WEIMI Operator Data 2024." data-es="Fuentes: Nayax State of Vending 2024, VendSoft Industry Report 2025, WEIMI Operator Data 2024.">Sources: Nayax State of Vending 2024, VendSoft Industry Report 2025, WEIMI Operator Data 2024.</p>
         </div>
     </section>
 
     <!-- FAQ -->
     <section class="faq" id="faq">
         <div class="container">
-            <h2>Common Questions</h2>
-            <p class="section-intro">Real answers to real concerns.</p>
+            <h2 data-en="Common Questions" data-es="Preguntas Frecuentes">Common Questions</h2>
+            <p class="section-intro" data-en="Real answers to real concerns." data-es="Respuestas reales a dudas reales.">Real answers to real concerns.</p>
 
             <div class="faq-list">
                 <div class="faq-item">
                     <button class="faq-q" aria-expanded="false">
-                        How much does this cost me?
+                        <span data-en="How much does this cost me?" data-es="¿Cuánto me cuesta esto?">How much does this cost me?</span>
                         <span class="faq-icon" aria-hidden="true"></span>
                     </button>
-                    <div class="faq-a">Nothing. We own the machine, stock it, service it, and insure it. You provide the space and electricity. You get 40% of net profit every month.</div>
+                    <div class="faq-a" data-en="Nothing. We own the machine, stock it, service it, and insure it. You provide the space and electricity. You get 40% of net profit every month." data-es="Nada. Nosotros somos dueños de la máquina, la abastecemos, le damos servicio y la aseguramos. Tú provees el espacio y la electricidad. Recibes el 40% de la ganancia neta cada mes.">Nothing. We own the machine, stock it, service it, and insure it. You provide the space and electricity. You get 40% of net profit every month.</div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-q" aria-expanded="false">
-                        Why 40% net vs. legacy 10–15% gross?
+                        <span data-en="Why 40% net vs. legacy 10–15% gross?" data-es="¿Por qué 40% neto vs. 10–15% bruto de los tradicionales?">Why 40% net vs. legacy 10–15% gross?</span>
                         <span class="faq-icon" aria-hidden="true"></span>
                     </button>
-                    <div class="faq-a">Legacy operators pay you 10–15% of gross sales. We pay you 40% of net profit. On a typical machine, that's 3x more in your pocket per month. Same machine, better deal.</div>
+                    <div class="faq-a" data-en="Legacy operators pay you 10–15% of gross sales. We pay you 40% of net profit. On a typical machine, that's 3x more in your pocket per month. Same machine, better deal." data-es="Los operadores tradicionales te pagan 10–15% de las ventas brutas. Nosotros te pagamos el 40% de la ganancia neta. En una máquina típica, eso es 3 veces más en tu bolsillo al mes. Misma máquina, mejor trato.">Legacy operators pay you 10–15% of gross sales. We pay you 40% of net profit. On a typical machine, that's 3x more in your pocket per month. Same machine, better deal.</div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-q" aria-expanded="false">
-                        Can we offer a discount to employees to drive adoption?
+                        <span data-en="Can we offer a discount to employees to drive adoption?" data-es="¿Podemos ofrecer descuento a los empleados para impulsar la adopción?">Can we offer a discount to employees to drive adoption?</span>
                         <span class="faq-icon" aria-hidden="true"></span>
                     </button>
-                    <div class="faq-a">Yes. We offer a Grand Opening Week promotion: 50% off all items for the first 7 days after installation. The discount is funded entirely by ThriveBreak and does not reduce your 40% share. We cap the total discount budget in advance so there are no surprises.</div>
+                    <div class="faq-a" data-en="Yes. We offer a Grand Opening Week promotion: 50% off all items for the first 7 days after installation. The discount is funded entirely by ThriveBreak and does not reduce your 40% share. We cap the total discount budget in advance so there are no surprises." data-es="Sí. Ofrecemos una promoción de Semana de Apertura: 50% de descuento en todo durante los primeros 7 días tras la instalación. El descuento lo financia ThriveBreak y no reduce tu 40%. Ponemos un tope al presupuesto de descuento por adelantado para que no haya sorpresas.">Yes. We offer a Grand Opening Week promotion: 50% off all items for the first 7 days after installation. The discount is funded entirely by ThriveBreak and does not reduce your 40% share. We cap the total discount budget in advance so there are no surprises.</div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-q" aria-expanded="false">
-                        Why is month 1 not shared?
+                        <span data-en="Why is month 1 not shared?" data-es="¿Por qué el mes 1 no se comparte?">Why is month 1 not shared?</span>
                         <span class="faq-icon" aria-hidden="true"></span>
                     </button>
-                    <div class="faq-a">Month 1 covers shipping, setup, and initial inventory for the Grand Opening Week promo. From month 2, you get your 40% via ACH on the 15th. Monthly report emailed to you so you see exactly what sold, when, and for how much.</div>
+                    <div class="faq-a" data-en="Month 1 covers shipping, setup, and initial inventory for the Grand Opening Week promo. From month 2, you get your 40% via ACH on the 15th. Monthly report emailed to you so you see exactly what sold, when, and for how much." data-es="El mes 1 cubre envío, instalación e inventario inicial para la promo de Semana de Apertura. Desde el mes 2, recibes tu 40% vía ACH el día 15. Reporte mensual enviado a tu correo para que veas exactamente qué se vendió, cuándo y por cuánto.">Month 1 covers shipping, setup, and initial inventory for the Grand Opening Week promo. From month 2, you get your 40% via ACH on the 15th. Monthly report emailed to you so you see exactly what sold, when, and for how much.</div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-q" aria-expanded="false">
-                        What if I don't have enough employees?
+                        <span data-en="What if I don't have enough employees?" data-es="¿Y si no tengo suficientes empleados?">What if I don't have enough employees?</span>
                         <span class="faq-icon" aria-hidden="true"></span>
                     </button>
-                    <div class="faq-a">Our sweet spot is 50+ employees per location. If you have fewer, we can still talk - we'll run the numbers together and tell you honestly if it makes sense. We'd rather pass on a bad fit than set you up for disappointment.</div>
+                    <div class="faq-a" data-en="Our sweet spot is 50+ employees per location. If you have fewer, we can still talk - we'll run the numbers together and tell you honestly if it makes sense. We'd rather pass on a bad fit than set you up for disappointment." data-es="Nuestro punto ideal son 50+ empleados por ubicación. Si tienes menos, igual podemos hablar - corremos los números juntos y te decimos honestamente si vale la pena. Preferimos rechazar un mal encaje que prepararte para una decepción.">Our sweet spot is 50+ employees per location. If you have fewer, we can still talk - we'll run the numbers together and tell you honestly if it makes sense. We'd rather pass on a bad fit than set you up for disappointment.</div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-q" aria-expanded="false">
-                        Do I need to provide anything besides space?
+                        <span data-en="Do I need to provide anything besides space?" data-es="¿Necesito proveer algo más aparte del espacio?">Do I need to provide anything besides space?</span>
                         <span class="faq-icon" aria-hidden="true"></span>
                     </button>
-                    <div class="faq-a">Just a standard 110V electrical outlet near where you want the machine. No WiFi needed - the machine has its own cellular connection. No plumbing. No special setup.</div>
+                    <div class="faq-a" data-en="Just a standard 110V electrical outlet near where you want the machine. No WiFi needed - the machine has its own cellular connection. No plumbing. No special setup. Our machines are Energy Star certified for minimal power draw." data-es="Solo un tomacorriente estándar de 110V cerca de donde quieras la máquina. No se necesita WiFi - la máquina tiene su propia conexión celular. Sin plomería. Sin instalación especial. Nuestras máquinas tienen certificación Energy Star por consumo mínimo.">Just a standard 110V electrical outlet near where you want the machine. No WiFi needed - the machine has its own cellular connection. No plumbing. No special setup. Our machines are Energy Star certified for minimal power draw.</div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-q" aria-expanded="false">
-                        What if the machine breaks?
+                        <span data-en="What if the machine breaks?" data-es="¿Qué pasa si la máquina se rompe?">What if the machine breaks?</span>
                         <span class="faq-icon" aria-hidden="true"></span>
                     </button>
-                    <div class="faq-a">We fix or replace it within 24 hours. We own the equipment. Your employees are never without a working machine. If we miss the 24-hour SLA, your team gets 2 weeks of free premium snacks.</div>
+                    <div class="faq-a" data-en="We fix or replace it within 24 hours. We own the equipment. Your employees are never without a working machine. If we miss the 24-hour SLA, your team gets 2 weeks of free premium snacks." data-es="La reparamos o reemplazamos en 24 horas. Somos dueños del equipo. Tus empleados nunca se quedan sin una máquina funcionando. Si incumplimos el SLA de 24 horas, tu equipo recibe 2 semanas de snacks premium gratis.">We fix or replace it within 24 hours. We own the equipment. Your employees are never without a working machine. If we miss the 24-hour SLA, your team gets 2 weeks of free premium snacks.</div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-q" aria-expanded="false">
-                        What if someone damages the machine?
+                        <span data-en="What if someone damages the machine?" data-es="¿Y si alguien daña la máquina?">What if someone damages the machine?</span>
                         <span class="faq-icon" aria-hidden="true"></span>
                     </button>
-                    <div class="faq-a">Normal wear and tear is on us. Intentional damage or vandalism by your employees is on you. We carry insurance for the machine itself, so we're covered either way - but we'll talk through it in the contract so it's clear.</div>
+                    <div class="faq-a" data-en="Normal wear and tear is on us. Intentional damage or vandalism by your employees is on you. We carry insurance for the machine itself, so we're covered either way - but we'll talk through it in the contract so it's clear." data-es="El desgaste normal corre por nuestra cuenta. Daño intencional o vandalismo por parte de tus empleados corre por la tuya. Tenemos seguro para la máquina, así que estamos cubiertos en cualquier caso - pero lo hablamos en el contrato para que quede claro.">Normal wear and tear is on us. Intentional damage or vandalism by your employees is on you. We carry insurance for the machine itself, so we're covered either way - but we'll talk through it in the contract so it's clear.</div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-q" aria-expanded="false">
-                        Do you handle sales tax?
+                        <span data-en="Do you handle sales tax?" data-es="¿Ustedes manejan el impuesto de ventas?">Do you handle sales tax?</span>
                         <span class="faq-icon" aria-hidden="true"></span>
                     </button>
-                    <div class="faq-a">Yes. ThriveBreak handles all sales tax collection and remittance. You don't need to worry about it. Your 40% share is paid on net profit after all applicable taxes.</div>
+                    <div class="faq-a" data-en="Yes. ThriveBreak handles all sales tax collection and remittance. You don't need to worry about it. Your 40% share is paid on net profit after all applicable taxes." data-es="Sí. ThriveBreak maneja toda la recolección y remisión del impuesto de ventas. No tienes que preocuparte. Tu 40% se paga sobre la ganancia neta después de todos los impuestos aplicables.">Yes. ThriveBreak handles all sales tax collection and remittance. You don't need to worry about it. Your 40% share is paid on net profit after all applicable taxes.</div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-q" aria-expanded="false">
-                        Can we customize the snack mix?
+                        <span data-en="Can we customize the snack mix?" data-es="¿Podemos personalizar la mezcla de snacks?">Can we customize the snack mix?</span>
                         <span class="faq-icon" aria-hidden="true"></span>
                     </button>
-                    <div class="faq-a">Yes. You decide the healthy/traditional split. We source and restock everything weekly based on what your employees actually buy. Talk to us on your appointment about product preferences.</div>
+                    <div class="faq-a" data-en="Yes. You decide the healthy/traditional split. We source and restock everything weekly based on what your employees actually buy. Talk to us on your appointment about product preferences." data-es="Sí. Tú decides la mezcla saludable/tradicional. Abastecemos y reabastecemos todo semanalmente según lo que realmente compran tus empleados. Habla con nosotros en tu cita sobre preferencias de productos.">Yes. You decide the healthy/traditional split. We source and restock everything weekly based on what your employees actually buy. Talk to us on your appointment about product preferences.</div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-q" aria-expanded="false">
-                        What if we move or sell the business?
+                        <span data-en="What if we move or sell the business?" data-es="¿Y si nos mudamos o vendemos el negocio?">What if we move or sell the business?</span>
                         <span class="faq-icon" aria-hidden="true"></span>
                     </button>
-                    <div class="faq-a">30 days notice and we remove the machine, no penalties. If the new owner wants to keep it, we can transfer the agreement. Simple either way.</div>
+                    <div class="faq-a" data-en="30 days notice and we remove the machine, no penalties. If the new owner wants to keep it, we can transfer the agreement. Simple either way." data-es="30 días de aviso y retiramos la máquina, sin penalidades. Si el nuevo dueño quiere conservarla, podemos transferir el acuerdo. Simple en cualquier caso.">30 days notice and we remove the machine, no penalties. If the new owner wants to keep it, we can transfer the agreement. Simple either way.</div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-q" aria-expanded="false">
-                        Can we add more machines to other locations?
+                        <span data-en="Can we add more machines to other locations?" data-es="¿Podemos agregar más máquinas en otras ubicaciones?">Can we add more machines to other locations?</span>
                         <span class="faq-icon" aria-hidden="true"></span>
                     </button>
-                    <div class="faq-a">Perfect. We scale with you. Same 40% model, same uptime guarantee, same local NJ support. Multi-location deployments are common and simple.</div>
+                    <div class="faq-a" data-en="Perfect. We scale with you. Same 40% model, same uptime guarantee, same local NJ support. Multi-location deployments are common and simple." data-es="Perfecto. Escalamos contigo. Mismo modelo del 40%, misma garantía de disponibilidad, mismo soporte local en NJ. Los despliegues multi-ubicación son comunes y simples.">Perfect. We scale with you. Same 40% model, same uptime guarantee, same local NJ support. Multi-location deployments are common and simple.</div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-q" aria-expanded="false">
-                        Can we cancel anytime?
+                        <span data-en="Can we cancel anytime?" data-es="¿Podemos cancelar en cualquier momento?">Can we cancel anytime?</span>
                         <span class="faq-icon" aria-hidden="true"></span>
                     </button>
-                    <div class="faq-a">Yes. 30 days notice. No penalties. No long-term lock-in. We want satisfied customers, not trapped ones. Cancellation is straightforward - we remove the machine, that's it.</div>
+                    <div class="faq-a" data-en="Yes. 30 days notice. No penalties. No long-term lock-in. We want satisfied customers, not trapped ones. Cancellation is straightforward - we remove the machine, that's it." data-es="Sí. 30 días de aviso. Sin penalidades. Sin contratos de largo plazo. Queremos clientes satisfechos, no atrapados. La cancelación es directa - retiramos la máquina, eso es todo.">Yes. 30 days notice. No penalties. No long-term lock-in. We want satisfied customers, not trapped ones. Cancellation is straightforward - we remove the machine, that's it.</div>
                 </div>
             </div>
         </div>
@@ -2177,36 +2363,33 @@
     <!-- Guarantee -->
     <section class="guarantee">
         <div class="container">
-            <h2>The ThriveBreak Guarantee</h2>
-            <p class="section-intro" style="color: rgba(255,255,255,0.8); margin-bottom: 1.5rem;">We take 100% of the operational risk.</p>
+            <h2 data-en="The ThriveBreak Guarantee" data-es="La Garantía ThriveBreak">The ThriveBreak Guarantee</h2>
+            <p class="section-intro" style="color: rgba(255,255,255,0.8); margin-bottom: 1.5rem;" data-en="We take 100% of the operational risk." data-es="Asumimos el 100% del riesgo operativo.">We take 100% of the operational risk.</p>
 
             <ul class="guarantee-list">
-                <li>Brand new machines. Never refurbished or used.</li>
-                <li>24h response or 2 weeks of free snacks for your team.</li>
-                <li>Cancel anytime with 30 days notice. No penalties.</li>
+                <li data-en="Brand new machines. Never refurbished or used." data-es="Máquinas nuevas de fábrica. Nunca reacondicionadas ni usadas.">Brand new machines. Never refurbished or used.</li>
+                <li data-en="24h response or 2 weeks of free snacks for your team." data-es="Respuesta en 24h o 2 semanas de snacks gratis para tu equipo.">24h response or 2 weeks of free snacks for your team.</li>
+                <li data-en="Cancel anytime with 30 days notice. No penalties." data-es="Cancela cuando quieras con 30 días de aviso. Sin penalidades.">Cancel anytime with 30 days notice. No penalties.</li>
             </ul>
 
-            <div class="guarantee-highlight">
-                You provide the space. We do everything else. You keep 40%. That's the whole deal.
-            </div>
+            <div class="guarantee-highlight" data-en="You provide the space. We do everything else. You keep 40%. That's the whole deal." data-es="Tú provees el espacio. Nosotros hacemos todo lo demás. Tú te quedas con el 40%. Ese es todo el trato.">You provide the space. We do everything else. You keep 40%. That's the whole deal.</div>
         </div>
     </section>
 
     <!-- Contact -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2>Let's Talk</h2>
-            <p class="section-intro">15-min appointment. I come in person. No pressure. No obligation.</p>
+            <h2 data-en="Let's Talk" data-es="Hablemos">Let's Talk</h2>
+            <p class="section-intro" data-en="15-min appointment. I come in person. No pressure. No obligation." data-es="Cita de 15 min. Voy en persona. Sin presión. Sin obligación.">15-min appointment. I come in person. No pressure. No obligation.</p>
 
             <div class="contact-grid">
-                <!-- Contact Info -->
                 <div class="contact-info">
-                    <div class="founder-photo">TB</div>
-                    <h3>[Your Name]</h3>
-                    <p class="founder-title">Founder, ThriveBreak</p>
-                    <p>
-                        I started ThriveBreak because I was tired of seeing offices and warehouses stuck with old, broken vending machines that paid the operator - not the business. I do this face-to-face, not through call centers.
-                    </p>
+                    <div class="founder-photo-wrapper">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80" alt="Xavier Velastegui - Founder of ThriveBreak" loading="lazy">
+                    </div>
+                    <h3>Xavier Velastegui</h3>
+                    <p class="founder-title" data-en="Founder, ThriveBreak" data-es="Fundador, ThriveBreak">Founder, ThriveBreak</p>
+                    <p data-en="I started ThriveBreak because I was tired of seeing offices and warehouses stuck with old, broken vending machines that paid the operator - not the business. I do this face-to-face, not through call centers." data-es="Empecé ThriveBreak porque estaba cansado de ver oficinas y almacenes atrapados con máquinas viejas y rotas que le pagaban al operador - no al negocio. Hago esto cara a cara, no por call centers.">I started ThriveBreak because I was tired of seeing offices and warehouses stuck with old, broken vending machines that paid the operator - not the business. I do this face-to-face, not through call centers.</p>
 
                     <ul class="contact-direct">
                         <li>
@@ -2224,58 +2407,55 @@
                     </ul>
 
                     <div class="what-next">
-                        <strong>What happens next:</strong>
-                        I'll call you within 24 hours. We schedule a 15-min appointment at your location. No obligation, no pressure.
+                        <strong data-en="What happens next:" data-es="Qué pasa después:">What happens next:</strong>
+                        <span data-en="I'll call you within 24 hours. We schedule a 15-min appointment at your location. No obligation, no pressure." data-es="Te llamo en 24 horas. Agendamos una cita de 15 min en tu ubicación. Sin obligación, sin presión.">I'll call you within 24 hours. We schedule a 15-min appointment at your location. No obligation, no pressure.</span>
                     </div>
                 </div>
 
-                <!-- Contact Form -->
                 <form class="contact-form" action="https://formspree.io/f/xdkqzwpy" method="POST" id="quoteForm">
                     <div class="form-step-indicator" aria-hidden="true">
                         <div class="step-dot active" data-step="1">1</div>
                         <div class="step-dot" data-step="2">2</div>
                     </div>
 
-                    <!-- Step 1: Contact -->
                     <div class="form-step active" data-step="1">
                         <div class="form-group">
-                            <label for="name">Name *</label>
+                            <label for="name" data-en="Name *" data-es="Nombre *">Name *</label>
                             <input type="text" id="name" name="name" required autocomplete="name">
                         </div>
                         <div class="form-group">
-                            <label for="email">Email *</label>
+                            <label for="email" data-en="Email *" data-es="Correo *">Email *</label>
                             <input type="email" id="email" name="email" required autocomplete="email">
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone *</label>
+                            <label for="phone" data-en="Phone *" data-es="Teléfono *">Phone *</label>
                             <input type="tel" id="phone" name="phone" required autocomplete="tel">
                         </div>
                         <div class="form-actions">
-                            <button type="button" class="submit-btn" id="nextBtn">Continue →</button>
+                            <button type="button" class="submit-btn" id="nextBtn" data-en="Continue →" data-es="Continuar →">Continue →</button>
                         </div>
-                        <p class="form-note">Takes 30 seconds. I'll call you within 24 hours.</p>
+                        <p class="form-note" data-en="Step 1 of 2: Takes 30 seconds. No spam, guaranteed." data-es="Paso 1 de 2: Toma 30 segundos. Sin spam, garantizado.">Step 1 of 2: Takes 30 seconds. No spam, guaranteed.</p>
                     </div>
 
-                    <!-- Step 2: Qualify -->
                     <div class="form-step" data-step="2">
                         <div class="form-group">
-                            <label for="company">Company Name</label>
+                            <label for="company" data-en="Company Name" data-es="Nombre de la Empresa">Company Name</label>
                             <input type="text" id="company" name="company" autocomplete="organization">
                         </div>
                         <div class="form-group">
-                            <label for="location-type">Location Type</label>
+                            <label for="location-type" data-en="Location Type" data-es="Tipo de Ubicación">Location Type</label>
                             <select id="location-type" name="location-type">
-                                <option value="">Select...</option>
-                                <option value="office">Office</option>
-                                <option value="warehouse">Warehouse / Manufacturing</option>
-                                <option value="retail">Retail / Retail Space</option>
-                                <option value="other">Other</option>
+                                <option value="" data-en="Select..." data-es="Selecciona...">Select...</option>
+                                <option value="office" data-en="Office" data-es="Oficina">Office</option>
+                                <option value="warehouse" data-en="Warehouse / Manufacturing" data-es="Almacén / Manufactura">Warehouse / Manufacturing</option>
+                                <option value="retail" data-en="Retail / Retail Space" data-es="Retail / Espacio Comercial">Retail / Retail Space</option>
+                                <option value="other" data-en="Other" data-es="Otro">Other</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="employees">Number of Employees</label>
+                            <label for="employees" data-en="Number of Employees" data-es="Número de Empleados">Number of Employees</label>
                             <select id="employees" name="employees">
-                                <option value="">Select...</option>
+                                <option value="" data-en="Select..." data-es="Selecciona...">Select...</option>
                                 <option value="20-50">20–50</option>
                                 <option value="50-100">50–100</option>
                                 <option value="100-200">100–200</option>
@@ -2284,18 +2464,18 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="promo">Interested in the Grand Opening Week promo?</label>
+                            <label for="promo" data-en="Interested in the Grand Opening Week promo?" data-es="¿Te interesa la promo de Semana de Apertura?">Interested in the Grand Opening Week promo?</label>
                             <select id="promo" name="promo">
-                                <option value="">Select...</option>
-                                <option value="yes">Yes, tell me more</option>
-                                <option value="no">No, standard setup is fine</option>
+                                <option value="" data-en="Select..." data-es="Selecciona...">Select...</option>
+                                <option value="yes" data-en="Yes, tell me more" data-es="Sí, cuéntame más">Yes, tell me more</option>
+                                <option value="no" data-en="No, standard setup is fine" data-es="No, la instalación estándar está bien">No, standard setup is fine</option>
                             </select>
                         </div>
                         <div class="form-actions">
-                            <button type="button" class="back-btn" id="backBtn">← Back</button>
-                            <button type="submit" class="submit-btn">Send</button>
+                            <button type="button" class="back-btn" id="backBtn" data-en="← Back" data-es="← Atrás">← Back</button>
+                            <button type="submit" class="submit-btn" data-en="Send" data-es="Enviar">Send</button>
                         </div>
-                        <p class="form-note">I'll call you within 24 hours to set up a 15-min appointment.</p>
+                        <p class="form-note" data-en="I'll call you within 24 hours to set up a 15-min appointment." data-es="Te llamo en 24 horas para agendar una cita de 15 min.">I'll call you within 24 hours to set up a 15-min appointment.</p>
                     </div>
                 </form>
             </div>
@@ -2309,9 +2489,7 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <h3>ThriveBreak</h3>
-                <p>
-                    Brand new AI vending for NJ offices and warehouses. Free machine, free install, free restocking. You keep 40% of net profit.
-                </p>
+                <p data-en="Brand new AI vending for NJ offices and warehouses. Free machine, free install, free restocking. You keep 40% of net profit." data-es="Vending con IA, nuevo de fábrica, para oficinas y almacenes en NJ. Máquina gratis, instalación gratis, reabastecimiento gratis. Te quedas con el 40% de la ganancia neta.">Brand new AI vending for NJ offices and warehouses. Free machine, free install, free restocking. You keep 40% of net profit.</p>
                 <ul class="footer-contact">
                     <li>
                         <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" fill="none" stroke="#5eead4" stroke-width="2"/><circle cx="12" cy="10" r="3" fill="none" stroke="#5eead4" stroke-width="2"/></svg>
@@ -2329,40 +2507,143 @@
             </div>
 
             <div class="footer-col">
-                <h4>Quick Links</h4>
+                <h4 data-en="Quick Links" data-es="Enlaces Rápidos">Quick Links</h4>
                 <ul>
-                    <li><a href="#how">How it works</a></li>
-                    <li><a href="#products">What's inside</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#contact">Get started</a></li>
+                    <li><a href="#how" data-en="How it works" data-es="Cómo funciona">How it works</a></li>
+                    <li><a href="#calculator" data-en="Calculate Earnings" data-es="Calcular Ganancias">Calculate Earnings</a></li>
+                    <li><a href="#products" data-en="What's inside" data-es="Qué hay dentro">What's inside</a></li>
+                    <li><a href="#faq" data-en="FAQ" data-es="Preguntas">FAQ</a></li>
+                    <li><a href="#contact" data-en="Get started" data-es="Empezar">Get started</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
-                <h4>Feedback</h4>
+                <h4 data-en="Feedback" data-es="Comentarios">Feedback</h4>
                 <ul>
-                    <li><a href="mailto:feedback@thrivebreak.com?subject=Partner%20Feedback">Partner feedback</a></li>
-                    <li><a href="mailto:feedback@thrivebreak.com?subject=Machine%20User%20Feedback">Machine user feedback</a></li>
-                    <li><a href="mailto:hello@thrivebreak.com?subject=Product%20Request">Product request</a></li>
+                    <li><button type="button" class="feedback-trigger" data-type="suggestion" data-en="Send a suggestion" data-es="Enviar una sugerencia">Send a suggestion</button></li>
+                    <li><button type="button" class="feedback-trigger" data-type="complaint" data-en="File a complaint" data-es="Presentar una queja">File a complaint</button></li>
+                    <li><button type="button" class="feedback-trigger" data-type="product" data-en="Request a new product" data-es="Pedir un nuevo producto">Request a new product</button></li>
                 </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>© 2026 ThriveBreak LLC. All rights reserved. Piscataway, New Jersey.</p>
-            <p style="margin-top: 0.6rem;">
-                Revenue projections are estimates based on published industry data (Nayax, VendSoft, WEIMI 2024–2025). Actual results vary by location and employee adoption. Grand Opening Week promo subject to terms in your agreement.
-            </p>
+            <p data-en="© 2026 ThriveBreak LLC. All rights reserved. Piscataway, New Jersey." data-es="© 2026 ThriveBreak LLC. Todos los derechos reservados. Piscataway, New Jersey.">© 2026 ThriveBreak LLC. All rights reserved. Piscataway, New Jersey.</p>
+            <p style="margin-top: 0.6rem;" data-en="Revenue projections are estimates based on published industry data (Nayax, VendSoft, WEIMI 2024–2025). Actual results vary by location and employee adoption. Grand Opening Week promo subject to terms in your agreement." data-es="Las proyecciones son estimaciones basadas en datos públicos de la industria (Nayax, VendSoft, WEIMI 2024–2025). Los resultados reales varían por ubicación y adopción de los empleados. La promo de Semana de Apertura está sujeta a los términos del acuerdo.">Revenue projections are estimates based on published industry data (Nayax, VendSoft, WEIMI 2024–2025). Actual results vary by location and employee adoption. Grand Opening Week promo subject to terms in your agreement.</p>
             <div class="footer-legal">
-                <a href="/privacy">Privacy Policy</a>
-                <a href="/terms">Terms of Service</a>
-                <a href="/accessibility">Accessibility</a>
+                <a href="/privacy" data-en="Privacy Policy" data-es="Política de Privacidad">Privacy Policy</a>
+                <a href="/terms" data-en="Terms of Service" data-es="Términos de Servicio">Terms of Service</a>
+                <a href="/accessibility" data-en="Accessibility" data-es="Accesibilidad">Accessibility</a>
             </div>
         </div>
     </footer>
 
+    <!-- Feedback Modal -->
+    <div class="modal-overlay" id="feedbackModal" role="dialog" aria-modal="true" aria-labelledby="feedbackTitle">
+        <div class="modal">
+            <div class="modal-header">
+                <div>
+                    <h3 id="feedbackTitle" data-en="We're listening" data-es="Te escuchamos">We're listening</h3>
+                    <p data-en="No call centers. No phone trees. Just one form and click — that's it." data-es="Sin call centers. Sin menús telefónicos. Solo un formulario y clic — eso es todo.">No call centers. No phone trees. Just one form and click — that's it.</p>
+                </div>
+                <button type="button" class="modal-close" id="modalClose" aria-label="Close">✕</button>
+            </div>
+
+            <div class="modal-body">
+                <!-- Form -->
+                <form id="feedbackForm" action="https://formspree.io/f/xdkqzwpy" method="POST">
+                    <input type="hidden" name="form-type" value="feedback">
+                    <input type="hidden" name="feedback-type" id="feedbackTypeInput" value="">
+
+                    <div class="form-group">
+                        <label data-en="What's this about?" data-es="¿Sobre qué es?">What's this about?</label>
+                        <div class="feedback-type-grid">
+                            <button type="button" class="feedback-type-btn" data-type="suggestion">
+                                <span class="type-icon" aria-hidden="true">💡</span>
+                                <span data-en="Suggestion" data-es="Sugerencia">Suggestion</span>
+                            </button>
+                            <button type="button" class="feedback-type-btn" data-type="complaint">
+                                <span class="type-icon" aria-hidden="true">⚠️</span>
+                                <span data-en="Complaint" data-es="Queja">Complaint</span>
+                            </button>
+                            <button type="button" class="feedback-type-btn" data-type="product">
+                                <span class="type-icon" aria-hidden="true">🛒</span>
+                                <span data-en="New Product" data-es="Nuevo Producto">New Product</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fb-name" data-en="Your Name *" data-es="Tu Nombre *">Your Name *</label>
+                        <input type="text" id="fb-name" name="name" required autocomplete="name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fb-email" data-en="Your Email *" data-es="Tu Correo *">Your Email *</label>
+                        <input type="email" id="fb-email" name="email" required autocomplete="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fb-location" data-en="Which location are you writing from? *" data-es="¿Desde qué ubicación nos escribes? *">Which location are you writing from? *</label>
+                        <input type="text" id="fb-location" name="location" placeholder="e.g. Office in Piscataway, NJ" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fb-message" data-en="Your message *" data-es="Tu mensaje *">Your message *</label>
+                        <textarea id="fb-message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn" data-en="Send Feedback" data-es="Enviar Comentario">Send Feedback</button>
+                    <p class="form-note" data-en="We read every single one. Response within 24h if you include contact info." data-es="Leemos cada uno. Respuesta en 24h si incluyes información de contacto.">We read every single one. Response within 24h if you include contact info.</p>
+                </form>
+
+                <!-- Success -->
+                <div class="modal-success" id="feedbackSuccess">
+                    <div class="success-icon" aria-hidden="true">✓</div>
+                    <h4 data-en="Thank you. We got it." data-es="Gracias. Lo recibimos.">Thank you. We got it.</h4>
+                    <p data-en="We'll review your feedback and get back to you within 24 hours if needed." data-es="Revisaremos tu comentario y te responderemos en 24 horas si es necesario.">We'll review your feedback and get back to you within 24 hours if needed.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script>
+        // ============================================
+        // LANGUAGE TOGGLE
+        // ============================================
+        const langBtns = document.querySelectorAll('.lang-btn');
+        const langElements = document.querySelectorAll('[data-en][data-es]');
+
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            langElements.forEach(el => {
+                const text = el.getAttribute('data-' + lang);
+                if (text) {
+                    el.innerHTML = text;
+                }
+            });
+            langBtns.forEach(btn => {
+                const isActive = btn.dataset.lang === lang;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            });
+            try { localStorage.setItem('thrivebreak-lang', lang); } catch (e) {}
+        }
+
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+        });
+
+        // Load saved language
+        try {
+            const savedLang = localStorage.getItem('thrivebreak-lang');
+            if (savedLang === 'es') setLanguage('es');
+        } catch (e) {}
+
+        // ============================================
+        // FAQ ACCORDION
+        // ============================================
         document.querySelectorAll('.faq-q').forEach(btn => {
             btn.addEventListener('click', () => {
                 const item = btn.closest('.faq-item');
@@ -2371,6 +2652,9 @@
             });
         });
 
+        // ============================================
+        // FORM MULTI-STEP
+        // ============================================
         const form = document.getElementById('quoteForm');
         const steps = document.querySelectorAll('.form-step');
         const dots = document.querySelectorAll('.step-dot');
@@ -2400,6 +2684,125 @@
         });
 
         backBtn.addEventListener('click', () => goToStep(1));
+
+        // ============================================
+        // CALCULATOR
+        // ============================================
+        const empRange = document.getElementById('empRange');
+        const empVal = document.getElementById('empVal');
+        const monthlyVal = document.getElementById('monthlyVal');
+        const yearlyVal = document.getElementById('yearlyVal');
+
+        function updateCalculator() {
+            const employees = parseInt(empRange.value);
+            empVal.textContent = employees;
+            const estMonthly = Math.round(employees * 4.25);
+            const estYearly = estMonthly * 12;
+            monthlyVal.textContent = `$${estMonthly.toLocaleString()} / mo`;
+            yearlyVal.textContent = `$${estYearly.toLocaleString()} / yr`;
+        }
+
+        if (empRange) {
+            empRange.addEventListener('input', updateCalculator);
+            updateCalculator();
+        }
+
+        // ============================================
+        // FEEDBACK MODAL
+        // ============================================
+        const modal = document.getElementById('feedbackModal');
+        const modalClose = document.getElementById('modalClose');
+        const feedbackForm = document.getElementById('feedbackForm');
+        const feedbackSuccess = document.getElementById('feedbackSuccess');
+        const feedbackTypeInput = document.getElementById('feedbackTypeInput');
+        const feedbackTypeBtns = document.querySelectorAll('.feedback-type-btn');
+        const feedbackTriggers = document.querySelectorAll('.feedback-trigger');
+
+        function openModal(presetType) {
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            feedbackForm.style.display = 'block';
+            feedbackSuccess.classList.remove('show');
+            feedbackTypeBtns.forEach(b => b.classList.remove('selected'));
+            feedbackTypeInput.value = '';
+            if (presetType) {
+                const btn = document.querySelector(`.feedback-type-btn[data-type="${presetType}"]`);
+                if (btn) {
+                    btn.classList.add('selected');
+                    feedbackTypeInput.value = presetType;
+                }
+            }
+            setTimeout(() => {
+                const firstInput = feedbackForm.querySelector('input[name="name"]');
+                if (firstInput) firstInput.focus();
+            }, 100);
+        }
+
+        function closeModal() {
+            modal.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        feedbackTriggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(trigger.dataset.type);
+            });
+        });
+
+        modalClose.addEventListener('click', closeModal);
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+        });
+
+        feedbackTypeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                feedbackTypeBtns.forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                feedbackTypeInput.value = btn.dataset.type;
+            });
+        });
+
+        feedbackForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!feedbackTypeInput.value) {
+                alert(document.documentElement.lang === 'es'
+                    ? 'Por favor selecciona: sugerencia, queja o nuevo producto.'
+                    : 'Please select: suggestion, complaint, or new product.');
+                return;
+            }
+            const formData = new FormData(feedbackForm);
+            try {
+                const response = await fetch(feedbackForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    feedbackForm.style.display = 'none';
+                    feedbackSuccess.classList.add('show');
+                    feedbackForm.reset();
+                    feedbackTypeBtns.forEach(b => b.classList.remove('selected'));
+                    feedbackTypeInput.value = '';
+                    setTimeout(() => {
+                        if (modal.classList.contains('open')) closeModal();
+                    }, 3000);
+                } else {
+                    alert(document.documentElement.lang === 'es'
+                        ? 'Hubo un error. Por favor intenta de nuevo.'
+                        : 'There was an error. Please try again.');
+                }
+            } catch (err) {
+                alert(document.documentElement.lang === 'es'
+                    ? 'Hubo un error de conexión. Por favor intenta de nuevo.'
+                    : 'Connection error. Please try again.');
+            }
+        });
     </script>
 
 </body>
