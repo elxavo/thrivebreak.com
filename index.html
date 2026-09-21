@@ -33,7 +33,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Schema Markup -->
-    <script type="application/ld+json">
+    <script> type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
@@ -2673,120 +2673,187 @@
         </svg>
     </button>
 </div>
-            // FEEDBACK MODAL
-        const modal = document.getElementById('feedbackModal');
-        const modalClose = document.getElementById('modalClose');
-        const feedbackForm = document.getElementById('feedbackForm');
-        const feedbackSuccess = document.getElementById('feedbackSuccess');
-        const feedbackTypeInput = document.getElementById('feedbackTypeInput');
-        const feedbackTypeBtns = document.querySelectorAll('.feedback-type-btn');
+<script>
+    // LANGUAGE TOGGLE
+    const langBtns = document.querySelectorAll('.lang-btn');
+    const langElements = document.querySelectorAll('[data-en][data-es]');
 
-        function openModal(presetType) {
-            modal.classList.add('open');
-            document.body.style.overflow = 'hidden';
-            feedbackForm.style.display = 'block';
-            feedbackSuccess.classList.remove('show');
-            feedbackTypeBtns.forEach(b => b.classList.remove('selected'));
-            feedbackTypeInput.value = '';
-            if (presetType) {
-                const btn = document.querySelector(`.feedback-type-btn[data-type="${presetType}"]`);
-                if (btn) {
-                    btn.classList.add('selected');
-                    feedbackTypeInput.value = presetType;
-                }
+    function setLanguage(lang) {
+        document.documentElement.lang = lang;
+        langElements.forEach(el => {
+            const text = el.getAttribute('data-' + lang);
+            if (text) {
+                el.innerHTML = text;
             }
-            setTimeout(() => {
-                const firstInput = feedbackForm.querySelector('input[name="name"]');
-                if (firstInput) firstInput.focus();
-            }, 100);
-        }
+        });
+        langBtns.forEach(btn => {
+            const isActive = btn.dataset.lang === lang;
+            btn.classList.toggle('active', isActive);
+            btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+        try { localStorage.setItem('thrivebreak-lang', lang); } catch (e) {}
+    }
 
-        function closeModal() {
-            modal.classList.remove('open');
-            document.body.style.overflow = '';
-        }
+    langBtns.forEach(btn => {
+        btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+    });
 
-        const feedbackTriggers = document.querySelectorAll('.feedback-trigger');
+    try {
+        const savedLang = localStorage.getItem('thrivebreak-lang');
+        if (savedLang === 'es') setLanguage('es');
+    } catch (e) {}
 
-        feedbackTriggers.forEach(trigger => {
-            trigger.addEventListener('click', (e) => {
-                e.preventDefault();
-                openModal(trigger.dataset.type);
+    // FAQ ACCORDION
+    document.querySelectorAll('.faq-q').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.closest('.faq-item');
+            const isOpen = item.classList.toggle('open');
+            btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+    });
+
+    // FORM SUBMIT WITH THANK YOU
+    const form = document.getElementById('quoteForm');
+    const formSuccess = document.getElementById('formSuccess');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
             });
-        });
+            if (response.ok) {
+                form.style.display = 'none';
+                formSuccess.classList.add('show');
+                formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                alert(document.documentElement.lang === 'es'
+                    ? 'Hubo un error. Por favor intenta de nuevo.'
+                    : 'There was an error. Please try again.');
+            }
+        } catch (err) {
+            alert(document.documentElement.lang === 'es'
+                ? 'Hubo un error de conexión. Por favor intenta de nuevo.'
+                : 'Connection error. Please try again.');
+        }
+    });
 
-        modalClose.addEventListener('click', closeModal);
+    // FEEDBACK MODAL
+    const modal = document.getElementById('feedbackModal');
+    const modalClose = document.getElementById('modalClose');
+    const feedbackForm = document.getElementById('feedbackForm');
+    const feedbackSuccess = document.getElementById('feedbackSuccess');
+    const feedbackTypeInput = document.getElementById('feedbackTypeInput');
+    const feedbackTypeBtns = document.querySelectorAll('.feedback-type-btn');
+    const feedbackTriggers = document.querySelectorAll('.feedback-trigger');
 
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
-        });
-
-        feedbackTypeBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                feedbackTypeBtns.forEach(b => b.classList.remove('selected'));
+    function openModal(presetType) {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        feedbackForm.style.display = 'block';
+        feedbackSuccess.classList.remove('show');
+        feedbackTypeBtns.forEach(b => b.classList.remove('selected'));
+        feedbackTypeInput.value = '';
+        if (presetType) {
+            const btn = document.querySelector(`.feedback-type-btn[data-type="${presetType}"]`);
+            if (btn) {
                 btn.classList.add('selected');
-                feedbackTypeInput.value = btn.dataset.type;
-            });
-        });
-
-        feedbackForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            if (!feedbackTypeInput.value) {
-                alert(document.documentElement.lang === 'es'
-                    ? 'Por favor selecciona: sugerencia, queja o nuevo producto.'
-                    : 'Please select: suggestion, complaint, or new product.');
-                return;
+                feedbackTypeInput.value = presetType;
             }
-            const formData = new FormData(feedbackForm);
-            try {
-                const response = await fetch(feedbackForm.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
-                if (response.ok) {
-                    feedbackForm.style.display = 'none';
-                    feedbackSuccess.classList.add('show');
-                    feedbackForm.reset();
-                    feedbackTypeBtns.forEach(b => b.classList.remove('selected'));
-                    feedbackTypeInput.value = '';
-                    setTimeout(() => {
-                        if (modal.classList.contains('open')) closeModal();
-                    }, 3000);
-                } else {
-                    alert(document.documentElement.lang === 'es'
-                        ? 'Hubo un error. Por favor intenta de nuevo.'
-                        : 'There was an error. Please try again.');
-                }
-            } catch (err) {
-                alert(document.documentElement.lang === 'es'
-                    ? 'Hubo un error de conexión. Por favor intenta de nuevo.'
-                    : 'Connection error. Please try again.');
-            }
-        });
-
-        // CONTACT FAB (Floating Action Button)
-        const contactFabMain = document.getElementById('contactFabMain');
-        const contactFabMenu = document.getElementById('contactFabMenu');
-
-        if (contactFabMain && contactFabMenu) {
-            contactFabMain.addEventListener('click', () => {
-                const isOpen = contactFabMenu.classList.toggle('open');
-                contactFabMain.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-            });
-
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('.contact-fab-container')) {
-                    contactFabMenu.classList.remove('open');
-                    contactFabMain.setAttribute('aria-expanded', 'false');
-                }
-            });
         }
-    </script>
+        setTimeout(() => {
+            const firstInput = feedbackForm.querySelector('input[name="name"]');
+            if (firstInput) firstInput.focus();
+        }, 100);
+    }
+
+    function closeModal() {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    feedbackTriggers.forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal(trigger.dataset.type);
+        });
+    });
+
+    modalClose.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+
+    feedbackTypeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            feedbackTypeBtns.forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            feedbackTypeInput.value = btn.dataset.type;
+        });
+    });
+
+    feedbackForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (!feedbackTypeInput.value) {
+            alert(document.documentElement.lang === 'es'
+                ? 'Por favor selecciona: sugerencia, queja o nuevo producto.'
+                : 'Please select: suggestion, complaint, or new product.');
+            return;
+        }
+        const formData = new FormData(feedbackForm);
+        try {
+            const response = await fetch(feedbackForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+                feedbackForm.style.display = 'none';
+                feedbackSuccess.classList.add('show');
+                feedbackForm.reset();
+                feedbackTypeBtns.forEach(b => b.classList.remove('selected'));
+                feedbackTypeInput.value = '';
+                setTimeout(() => {
+                    if (modal.classList.contains('open')) closeModal();
+                }, 3000);
+            } else {
+                alert(document.documentElement.lang === 'es'
+                    ? 'Hubo un error. Por favor intenta de nuevo.'
+                    : 'There was an error. Please try again.');
+            }
+        } catch (err) {
+            alert(document.documentElement.lang === 'es'
+                ? 'Hubo un error de conexión. Por favor intenta de nuevo.'
+                : 'Connection error. Please try again.');
+        }
+    });
+
+    // CONTACT FAB (Floating Action Button)
+    const contactFabMain = document.getElementById('contactFabMain');
+    const contactFabMenu = document.getElementById('contactFabMenu');
+
+    if (contactFabMain && contactFabMenu) {
+        contactFabMain.addEventListener('click', () => {
+            const isOpen = contactFabMenu.classList.toggle('open');
+            contactFabMain.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.contact-fab-container')) {
+                contactFabMenu.classList.remove('open');
+                contactFabMain.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+</script>
 
 </body>
 </html>
