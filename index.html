@@ -15,7 +15,7 @@
     <meta property="og:url" content="https://thrivebreak.com/">
     <meta property="og:title" content="ThriveBreak - AI Vending for NJ | Free Machine, We Cover Everything">
     <meta property="og:description" content="Brand new AI vending machines for NJ offices. We cover the machine, inventory, service, and electricity. You provide the space. Your employees get fresh snacks at fair prices.">
-    <meta property="og:image" content="https://thrivebreak.com/og-image.jpg">
+    <meta property="og:image" content="https://res.cloudinary.com/upaa2jvw/image/upload/v1789741914/thrivebreak.jpg">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="ThriveBreak">
     
@@ -23,7 +23,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ThriveBreak - AI Vending for NJ | Free Machine, We Cover Everything">
     <meta name="twitter:description" content="Brand new AI vending for NJ offices. We cover everything. Your employees get fresh snacks at fair prices.">
-    <meta name="twitter:image" content="https://thrivebreak.com/og-image.jpg">
+    <meta name="twitter:image" content="https://res.cloudinary.com/upaa2jvw/image/upload/v1789741914/thrivebreak.jpg">
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f766e'/%3E%3Ctext x='50' y='68' font-size='60' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
@@ -1271,7 +1271,10 @@
             border-color: var(--teal);
             box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
         }
-
+        .form-group input::placeholder {
+        color: #94a3b8;
+        opacity: 1;
+        }
         .form-actions {
             display: flex;
             gap: 1rem;
@@ -2252,12 +2255,9 @@
 
             <div class="contact-grid">
                 <div class="contact-info">
-                    <div class="founder-photo-wrapper">
-                        <img src="https://ui-avatars.com/api/?name=Josue+Figueroa&background=0f766e&color=ffffff&size=300&bold=true" alt="Josue Figueroa - Founder of ThriveBreak" loading="lazy">
-                    </div>
                     <h3>Josue Figueroa</h3>
                     <p class="founder-title" data-en="Founder, ThriveBreak" data-es="Fundador, ThriveBreak">Founder, ThriveBreak</p>
-                    <p data-en="I started ThriveBreak because I was tired of seeing offices and warehouses stuck with old, broken vending machines that paid the operator - not the business, and definitely not the employees. I do this face-to-face, not through call centers." data-es="Empecé ThriveBreak porque estaba cansado de ver oficinas y almacenes atrapados con máquinas viejas y rotas que le pagaban al operador - no al negocio, y definitivamente no a los empleados. Hago esto cara a cara, no por call centers.">I started ThriveBreak because I was tired of seeing offices and warehouses stuck with old, broken vending machines that paid the operator - not the business, and definitely not the employees. I do this face-to-face, not through call centers.</p>
+                    <p data-en="I started ThriveBreak for one reason: I was an employee once. I know what it feels like to work 8 long hours and not feel appreciated. No perks. No small comforts. Nothing that said 'we see you.' So when I saw offices and warehouses stuck with old, broken vending machines — machines that made employees pay premium prices for stale snacks — I decided to change it. I do this face-to-face, not through call centers. Every machine is my way of giving employees the break room I wish I had." data-es="Empecé ThriveBreak por una razón: yo también fui empleado. Sé lo que se siente trabajar 8 horas largas y no sentirse apreciado. Sin beneficios. Sin pequeñas comodidades. Nada que dijera 'te vemos'. Así que cuando vi oficinas y almacenes atrapados con máquinas viejas y rotas — máquinas que hacían pagar precios altos a los empleados por snacks viejos — decidí cambiarlo. Hago esto cara a cara, no por call centers. Cada máquina es mi forma de darle a los empleados la sala de descanso que yo hubiera querido tener.">I started ThriveBreak for one reason: I was an employee once. I know what it feels like to work 8 long hours and not feel appreciated. No perks. No small comforts. Nothing that said 'we see you.' So when I saw offices and warehouses stuck with old, broken vending machines — machines that made employees pay premium prices for stale snacks — I decided to change it. I do this face-to-face, not through call centers. Every machine is my way of giving employees the break room I wish I had.</p>
 
                     <ul class="contact-direct">
                         <li>
@@ -2287,71 +2287,23 @@
 
                 <div class="contact-form" id="contactFormWrapper">
                     <form action="https://formspree.io/f/xdkqzwpy" method="POST" id="quoteForm">
-                        <div class="form-step-indicator" aria-hidden="true">
-                            <div class="step-dot active" data-step="1">1</div>
-                            <div class="step-dot" data-step="2">2</div>
-                        </div>
-
-                        <div class="form-step active" data-step="1">
-                            <div class="form-group">
-                                <label for="name" data-en="Name *" data-es="Nombre *">Name *</label>
-                                <input type="text" id="name" name="name" required autocomplete="name">
-                            </div>
-                            <div class="form-group">
-                                <label for="email" data-en="Email *" data-es="Correo *">Email *</label>
-                                <input type="email" id="email" name="email" required autocomplete="email">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone" data-en="Phone *" data-es="Teléfono *">Phone *</label>
-                                <input type="tel" id="phone" name="phone" required autocomplete="tel">
-                            </div>
-                            <div class="form-actions">
-                                <button type="button" class="submit-btn" id="nextBtn" data-en="Continue →" data-es="Continuar →">Continue →</button>
-                            </div>
-                            <p class="form-note" data-en="Step 1 of 2: Takes 30 seconds. No spam, guaranteed." data-es="Paso 1 de 2: Toma 30 segundos. Sin spam, garantizado.">Step 1 of 2: Takes 30 seconds. No spam, guaranteed.</p>
-                        </div>
-
-                        <div class="form-step" data-step="2">
-                            <div class="form-group">
-                                <label for="company" data-en="Company Name" data-es="Nombre de la Empresa">Company Name</label>
-                                <input type="text" id="company" name="company" autocomplete="organization">
-                            </div>
-                            <div class="form-group">
-                                <label for="location-type" data-en="Location Type" data-es="Tipo de Ubicación">Location Type</label>
-                                <select id="location-type" name="location-type">
-                                    <option value="" data-en="Select..." data-es="Selecciona...">Select...</option>
-                                    <option value="office" data-en="Office" data-es="Oficina">Office</option>
-                                    <option value="warehouse" data-en="Warehouse / Manufacturing" data-es="Almacén / Manufactura">Warehouse / Manufacturing</option>
-                                    <option value="retail" data-en="Retail / Retail Space" data-es="Retail / Espacio Comercial">Retail / Retail Space</option>
-                                    <option value="other" data-en="Other" data-es="Otro">Other</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="employees" data-en="Number of Employees" data-es="Número de Empleados">Number of Employees</label>
-                                <select id="employees" name="employees">
-                                    <option value="" data-en="Select..." data-es="Selecciona...">Select...</option>
-                                    <option value="20-50">20–50</option>
-                                    <option value="50-100">50–100</option>
-                                    <option value="100-200">100–200</option>
-                                    <option value="200-500">200–500</option>
-                                    <option value="500+">500+</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="promo" data-en="Interested in the Grand Opening Week promo?" data-es="¿Te interesa la promo de Semana de Apertura?">Interested in the Grand Opening Week promo?</label>
-                                <select id="promo" name="promo">
-                                    <option value="" data-en="Select..." data-es="Selecciona...">Select...</option>
-                                    <option value="yes" data-en="Yes, tell me more" data-es="Sí, cuéntame más">Yes, tell me more</option>
-                                    <option value="no" data-en="No, standard setup is fine" data-es="No, la instalación estándar está bien">No, standard setup is fine</option>
-                                </select>
-                            </div>
-                            <div class="form-actions">
-                                <button type="button" class="back-btn" id="backBtn" data-en="← Back" data-es="← Atrás">← Back</button>
-                                <button type="submit" class="submit-btn" data-en="Send" data-es="Enviar">Send</button>
-                            </div>
-                            <p class="form-note" data-en="I'll call you within 24 hours to set up a 15-min appointment." data-es="Te llamo en 24 horas para agendar una cita de 15 min.">I'll call you within 24 hours to set up a 15-min appointment.</p>
-                        </div>
-                    </form>
+    <div class="form-group">
+        <label for="name" data-en="Your Name *" data-es="Tu Nombre *">Your Name *</label>
+        <input type="text" id="name" name="name" required autocomplete="name" placeholder="John Smith">
+    </div>
+    <div class="form-group">
+        <label for="email" data-en="Work Email *" data-es="Correo de Trabajo *">Work Email *</label>
+        <input type="email" id="email" name="email" required autocomplete="email" placeholder="john@company.com">
+    </div>
+    <div class="form-group">
+        <label for="phone" data-en="Phone *" data-es="Teléfono *">Phone *</label>
+        <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="(908) 555-0123">
+    </div>
+    <div class="form-actions">
+        <button type="submit" class="submit-btn" data-en="Get Started →" data-es="Empezar →">Get Started →</button>
+    </div>
+    <p class="form-note" data-en="Takes 20 seconds. I'll call you within 24 hours to schedule a 15-min appointment." data-es="Toma 20 segundos. Te llamo en 24 horas para agendar una cita de 15 min.">Takes 20 seconds. I'll call you within 24 hours to schedule a 15-min appointment.</p>
+</form>
 
                     <!-- Thank You Message -->
                     <div class="form-success" id="formSuccess">
@@ -2540,62 +2492,32 @@
 
         // FORM MULTI-STEP + SUBMIT WITH THANK YOU
         const form = document.getElementById('quoteForm');
-        const formSuccess = document.getElementById('formSuccess');
-        const steps = document.querySelectorAll('.form-step');
-        const dots = document.querySelectorAll('.step-dot');
-        const nextBtn = document.getElementById('nextBtn');
-        const backBtn = document.getElementById('backBtn');
+const formSuccess = document.getElementById('formSuccess');
 
-        function goToStep(step) {
-            steps.forEach(s => s.classList.toggle('active', s.dataset.step == step));
-            dots.forEach(d => {
-                const n = parseInt(d.dataset.step);
-                d.classList.toggle('active', n == step);
-                d.classList.toggle('completed', n < step);
-            });
-            const active = document.querySelector('.form-step.active input, .form-step.active select');
-            if (active) active.focus();
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    try {
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+            form.style.display = 'none';
+            formSuccess.classList.add('show');
+            formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+            alert(document.documentElement.lang === 'es'
+                ? 'Hubo un error. Por favor intenta de nuevo.'
+                : 'There was an error. Please try again.');
         }
-
-        nextBtn.addEventListener('click', () => {
-            const name = document.getElementById('name');
-            const email = document.getElementById('email');
-            const phone = document.getElementById('phone');
-            if (!name.checkValidity() || !email.checkValidity() || !phone.checkValidity()) {
-                form.reportValidity();
-                return;
-            }
-            goToStep(2);
-        });
-
-        backBtn.addEventListener('click', () => goToStep(1));
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const formData = new FormData(form);
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
-                if (response.ok) {
-                    form.style.display = 'none';
-                    document.querySelector('.form-step-indicator').style.display = 'none';
-                    formSuccess.classList.add('show');
-                    formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                } else {
-                    alert(document.documentElement.lang === 'es'
-                        ? 'Hubo un error. Por favor intenta de nuevo.'
-                        : 'There was an error. Please try again.');
-                }
-            } catch (err) {
-                alert(document.documentElement.lang === 'es'
-                    ? 'Hubo un error de conexión. Por favor intenta de nuevo.'
-                    : 'Connection error. Please try again.');
-            }
-        });
-
+    } catch (err) {
+        alert(document.documentElement.lang === 'es'
+            ? 'Hubo un error de conexión. Por favor intenta de nuevo.'
+            : 'Connection error. Please try again.');
+    }
+});
         // FEEDBACK MODAL
         const modal = document.getElementById('feedbackModal');
         const modalClose = document.getElementById('modalClose');
