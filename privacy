@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — ThriveBreak</title>
+    <meta name="description" content="Privacy Policy for ThriveBreak smart vending services in New Jersey.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://thrivebreak.com/privacy">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f766e'/%3E%3Ctext x='50' y='68' font-size='60' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --teal: #0f766e;
+            --teal-dark: #0d5961;
+            --dark: #0f172a;
+            --gray-dark: #475569;
+            --gray: #64748b;
+            --gray-light: #f1f5f9;
+            --white: #ffffff;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-light);
+        }
+        nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--teal);
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+        .back-link {
+            font-size: 0.9rem;
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover { color: var(--teal); }
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 5rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+        .last-updated {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+        }
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--teal);
+        }
+        p { margin-bottom: 1rem; color: var(--gray-dark); }
+        ul { margin: 0.8rem 0 1.2rem 1.5rem; color: var(--gray-dark); }
+        li { margin-bottom: 0.5rem; }
+        a { color: var(--teal); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .callout {
+            background: #f0fdfa;
+            border-left: 4px solid var(--teal);
+            padding: 1.2rem 1.5rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        .callout strong { color: var(--teal); }
+        footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 2rem 1.5rem;
+            font-size: 0.85rem;
+        }
+        footer a { color: #5eead4; }
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.2rem; }
+            main { padding: 2.5rem 1.2rem 4rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">ThriveBreak</a>
+            <a href="/" class="back-link">← Back to home</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last updated: January 1, 2026</p>
+
+        <p>ThriveBreak  ("ThriveBreak," "we," "us," or "our") respects your privacy. This Privacy Policy explains how we collect, use, share, and protect personal information when you visit <a href="https://thrivebreak.com">thrivebreak.com</a>, contact us, or use our vending services.</p>
+
+        <div class="callout">
+            <strong>Plain English summary:</strong> We only collect what we need to respond to you, send you service updates, and run the machines. We never sell your data. You can ask us to delete your data anytime.
+        </div>
+
+        <h2>1. Information We Collect</h2>
+
+        <h3>Information you provide to us</h3>
+
+        <p>When you fill out a contact form, feedback form, or sign a Location Agreement, we may collect:</p>
+
+        <ul>
+            <li>Your name</li>
+            <li>Your email address</li>
+            <li>Your phone number</li>
+            <li>Your company or organization name</li>
+            <li>Your business address (location of the machine)</li>
+            <li>The type and size of your facility (office, warehouse, number of employees)</li>
+            <li>Any message or feedback you choose to send us</li>
+        </ul>
+
+        <h3>Information collected automatically</h3>
+
+        <p>When you visit our website, we may collect:</p>
+
+        <ul>
+            <li>IP address and approximate geographic location</li>
+            <li>Browser type and version</li>
+            <li>Device type</li>
+            <li>Pages visited and time spent</li>
+            <li>Referring website</li>
+        </ul>
+
+        <h3>Information from the vending machines</h3>
+
+        <p>Our vending machines collect <strong>anonymous transaction data</strong>: what products were purchased, at what price, and at what time. This data is used for inventory forecasting and service reporting.</p>
+
+        <p>We do <strong>not</strong> collect personal identifying information from employees who use the machines. The machine processes card and mobile payments through a PCI-compliant third-party payment processor (see Section 4). We do not store card numbers or payment credentials.</p>
+
+        <h2>2. How We Use Your Information</h2>
+
+        <p>We use the information we collect to:</p>
+
+        <ul>
+            <li>Respond to your inquiries and schedule appointments.</li>
+            <li>Send service reports to Client partners.</li>
+            <li>Process payments and manage the service.</li>
+            <li>Operate, maintain, and forecast inventory for the vending machines.</li>
+            <li>Improve our website, services, and product mix.</li>
+            <li>Comply with legal obligations.</li>
+            <li>Send service-related updates and, if you opt in, occasional marketing communication.</li>
+        </ul>
+
+        <p>We do <strong>not</strong> sell, rent, or trade your personal information to third parties for their own marketing purposes.</p>
+
+        <h2>3. Legal Basis for Processing</h2>
+
+        <p>We process personal data based on:</p>
+
+        <ul>
+            <li><strong>Contract:</strong> To provide the vending services you have agreed to receive.</li>
+            <li><strong>Legitimate interest:</strong> To respond to inquiries, improve our services, and prevent fraud.</li>
+            <li><strong>Consent:</strong> For optional communications such as marketing emails (you can opt out at any time).</li>
+            <li><strong>Legal obligation:</strong> To comply with tax, sales tax, and other applicable laws.</li>
+        </ul>
+
+        <h2>4. Third-Party Service Providers</h2>
+
+        <p>We share data with a limited set of trusted service providers that help us operate the business:</p>
+
+        <ul>
+            <li><strong>Formspree</strong> — processes contact and feedback forms submitted through our website.</li>
+            <li><strong>Cloudinary</strong> — hosts images used on our website.</li>
+            <li><strong>Our hosting provider</strong> — stores the website and database.</li>
+            <li><strong>Our payment processor</strong> — processes card and mobile payments at the vending machine (PCI-compliant).</li>
+            <li><strong>Our email service provider</strong> — sends service notifications and reports to Clients.</li>
+        </ul>
+
+        <p>These providers only access the data necessary to perform their services and are contractually obligated to protect it.</p>
+
+        <h2>5. Cookies and Tracking</h2>
+
+        <p>Our website uses minimal cookies and similar technologies. We may use:</p>
+
+        <ul>
+            <li><strong>Functional cookies</strong> — to remember your language preference (English or Spanish).</li>
+            <li><strong>Analytics cookies</strong> — if we enable website analytics, to understand how visitors use the site.</li>
+        </ul>
+
+        <p>You can disable cookies in your browser settings. Doing so may affect some site functionality (such as language preference).</p>
+
+        <h2>6. Data Retention</h2>
+
+        <p>We retain personal information for as long as necessary to fulfill the purposes described in this policy:</p>
+
+        <ul>
+            <li><strong>Contact form submissions:</strong> up to 24 months, or until you request deletion.</li>
+            <li><strong>Client agreements and service records:</strong> 7 years, as required by tax law.</li>
+            <li><strong>Anonymous machine transaction data:</strong> retained indefinitely for forecasting purposes.</li>
+        </ul>
+
+        <h2>7. Your Rights</h2>
+
+        <p>Depending on your jurisdiction (including New Jersey and, if applicable, California, the EU, or the UK), you may have the right to:</p>
+
+        <ul>
+            <li>Access the personal information we hold about you.</li>
+            <li>Request correction of inaccurate information.</li>
+            <li>Request deletion of your information (subject to legal retention requirements).</li>
+            <li>Object to or restrict certain processing.</li>
+            <li>Opt out of marketing communications at any time.</li>
+            <li>Request a portable copy of your data.</li>
+        </ul>
+
+        <p>To exercise any of these rights, email us at <a href="mailto:hello@thrivebreak.com">hello@thrivebreak.com</a>. We will respond within 30 days.</p>
+
+        <h2>8. Data Security</h2>
+
+        <p>We use reasonable technical and organizational measures to protect personal information, including:</p>
+
+        <ul>
+            <li>HTTPS encryption on our website.</li>
+            <li>Access controls on internal systems.</li>
+            <li>PCI-compliant payment processing (we do not store payment credentials).</li>
+            <li>Regular review of third-party providers.</li>
+        </ul>
+
+        <p>No system is 100% secure. If we become aware of a data breach affecting your personal information, we will notify you as required by law.</p>
+
+        <h2>9. Children's Privacy</h2>
+
+        <p>Our services are intended for businesses, not children. We do not knowingly collect personal information from anyone under the age of 13. If you believe we have collected information from a child, please contact us and we will delete it.</p>
+
+        <h2>10. International Transfers</h2>
+
+        <p>Our operations are based in the United States. If you access our website from outside the US, your information will be transferred to and processed in the US. By using the site, you consent to this transfer.</p>
+
+        <h2>11. Changes to This Policy</h2>
+
+        <p>We may update this Privacy Policy from time to time. The "Last updated" date at the top reflects the most recent version. Material changes will be communicated by email to active Clients and by a notice on this page.</p>
+
+        <h2>12. Contact Us</h2>
+
+        <p>Questions about this Privacy Policy or your personal data?</p>
+
+        <ul>
+            <li>Email: <a href="mailto:hello@thrivebreak.com">hello@thrivebreak.com</a></li>
+            <li>Phone: <a href="tel:9085604646">(908) 560-4646</a></li>
+            <li>Mail: ThriveBreak , Piscataway, New Jersey, USA</li>
+        </ul>
+
+        <p style="margin-top: 3rem; font-size: 0.85rem; color: var(--gray);">
+            <strong>Legal disclaimer:</strong> This document is a template provided for informational purposes. It does not constitute legal advice. ThriveBreak should have this document reviewed by a licensed New Jersey attorney and a privacy professional (especially if serving California or EU residents) before relying on it.
+        </p>
+    </main>
+
+    <footer>
+        <p>© 2026 ThriveBreak . All rights reserved. Piscataway, New Jersey.</p>
+        <p style="margin-top: 0.5rem;"><a href="/">Home</a> · <a href="/terms">Terms</a> · <a href="/accessibility">Accessibility</a></p>
+    </footer>
+</body>
+</html>
