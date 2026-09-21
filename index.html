@@ -2708,6 +2708,23 @@ form.addEventListener('submit', async (e) => {
         const feedbackTypeBtns = document.querySelectorAll('.feedback-type-btn');
         const feedbackTriggers = document.querySelectorAll('.feedback-trigger');
 
+        const contactFabMain = document.getElementById('contactFabMain');
+const contactFabMenu = document.getElementById('contactFabMenu');
+
+if (contactFabMain && contactFabMenu) {
+    contactFabMain.addEventListener('click', () => {
+        const isOpen = contactFabMenu.classList.toggle('open');
+        contactFabMain.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    // Cerrar al hacer click fuera
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.contact-fab-container')) {
+            contactFabMenu.classList.remove('open');
+            contactFabMain.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
         function openModal(presetType) {
             modal.classList.add('open');
             document.body.style.overflow = 'hidden';
