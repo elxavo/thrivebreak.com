@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThriveBreak - Contract Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --teal: #0f766e;
+            --teal-dark: #0d5961;
+            --teal-light: #f0fdfa;
+            --dark: #0f172a;
+            --gray-dark: #475569;
+            --gray: #64748b;
+            --gray-light: #f1f5f9;
+            --white: #ffffff;
+            --green: #059669;
+            --green-light: #ecfdf5;
+            --amber: #d97706;
+            --amber-light: #fffbeb;
+            --red: #dc2626;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.5;
+            color: var(--dark);
+            background: var(--gray-light);
+            -webkit-font-smoothing: antialiased;
+            padding: 2rem 1rem;
+        }
+
+        /* ===== FORM PANEL ===== */
+        .form-panel {
+            max-width: 850px;
+            margin: 0 auto 2rem;
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-panel h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--teal-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .form-panel .subtitle {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-grid .full { grid-column: 1 / -1; }
+
+        .form-group label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray-dark);
+            margin-bottom: 0.35rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.65rem 0.85rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-family: inherit;
+            background: var(--white);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 70px;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.85rem 1.6rem;
+            border: none;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--teal);
+            color: var(--white);
+            flex: 1;
+        }
+
+        .btn-primary:hover {
+            background: var(--teal-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(15, 118, 110, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--gray-light);
+            color: var(--gray-dark);
+        }
+
+        .btn-secondary:hover { background: #e2e8f0; }
+
+        .hint {
+            font-size: 0.78rem;
+            color: var(--gray);
+            margin-top: 0.8rem;
+            text-align: center;
+        }
+
+        /* ===== CONTRACT PREVIEW ===== */
+        .page {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            color: var(--white);
+            padding: 2.5rem 3rem;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-mark {
+            display: inline-block;
+            background: var(--white);
+            color: var(--teal);
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            text-align: center;
+            line-height: 36px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-right: 0.6rem;
+            vertical-align: middle;
+        }
+
+        .doc-type {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.85;
+            text-align: right;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 0.75rem;
+        }
+
+        .header-subtitle {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        .meta {
+            background: var(--teal-light);
+            padding: 1.2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            font-size: 0.85rem;
+            color: var(--gray-dark);
+            border-bottom: 1px solid rgba(15, 118, 110, 0.15);
+        }
+
+        .meta-item strong {
+            color: var(--teal-dark);
+            font-weight: 700;
+        }
+
+        .content { padding: 2.5rem 3rem; }
+
+        .section { margin-bottom: 2.2rem; }
+
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.3px;
+        }
+
+        h3 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--teal-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.6rem;
+        }
+
+        .section-intro {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.3rem;
+            line-height: 1.6;
+        }
+
+        .callout {
+            background: var(--amber-light);
+            border-left: 4px solid var(--amber);
+            border-radius: 8px;
+            padding: 1.4rem 1.7rem;
+            margin-bottom: 2rem;
+        }
+
+        .callout h3 {
+            color: var(--amber);
+            margin-bottom: 0.5rem;
+        }
+
+        .callout p {
+            color: var(--gray-dark);
+            font-size: 0.92rem;
+            line-height: 1.65;
+        }
+
+        .callout strong { color: var(--dark); }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+            font-size: 0.88rem;
+        }
+
+        thead {
+            background: var(--teal);
+            color: var(--white);
+        }
+
+        thead th {
+            padding: 0.85rem 1rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        thead th:not(:first-child) { text-align: right; }
+
+        tbody tr { border-bottom: 1px solid var(--gray-light); }
+        tbody tr:last-child { border-bottom: none; }
+        tbody tr:nth-child(even) { background: #fafbfc; }
+
+        tbody td {
+            padding: 0.7rem 1rem;
+            color: var(--gray-dark);
+        }
+
+        tbody td:first-child {
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        tbody td:not(:first-child) {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .terms-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .terms-list li {
+            position: relative;
+            padding: 0.55rem 0 0.55rem 1.8rem;
+            color: var(--gray-dark);
+            font-size: 0.92rem;
+            line-height: 1.6;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .terms-list li:last-child { border-bottom: none; }
+
+        .terms-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0.55rem;
+            color: var(--teal);
+            font-weight: 800;
+            font-size: 0.95rem;
+        }
+
+        .terms-list li strong { color: var(--dark); }
+
+        .signature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+            page-break-inside: avoid;
+        }
+
+        .sig-block {
+            border-top: 1.5px solid var(--dark);
+            padding-top: 0.6rem;
+        }
+
+        .sig-block .sig-line {
+            height: 40px;
+        }
+
+        .sig-block .sig-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray-dark);
+            margin-bottom: 0.2rem;
+        }
+
+        .sig-block .sig-name {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .promise {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            color: var(--white);
+            border-radius: 10px;
+            padding: 1.6rem 1.8rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .promise p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .promise strong { font-weight: 800; }
+
+        .contact {
+            border-top: 1px solid var(--gray-light);
+            padding-top: 1.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-info h3 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 0.2rem;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .contact-info .role {
+            color: var(--teal);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.7rem;
+        }
+
+        .contact-info ul { list-style: none; }
+        .contact-info li {
+            font-size: 0.88rem;
+            color: var(--gray-dark);
+            padding: 0.15rem 0;
+        }
+        .contact-info a {
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-mark { text-align: right; }
+        .footer-mark .logo {
+            color: var(--teal);
+            font-size: 1.3rem;
+            margin-bottom: 0.2rem;
+        }
+        .footer-mark p {
+            font-size: 0.72rem;
+            color: var(--gray);
+            font-style: italic;
+        }
+
+        /* Hide fields that are empty */
+        [data-empty="true"] { display: none !important; }
+
+        /* ===== PRINT ===== */
+        @media print {
+            body {
+                background: var(--white);
+                padding: 0;
+                font-size: 11px;
+            }
+
+            .form-panel { display: none !important; }
+
+            .page {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: 100%;
+            }
+
+            .header {
+                padding: 1.2rem 1.8rem;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .header h1 { font-size: 1.5rem; margin-bottom: 0.4rem; }
+            .header-subtitle { font-size: 0.85rem; line-height: 1.4; }
+            .header-top { margin-bottom: 0.8rem; }
+            .logo { font-size: 1.2rem; }
+            .logo-mark { width: 28px; height: 28px; line-height: 28px; font-size: 1rem; }
+            .doc-type { font-size: 0.7rem; }
+
+            .meta { padding: 0.6rem 1.8rem; font-size: 0.75rem; }
+            .content { padding: 1.2rem 1.8rem; }
+            .section { margin-bottom: 1rem; }
+
+            h2 { font-size: 1.1rem; margin-bottom: 0.3rem; }
+            h3 { font-size: 0.85rem; }
+            .section-intro { font-size: 0.8rem; margin-bottom: 0.8rem; }
+
+            table { font-size: 0.75rem; margin-bottom: 0.8rem; }
+            thead th { padding: 0.4rem 0.6rem; font-size: 0.7rem; }
+            tbody td { padding: 0.35rem 0.6rem; }
+
+            .callout { padding: 0.8rem 1rem; margin-bottom: 1rem; }
+            .callout p { font-size: 0.8rem; line-height: 1.4; }
+
+            .terms-list li { font-size: 0.78rem; padding: 0.3rem 0 0.3rem 1.4rem; }
+            .terms-list li::before { top: 0.3rem; }
+
+            .promise {
+                padding: 0.9rem 1rem;
+                margin: 1rem 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .promise p { font-size: 0.78rem; line-height: 1.4; }
+
+            .signature-grid { gap: 1.5rem; margin-top: 1.5rem; }
+            .sig-block .sig-line { height: 30px; }
+
+            .contact { padding-top: 0.9rem; }
+            .contact-info h3 { font-size: 0.85rem; }
+            .contact-info .role { font-size: 0.75rem; margin-bottom: 0.4rem; }
+            .contact-info li { font-size: 0.75rem; }
+            .footer-mark .logo { font-size: 1rem; }
+            .footer-mark p { font-size: 0.65rem; }
+
+            .section, table, .terms-list li, .signature-grid, .promise {
+                page-break-inside: avoid;
+            }
+            tr, td, th { page-break-inside: avoid; }
+
+            @page { margin: 0.3in; size: letter; }
+        }
+
+        @media (max-width: 768px) {
+            .form-grid { grid-template-columns: 1fr; }
+            .header { padding: 1.5rem 1.5rem; }
+            .header h1 { font-size: 1.5rem; }
+            .content { padding: 1.5rem; }
+            .meta { padding: 1rem 1.5rem; flex-direction: column; }
+            .signature-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .contact { flex-direction: column; align-items: flex-start; }
+            .footer-mark { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============ FORM PANEL ============ -->
+<div class="form-panel">
+    <h1>Contract Generator</h1>
+    <p class="subtitle">Fill in the fields below. The preview updates live. Then click <strong>Download PDF</strong> to print or save.</p>
+
+    <form id="contractForm" autocomplete="off">
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="facilityName">Facility Name *</label>
+                <input type="text" id="facilityName" required placeholder="Walther Electric Corp.">
+            </div>
+
+            <div class="form-group">
+                <label for="facilityAddress">Facility Address</label>
+                <input type="text" id="facilityAddress" placeholder="123 Main St, Piscataway, NJ 08854">
+            </div>
+
+            <div class="form-group">
+                <label for="contactName">Facility Contact Name</label>
+                <input type="text" id="contactName" placeholder="Jane Doe">
+            </div>
+
+            <div class="form-group">
+                <label for="contactRole">Contact Role</label>
+                <input type="text" id="contactRole" placeholder="HR Manager">
+            </div>
+
+            <div class="form-group">
+                <label for="startDate">Agreement Start Date</label>
+                <input type="date" id="startDate">
+            </div>
+
+            <div class="form-group">
+                <label for="endDate">Agreement End Date</label>
+                <input type="date" id="endDate">
+            </div>
+
+            <div class="form-group">
+                <label for="machineCount">Number of Machines *</label>
+                <input type="number" id="machineCount" min="1" value="1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="locationsCount">Number of Locations *</label>
+                <input type="number" id="locationsCount" min="1" value="1" required>
+            </div>
+
+            <div class="form-group full">
+                <label for="locationsList">Locations (one per line)</label>
+                <textarea id="locationsList" placeholder="Piscataway, NJ - HQ&#10;Newark, NJ - Warehouse&#10;Edison, NJ - Office"></textarea>
+            </div>
+
+            <div class="form-group full">
+                <label for="extraNotes">Additional Notes (optional)</label>
+                <textarea id="extraNotes" placeholder="Any special terms, product preferences, or notes to include in the contract."></textarea>
+            </div>
+        </div>
+
+        <div class="btn-row">
+            <button type="button" class="btn btn-primary" id="downloadPdf">Download PDF →</button>
+            <button type="button" class="btn btn-secondary" id="resetForm">Reset</button>
+        </div>
+        <p class="hint">In the print dialog, choose <strong>"Save as PDF"</strong> as the destination.</p>
+    </form>
+</div>
+
+<!-- ============ CONTRACT PREVIEW ============ -->
+<div class="page" id="contractPreview">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-top">
+            <div class="logo">
+                <span class="logo-mark">T</span>ThriveBreak
+            </div>
+            <div class="doc-type">
+                Service Agreement<br>Smart Vending
+            </div>
+        </div>
+        <h1>Smart Vending Service Agreement</h1>
+        <p class="header-subtitle">
+            This agreement is entered into between ThriveBreak LLC and the Facility named below,
+            for the installation and servicing of smart vending equipment at no cost to the Facility.
+        </p>
+    </div>
+
+    <!-- META -->
+    <div class="meta">
+        <div class="meta-item">Facility: <strong id="metaFacility">—</strong></div>
+        <div class="meta-item">Prepared by: <strong>Josue Figueroa, Founder</strong></div>
+        <div class="meta-item">Date: <strong id="metaDate">—</strong></div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <!-- PARTIES -->
+        <div class="section">
+            <h2>1. Parties</h2>
+            <p class="section-intro">
+                This Service Agreement ("Agreement") is made and entered into as of the Start Date below,
+                by and between <strong>ThriveBreak LLC</strong>, a New Jersey limited liability company
+                ("ThriveBreak"), and the Facility identified in the Meta section above ("Facility").
+            </p>
+        </div>
+
+        <!-- TERM -->
+        <div class="section" id="termSection">
+            <h2>2. Term</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Agreement Start Date</td><td id="tblStartDate">—</td></tr>
+                    <tr><td>Agreement End Date</td><td id="tblEndDate">—</td></tr>
+                    <tr><td>Number of Machines</td><td id="tblMachines">—</td></tr>
+                    <tr><td>Number of Locations</td><td id="tblLocations">—</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- LOCATIONS -->
+        <div class="section" id="locationsSection">
+            <h2>3. Locations Covered</h2>
+            <p class="section-intro">The following locations are covered under this Agreement:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody id="locationsTableBody">
+                    <tr><td>1</td><td>—</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- WHAT THRIVEBREAK COVERS -->
+        <div class="section">
+            <h2>4. What ThriveBreak Covers</h2>
+            <p class="section-intro">At no cost to the Facility, ThriveBreak provides and maintains:</p>
+            <ul class="terms-list">
+                <li><strong>Brand new smart vending machine(s)</strong> — never refurbished or used.</li>
+                <li><strong>All snacks and beverages</strong> — sourced, stocked, and priced fairly.</li>
+                <li><strong>Weekly restocking, cleaning, and sanitization</strong> of each machine.</li>
+                <li><strong>Maintenance and 24-hour local NJ support</strong> for any operational issue.</li>
+                <li><strong>Electricity credit</strong> — $25/month fixed credit for Founding Clients.</li>
+                <li><strong>Insurance and liability coverage</strong> for the equipment and products.</li>
+                <li><strong>Sales tax collection and remittance</strong> on all transactions.</li>
+            </ul>
+        </div>
+
+        <!-- WHAT FACILITY PROVIDES -->
+        <div class="section">
+            <h2>5. What the Facility Provides</h2>
+            <p class="section-intro">The Facility agrees to provide only the following:</p>
+            <ul class="terms-list">
+                <li><strong>A 23" × 27" footprint of floor space</strong> per machine, accessible to employees.</li>
+                <li><strong>A standard 120V electrical outlet</strong> near each machine location.</li>
+                <li><strong>Reasonable access</strong> for installation, weekly service, and emergency repairs.</li>
+            </ul>
+        </div>
+
+        <!-- PROMO -->
+        <div class="callout">
+            <h3>Grand Opening Week — 50% Off</h3>
+            <p>
+                During the first <strong>7 days</strong> following installation at each location,
+                all items are discounted <strong>50%</strong>. The discount is funded entirely by
+                ThriveBreak. After the 7-day period, standard pricing applies.
+            </p>
+        </div>
+
+        <!-- SERVICE GUARANTEE -->
+        <div class="section">
+            <h2>6. Service Guarantee</h2>
+            <ul class="terms-list">
+                <li><strong>24-hour response</strong> for any machine malfunction. If we miss the 24-hour SLA, the Facility's team receives 2 weeks of free premium snacks.</li>
+                <li><strong>Uptime monitoring</strong> through remote diagnostics and cloud inventory tracking.</li>
+                <li><strong>Founding Client electricity credit</strong> of $25/month, locked in for the life of this Agreement.</li>
+            </ul>
+        </div>
+
+        <!-- CANCELLATION -->
+        <div class="section">
+            <h2>7. Cancellation</h2>
+            <p class="section-intro">
+                Either party may cancel this Agreement with <strong>30 days written notice</strong>.
+                There are no penalties, no long-term lock-in, and no cancellation fees.
+                Upon cancellation, ThriveBreak will remove the machine(s) at its own cost.
+            </p>
+        </div>
+
+        <!-- NOTES -->
+        <div class="section" id="notesSection">
+            <h2>8. Additional Notes</h2>
+            <p class="section-intro" id="notesBody">—</p>
+        </div>
+
+        <!-- PROMISE -->
+        <div class="promise">
+            <p>
+                <strong>Our promise:</strong> No hidden fees. No airport markups.<br>
+                Just fair, honest pricing for the people who keep your business running.
+            </p>
+        </div>
+
+        <!-- SIGNATURES -->
+        <div class="signature-grid">
+            <div class="sig-block">
+                <div class="sig-label">For ThriveBreak LLC</div>
+                <div class="sig-line"></div>
+                <div class="sig-name">Josue Figueroa — Founder</div>
+            </div>
+            <div class="sig-block">
+                <div class="sig-label">For the Facility</div>
+                <div class="sig-line"></div>
+                <div class="sig-name" id="sigFacilityName">—</div>
+            </div>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="contact">
+            <div class="contact-info">
+                <h3>Josue Figueroa</h3>
+                <div class="role">Founder, ThriveBreak</div>
+                <ul>
+                    <li>📞 <a href="tel:9085604646">(908) 560-4646</a></li>
+                    <li>✉️ <a href="mailto:jfigueroa@thrivebreak.com">jfigueroa@thrivebreak.com</a></li>
+                    <li>📍 Piscataway, NJ</li>
+                </ul>
+            </div>
+            <div class="footer-mark">
+                <div class="logo">ThriveBreak</div>
+                <p>Your break room. Their benefit.<br>Zero cost.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // ====== ELEMENT REFERENCES ======
+    const fields = {
+        facilityName: document.getElementById('facilityName'),
+        facilityAddress: document.getElementById('facilityAddress'),
+        contactName: document.getElementById('contactName'),
+        contactRole: document.getElementById('contactRole'),
+        startDate: document.getElementById('startDate'),
+        endDate: document.getElementById('endDate'),
+        machineCount: document.getElementById('machineCount'),
+        locationsCount: document.getElementById('locationsCount'),
+        locationsList: document.getElementById('locationsList'),
+        extraNotes: document.getElementById('extraNotes')
+    };
+
+    const out = {
+        metaFacility: document.getElementById('metaFacility'),
+        metaDate: document.getElementById('metaDate'),
+        tblStartDate: document.getElementById('tblStartDate'),
+        tblEndDate: document.getElementById('tblEndDate'),
+        tblMachines: document.getElementById('tblMachines'),
+        tblLocations: document.getElementById('tblLocations'),
+        locationsTableBody: document.getElementById('locationsTableBody'),
+        notesBody: document.getElementById('notesBody'),
+        notesSection: document.getElementById('notesSection'),
+        locationsSection: document.getElementById('locationsSection'),
+        sigFacilityName: document.getElementById('sigFacilityName')
+    };
+
+    // ====== HELPERS ======
+    function fmtDate(value) {
+        if (!value) return '—';
+        const d = new Date(value + 'T00:00:00');
+        return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    function todayLong() {
+        return new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    function setText(el, val, fallback = '—') {
+        el.textContent = val && val.trim() ? val.trim() : fallback;
+    }
+
+    function toggleEmpty(el, isEmpty) {
+        el.setAttribute('data-empty', isEmpty ? 'true' : 'false');
+    }
+
+    // ====== RENDER ======
+    function render() {
+        // Meta
+        setText(out.metaFacility, fields.facilityName.value);
+        out.metaDate.textContent = todayLong();
+
+        // Term table
+        out.tblStartDate.textContent = fmtDate(fields.startDate.value);
+        out.tblEndDate.textContent = fmtDate(fields.endDate.value);
+        out.tblMachines.textContent = fields.machineCount.value || '1';
+        out.tblLocations.textContent = fields.locationsCount.value || '1';
+
+        // Signature
+        setText(out.sigFacilityName, fields.facilityName.value, 'Facility Representative');
+
+        // Locations table
+        const lines = fields.locationsList.value
+            .split('\n')
+            .map(l => l.trim())
+            .filter(l => l.length > 0);
+
+        if (lines.length === 0) {
+            // fallback: use facility name if provided
+            const fallback = fields.facilityName.value.trim();
+            if (fallback) {
+                out.locationsTableBody.innerHTML = `<tr><td>1</td><td>${escapeHtml(fallback)}</td></tr>`;
+                toggleEmpty(out.locationsSection, false);
+            } else {
+                out.locationsTableBody.innerHTML = `<tr><td>1</td><td>—</td></tr>`;
+                toggleEmpty(out.locationsSection, true);
+            }
+        } else {
+            out.locationsTableBody.innerHTML = lines
+                .map((loc, i) => `<tr><td>${i + 1}</td><td>${escapeHtml(loc)}</td></tr>`)
+                .join('');
+            toggleEmpty(out.locationsSection, false);
+        }
+
+        // Notes
+        const notes = fields.extraNotes.value.trim();
+        if (notes) {
+            out.notesBody.textContent = notes;
+            toggleEmpty(out.notesSection, false);
+        } else {
+            toggleEmpty(out.notesSection, true);
+        }
+    }
+
+    function escapeHtml(str) {
+        return str.replace(/[&<>"']/g, s => ({
+            '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+        })[s]);
+    }
+
+    // ====== EVENTS ======
+    Object.values(fields).forEach(el => {
+        el.addEventListener('input', render);
+        el.addEventListener('change', render);
+    });
+
+    // Download PDF → opens browser print dialog
+    document.getElementById('downloadPdf').addEventListener('click', () => {
+        // Basic validation
+        if (!fields.facilityName.value.trim()) {
+            alert('Please enter the Facility Name before generating the PDF.');
+            fields.facilityName.focus();
+            return;
+        }
+        window.print();
+    });
+
+    // Reset
+    document.getElementById('resetForm').addEventListener('click', () => {
+        if (!confirm('Clear all fields?')) return;
+        document.getElementById('contractForm').reset();
+        render();
+    });
+
+    // Initial render
+    render();
+</script>
+
+</body>
+</html>
