@@ -360,24 +360,17 @@
         }
 
         .sig-field .sig-field-value {
-            border-bottom: 1.5px solid var(--dark);
-            min-height: 32px;
+            min-height: 24px;
             padding-bottom: 0.15rem;
             font-size: 0.88rem;
             font-weight: 600;
             color: var(--dark);
         }
 
-        /* Signature line: SHORTER and no extra lines above */
-        .sig-field .sig-field-value.sig-short {
-            width: 70%;
-        }
-
-        .sig-field .sig-field-value.empty {
-            min-height: 40px;
-        }
-
-        .sig-field .sig-field-value.empty.sig-short {
+        /* Only Signature and Date get a line */
+        .sig-field .sig-field-value.sig-line {
+            border-bottom: 1.5px solid var(--dark);
+            min-height: 38px;
             width: 70%;
         }
 
@@ -497,12 +490,13 @@
             .sig-field { margin-bottom: 0.75rem; }
             .sig-field .sig-field-label { font-size: 0.63rem; }
             .sig-field .sig-field-value {
-                min-height: 36px;
+                min-height: 22px;
                 font-size: 0.82rem;
             }
-            .sig-field .sig-field-value.sig-short { width: 70%; }
-            .sig-field .sig-field-value.empty { min-height: 44px; }
-            .sig-field .sig-field-value.empty.sig-short { width: 70%; }
+            .sig-field .sig-field-value.sig-line {
+                min-height: 44px;
+                width: 70%;
+            }
 
             .contact { padding-top: 0.9rem; margin-top: 1rem; }
             .contact-info h3 { font-size: 0.82rem; }
@@ -879,11 +873,11 @@
                     </div>
                     <div class="sig-field">
                         <span class="sig-field-label">Signature</span>
-                        <div class="sig-field-value empty sig-short"></div>
+                        <div class="sig-field-value sig-line"></div>
                     </div>
                     <div class="sig-field">
                         <span class="sig-field-label">Date</span>
-                        <div class="sig-field-value empty sig-short"></div>
+                        <div class="sig-field-value sig-line"></div>
                     </div>
                 </div>
 
@@ -899,12 +893,13 @@
                     </div>
                     <div class="sig-field">
                         <span class="sig-field-label">Signature</span>
-                        <div class="sig-field-value empty sig-short"></div>
+                        <div class="sig-field-value sig-line"></div>
                     </div>
                     <div class="sig-field">
                         <span class="sig-field-label">Date</span>
-                        <div class="sig-field-value empty sig-short"></div>
+                        <div class="sig-field-value sig-line"></div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
