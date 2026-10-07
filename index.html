@@ -1819,7 +1819,220 @@
             font-size: 0.9rem;
             line-height: 1.5;
         }
+        /* ===== PRICE LIST SECTION ===== */
+        .pricing-section {
+            background: linear-gradient(135deg, var(--teal-light) 0%, #ccfbf1 100%);
+        }
 
+        .pricing-wrapper {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .pricing-header {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            color: var(--white);
+            padding: 2rem 2.5rem;
+        }
+
+        .pricing-header h2 {
+            color: var(--white);
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-header p {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .pricing-body {
+            padding: 2rem 2.5rem;
+        }
+
+        .price-table-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--teal-dark);
+            margin-bottom: 0.8rem;
+            margin-top: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .price-table-title:first-child { margin-top: 0; }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .price-table thead {
+            background: var(--teal);
+            color: var(--white);
+        }
+
+        .price-table thead th {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .price-table thead th:not(:first-child) { text-align: right; }
+
+        .price-table tbody tr {
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .price-table tbody tr:last-child { border-bottom: none; }
+        .price-table tbody tr:nth-child(even) { background: #fafbfc; }
+
+        .price-table tbody td {
+            padding: 0.65rem 1rem;
+            color: var(--gray-dark);
+        }
+
+        .price-table tbody td:first-child {
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .price-table tbody td:not(:first-child) {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+        /* Highlight column for launch promo */
+        .price-table thead th.promo-col {
+            background: var(--amber);
+            color: var(--white);
+        }
+
+        .price-table tbody td.promo-col {
+            background: var(--amber-light);
+            font-weight: 800;
+            color: var(--amber);
+            font-size: 0.95rem;
+        }
+
+        .price-table tbody tr:nth-child(even) td.promo-col {
+            background: #fef3c7;
+        }
+
+        .promo-pill {
+            display: inline-block;
+            background: var(--amber);
+            color: var(--white);
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 0.15rem 0.45rem;
+            border-radius: 999px;
+            letter-spacing: 0.5px;
+            margin-left: 0.4rem;
+            vertical-align: middle;
+        }
+
+        @media (max-width: 768px) {
+            .price-table tbody td.promo-col,
+            .price-table .price { font-size: 0.8rem; }
+        }
+        .price-table .price {
+            font-weight: 800;
+            color: var(--teal);
+            font-size: 0.95rem;
+        }
+
+        .price-savings-badge {
+            display: inline-block;
+            background: var(--green-light);
+            color: var(--green);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.15rem 0.5rem;
+            border-radius: 999px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+
+        .benefit-grid-web {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .benefit-card-web {
+            background: var(--teal-light);
+            border-radius: 10px;
+            padding: 1.2rem 1.3rem;
+            border-left: 3px solid var(--teal);
+        }
+
+        .benefit-card-web .label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray);
+            margin-bottom: 0.4rem;
+        }
+
+        .benefit-card-web .value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--teal);
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+        }
+
+        .benefit-card-web .note {
+            font-size: 0.78rem;
+            color: var(--gray-dark);
+            margin-top: 0.3rem;
+        }
+
+        .pricing-callout {
+            background: var(--amber-light);
+            border-left: 4px solid var(--amber);
+            border-radius: 8px;
+            padding: 1.2rem 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .pricing-callout h4 {
+            color: var(--amber);
+            font-size: 0.95rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.4rem;
+        }
+
+        .pricing-callout p {
+            color: var(--gray-dark);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .pricing-callout strong { color: var(--dark); }
+
+        @media (max-width: 768px) {
+            .pricing-header { padding: 1.5rem 1.5rem; }
+            .pricing-body { padding: 1.5rem; }
+            .price-table { font-size: 0.8rem; }
+            .price-table thead th,
+            .price-table tbody td { padding: 0.55rem 0.6rem; }
+            .benefit-grid-web { grid-template-columns: 1fr 1fr; }
+        }
         @media (max-width: 900px) {
             .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
             .hero-content { text-align: center; }
@@ -1897,6 +2110,7 @@
             <div class="nav-links">
                 <a href="#how" class="nav-link" data-en="How it works" data-es="Cómo funciona">How it works</a>
                 <a href="#products" class="nav-link" data-en="Products" data-es="Productos">Products</a>
+                <a href="#pricing" class="nav-link" data-en="Prices" data-es="Precios">Prices</a>
                 <a href="#faq" class="nav-link" data-en="FAQ" data-es="Preguntas">FAQ</a>
                 <div class="lang-toggle" role="group" aria-label="Language">
                     <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
@@ -2280,7 +2494,113 @@
 
             </div>
     </section>
+    <!-- Price List Section -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <div class="pricing-wrapper">
+                <div class="pricing-header">
+                    <h2 data-en="Fair Prices for Your Team" data-es="Precios Justos para Tu Equipo">Fair Prices for Your Team</h2>
+                    <p data-en="Because your employees deserve a break room that respects their time and their wallet. Here's exactly what they'll pay — and how much they save compared to Market Average." data-es="Porque tus empleados merecen una sala de descanso que respete su tiempo y su bolsillo. Aquí está exactamente lo que pagarán — y cuánto ahorran comparado con el promedio del mercado.">Because your employees deserve a break room that respects their time and their wallet. Here's exactly what they'll pay — and how much they save compared to Market Average.</p>
+                </div>
 
+                <div class="pricing-body">
+                    <div class="pricing-callout" style="margin-top: 0; margin-bottom: 1.5rem;">
+                        <h4 data-en="Why our prices are different" data-es="Por qué nuestros precios son diferentes">Why our prices are different</h4>
+                        <p data-en="We don't believe in airport pricing. Our snacks are priced for the people who buy them every day — not for one-time convenience. And during your team's first 7 days, we fund a 50% discount on everything." data-es="No creemos en precios de aeropuerto. Nuestros snacks tienen precios para las personas que los compran todos los días — no para conveniencia de una sola vez. Y durante los primeros 7 días de tu equipo, financiamos un 50% de descuento en todo.">We don't believe in airport pricing. Our snacks are priced for the people who buy them every day — not for one-time convenience. <strong>And during your team's first 7 days, we fund a 50% discount on everything.</strong></p>
+                    </div>
+
+                    <div class="price-table-title" data-en="Snacks — Traditional" data-es="Snacks — Tradicional">Snacks — Traditional</div>
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th data-en="Product" data-es="Producto">Product</th>
+                                <th data-en="Our Price" data-es="Nuestro Precio">Our Price</th>
+                                <th data-en="Launch Week" data-es="Semana de Apertura">Launch Week <span class="promo-pill">-50%</span></th>
+                                <th data-en="Market Average" data-es="Promedio Mercado">Market Average</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Doritos</td><td class="price">$1.75</td><td class="promo-col">$0.88</td><td>$2.00 – $2.25</td></tr>
+                            <tr><td>Cheetos</td><td class="price">$1.75</td><td class="promo-col">$0.88</td><td>$2.00 – $2.25</td></tr>
+                            <tr><td>Lay's Chips</td><td class="price">$1.75</td><td class="promo-col">$0.88</td><td>$2.00 – $2.25</td></tr>
+                            <tr><td>Pretzels</td><td class="price">$1.75</td><td class="promo-col">$0.88</td><td>$2.00 – $2.25</td></tr>
+                            <tr><td>Snickers</td><td class="price">$1.99</td><td class="promo-col">$1.00</td><td>$2.25 – $2.50</td></tr>
+                            <tr><td>Reese's Cups</td><td class="price">$1.99</td><td class="promo-col">$1.00</td><td>$2.25 – $2.50</td></tr>
+                            <tr><td>Baked Chips</td><td class="price">$1.99</td><td class="promo-col">$1.00</td><td>$2.25 – $2.50</td></tr>
+                            <tr><td>Granola Bars</td><td class="price">$2.25</td><td class="promo-col">$1.13</td><td>$2.50 – $2.75</td></tr>
+                        </tbody>
+                    </table>
+
+                    <div class="price-table-title" data-en="Snacks — Healthy Options" data-es="Snacks — Opciones Saludables">Snacks — Healthy Options</div>
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th data-en="Product" data-es="Producto">Product</th>
+                                <th data-en="Our Price" data-es="Nuestro Precio">Our Price</th>
+                                <th data-en="Launch Week" data-es="Semana de Apertura">Launch Week <span class="promo-pill">-50%</span></th>
+                                <th data-en="Market Average" data-es="Promedio Mercado">Market Average</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Protein Bars</td><td class="price">$2.79</td><td class="promo-col">$1.40</td><td>$3.00 – $3.25</td></tr>
+                            <tr><td>Mixed Nuts</td><td class="price">$2.79</td><td class="promo-col">$1.40</td><td>$3.00 – $3.25</td></tr>
+                            <tr><td>Beef Jerky</td><td class="price">$3.29</td><td class="promo-col">$1.65</td><td>$3.50 – $4.00</td></tr>
+                        </tbody>
+                    </table>
+
+                    <div class="price-table-title" data-en="Beverages" data-es="Bebidas">Beverages</div>
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th data-en="Product" data-es="Producto">Product</th>
+                                <th data-en="Our Price" data-es="Nuestro Precio">Our Price</th>
+                                <th data-en="Launch Week" data-es="Semana de Apertura">Launch Week <span class="promo-pill">-50%</span></th>
+                                <th data-en="Market Average" data-es="Promedio Mercado">Market Average</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Bottled Water (20 oz)</td><td class="price">$1.75</td><td class="promo-col">$0.88</td><td>$2.00 – $2.50</td></tr>
+                            <tr><td>Soda (12 oz can)</td><td class="price">$1.49</td><td class="promo-col">$0.75</td><td>$1.75 – $2.00</td></tr>
+                            <tr><td>Sports Drinks</td><td class="price">$2.29</td><td class="promo-col">$1.15</td><td>$2.50 – $2.75</td></tr>
+                            <tr><td>Energy Drinks</td><td class="price">$3.79</td><td class="promo-col">$1.90</td><td>$4.00 – $4.50</td></tr>
+                            <tr><td>Cold Brew Coffee</td><td class="price">$3.99</td><td class="promo-col">$2.00</td><td>$4.25 – $4.75</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3 style="font-size: 1.15rem; margin: 2rem 0 0.3rem; color: var(--dark); font-weight: 800;" data-en="The Employee Benefit at a Glance" data-es="El Beneficio para el Empleado de un Vistazo">The Employee Benefit at a Glance</h3>
+                    <p style="color: var(--gray); font-size: 0.9rem; margin-bottom: 1rem;" data-en="Real savings, real impact — no marketing spin." data-es="Ahorros reales, impacto real — sin marketing.">Real savings, real impact — no marketing spin.</p>
+
+                    <div class="benefit-grid-web">
+                        <div class="benefit-card-web">
+                            <div class="label" data-en="Average savings" data-es="Ahorro promedio">Average savings</div>
+                            <div class="value">10–25%</div>
+                            <div class="note" data-en="Lower than Market Average" data-es="Menor al promedio del mercado">Lower than Market Average</div>
+                        </div>
+                        <div class="benefit-card-web">
+                            <div class="label" data-en="Average ticket" data-es="Ticket promedio">Average ticket</div>
+                            <div class="value">$2.25</div>
+                            <div class="note" data-en="vs. $2.50 at competitors" data-es="vs. $2.50 en competidores">vs. $2.50 at competitors</div>
+                        </div>
+                        <div class="benefit-card-web">
+                            <div class="label" data-en="Monthly savings / employee" data-es="Ahorro mensual / empleado">Monthly savings / employee</div>
+                            <div class="value">~$3.50</div>
+                            <div class="note" data-en="Based on 14 purchases/month" data-es="Basado en 14 compras/mes">Based on 14 purchases/month</div>
+                        </div>
+                        <div class="benefit-card-web">
+                            <div class="label" data-en="Annual savings / employee" data-es="Ahorro anual / empleado">Annual savings / employee</div>
+                            <div class="value">~$42</div>
+                            <div class="note" data-en="Simple math, real dollars" data-es="Matemática simple, dólares reales">Simple math, real dollars</div>
+                        </div>
+                    </div>
+
+                    <div class="pricing-callout">
+                        <h4 data-en="For a team of 75 employees" data-es="Para un equipo de 75 empleados">For a team of 75 employees</h4>
+                        <p data-en="Your team saves approximately $3,150 per year collectively. That's $3,150 that stays in their pockets instead of going to a vending operator." data-es="Tu equipo ahorra aproximadamente $3,150 por año colectivamente. Eso es $3,150 que se queda en sus bolsillos en lugar de ir a un operador de vending.">Your team saves approximately <strong>$3,150 per year</strong> collectively. That's $3,150 that stays in their pockets instead of going to a vending operator.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- FAQ -->
     <section class="faq" id="faq">
         <div class="container">
@@ -2543,6 +2863,7 @@
                 <ul>
                     <li><a href="#how" data-en="How it works" data-es="Cómo funciona">How it works</a></li>
                     <li><a href="#products" data-en="What's inside" data-es="Qué hay dentro">What's inside</a></li>
+                    <li><a href="#pricing" data-en="Price list" data-es="Lista de precios">Price list</a></li>
                     <li><a href="#faq" data-en="FAQ" data-es="Preguntas">FAQ</a></li>
                     <li><a href="#contact" data-en="Get started" data-es="Empezar">Get started</a></li>
                 </ul>
