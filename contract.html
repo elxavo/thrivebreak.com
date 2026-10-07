@@ -322,11 +322,12 @@
 
         .note strong { color: var(--dark); }
 
+        /* ===== SIGNATURES ===== */
         .signature-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
-            margin-top: 2.5rem;
+            margin-top: 1.5rem;
             page-break-inside: avoid;
         }
 
@@ -341,11 +342,11 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             color: var(--teal-dark);
-            margin-bottom: 0.9rem;
+            margin-bottom: 1rem;
         }
 
         .sig-field {
-            margin-bottom: 0.55rem;
+            margin-bottom: 0.8rem;
         }
 
         .sig-field .sig-field-label {
@@ -355,20 +356,29 @@
             letter-spacing: 0.5px;
             color: var(--gray);
             display: block;
-            margin-bottom: 0.1rem;
+            margin-bottom: 0.15rem;
         }
 
         .sig-field .sig-field-value {
             border-bottom: 1.5px solid var(--dark);
-            min-height: 34px;
+            min-height: 32px;
             padding-bottom: 0.15rem;
             font-size: 0.88rem;
             font-weight: 600;
             color: var(--dark);
         }
 
+        /* Signature line: SHORTER and no extra lines above */
+        .sig-field .sig-field-value.sig-short {
+            width: 70%;
+        }
+
         .sig-field .sig-field-value.empty {
-            min-height: 34px;
+            min-height: 40px;
+        }
+
+        .sig-field .sig-field-value.empty.sig-short {
+            width: 70%;
         }
 
         .contact {
@@ -477,19 +487,22 @@
                 margin-bottom: 0.5rem;
             }
 
-            /* MORE ROOM FOR SIGNATURES */
+            /* SIGNATURES: keep compact, short signature line */
             .signature-grid {
                 gap: 2.5rem;
-                margin-top: 2.5rem;
+                margin-top: 1.5rem;
                 margin-bottom: 0.5rem;
             }
             .sig-party { font-size: 0.75rem; margin-bottom: 0.8rem; }
-            .sig-field { margin-bottom: 0.7rem; }
+            .sig-field { margin-bottom: 0.75rem; }
             .sig-field .sig-field-label { font-size: 0.63rem; }
             .sig-field .sig-field-value {
-                min-height: 44px;
+                min-height: 36px;
                 font-size: 0.82rem;
             }
+            .sig-field .sig-field-value.sig-short { width: 70%; }
+            .sig-field .sig-field-value.empty { min-height: 44px; }
+            .sig-field .sig-field-value.empty.sig-short { width: 70%; }
 
             .contact { padding-top: 0.9rem; margin-top: 1rem; }
             .contact-info h3 { font-size: 0.82rem; }
@@ -545,6 +558,16 @@
             <div class="form-group">
                 <label for="contactRole">Contact Title *</label>
                 <input type="text" id="contactRole" required placeholder="HR Manager">
+            </div>
+
+            <div class="form-group">
+                <label for="facilityPhone">Facility Phone</label>
+                <input type="tel" id="facilityPhone" placeholder="(908) 555-0123">
+            </div>
+
+            <div class="form-group">
+                <label for="facilityEmail">Facility Email</label>
+                <input type="email" id="facilityEmail" placeholder="contact@walther.com">
             </div>
 
             <div class="form-group">
@@ -618,8 +641,8 @@
                     <tr><td>Facility Name</td><td id="infoFacilityName">—</td></tr>
                     <tr><td>Address</td><td id="infoFacilityAddress">—</td></tr>
                     <tr><td>Contact Name and Title</td><td id="infoContact">—</td></tr>
-                    <tr><td>Phone</td><td>________________________</td></tr>
-                    <tr><td>Email</td><td>________________________</td></tr>
+                    <tr><td>Phone</td><td id="infoPhone">—</td></tr>
+                    <tr><td>Email</td><td id="infoEmail">—</td></tr>
                 </tbody>
             </table>
         </div>
@@ -856,11 +879,11 @@
                     </div>
                     <div class="sig-field">
                         <span class="sig-field-label">Signature</span>
-                        <div class="sig-field-value empty"></div>
+                        <div class="sig-field-value empty sig-short"></div>
                     </div>
                     <div class="sig-field">
                         <span class="sig-field-label">Date</span>
-                        <div class="sig-field-value empty"></div>
+                        <div class="sig-field-value empty sig-short"></div>
                     </div>
                 </div>
 
@@ -868,7 +891,7 @@
                     <div class="sig-party">ThriveBreak</div>
                     <div class="sig-field">
                         <span class="sig-field-label">Name</span>
-                        <div class="sig-field-value">Josue Figueroa, Founder</div>
+                        <div class="sig-field-value">Josue Figueroa</div>
                     </div>
                     <div class="sig-field">
                         <span class="sig-field-label">Title</span>
@@ -876,11 +899,11 @@
                     </div>
                     <div class="sig-field">
                         <span class="sig-field-label">Signature</span>
-                        <div class="sig-field-value empty"></div>
+                        <div class="sig-field-value empty sig-short"></div>
                     </div>
                     <div class="sig-field">
                         <span class="sig-field-label">Date</span>
-                        <div class="sig-field-value empty"></div>
+                        <div class="sig-field-value empty sig-short"></div>
                     </div>
                 </div>
             </div>
@@ -913,6 +936,8 @@
         facilityAddress: document.getElementById('facilityAddress'),
         contactName: document.getElementById('contactName'),
         contactRole: document.getElementById('contactRole'),
+        facilityPhone: document.getElementById('facilityPhone'),
+        facilityEmail: document.getElementById('facilityEmail'),
         startDate: document.getElementById('startDate'),
         installDate: document.getElementById('installDate'),
         machineCount: document.getElementById('machineCount'),
@@ -926,6 +951,8 @@
         infoFacilityName: document.getElementById('infoFacilityName'),
         infoFacilityAddress: document.getElementById('infoFacilityAddress'),
         infoContact: document.getElementById('infoContact'),
+        infoPhone: document.getElementById('infoPhone'),
+        infoEmail: document.getElementById('infoEmail'),
         tblMachines: document.getElementById('tblMachines'),
         tblLocations: document.getElementById('tblLocations'),
         tblInstallDate: document.getElementById('tblInstallDate'),
@@ -977,6 +1004,8 @@
         const contact = [fields.contactName.value.trim(), fields.contactRole.value.trim()]
             .filter(Boolean).join(', ');
         setText(out.infoContact, contact);
+        setText(out.infoPhone, fields.facilityPhone.value);
+        setText(out.infoEmail, fields.facilityEmail.value);
 
         // Machine count / locations
         out.tblMachines.textContent = fields.machineCount.value || '4';
