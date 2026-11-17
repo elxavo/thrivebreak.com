@@ -893,14 +893,7 @@ html, body {
 
     <!-- Main Content -->
     <main class="main-wrapper">
-
-        <!-- TODAY'S PROMOTION PHOTO PLACEHOLDER -->
-        <div class="promo-photo-card" aria-label="Today's Promotion Banner">
-            <div class="promo-photo-header">
-                <span class="promo-photo-badge" data-en="🔥 Today's Promotion" data-es="🔥 Promoción de Hoy">🔥 Today's Promotion</span>
-                <span class="promo-photo-hint" data-en="Tap, Grab & Go • Auto Checkout" data-es="Toca, Abre, Agarra y Listo • Cobro Automático">Tap, Grab &amp; Go • Auto Checkout</span>
-            </div>
-            
+         
         <!-- TODAY'S PROMOTION PHOTO PLACEHOLDER -->
         <div class="promo-photo-card" aria-label="Today's Promotion Banner">
             <div class="promo-photo-header">
@@ -911,8 +904,7 @@ html, body {
             <div class="promo-photo-placeholder" style="padding: 0; border: none; background: transparent; min-height: auto;">
                 <img src="2.38%20flyer.jpg" alt="Today's Promotion - Combo $2.38 / Promoción de Hoy - Combo $2.38">
             </div>
-        </div>
-               
+        </div>            
 
         <!-- Search & Category Filter Bar -->
         <div class="filter-bar">
@@ -935,8 +927,22 @@ html, body {
         <section class="pricing-card promo-card" id="promo">
             <div class="card-header">
                 <h2 data-en="🔥 Promotion" data-es="🔥 Promoción">🔥 Promotion</h2>
-                <span class="item-count" data-en="4 items" data-es="4 productos">4 items</span>
+                <span class="item-count" data-en="4 items" data-es="4 productos">5 items</span>
             </div>
+                    <table class="price-table">
+                <thead>
+                    <tr>
+                        <th data-en="Product" data-es="Producto">Product</th>
+                        <th data-en="Price" data-es="Precio">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+    <tr><td>Coke Zero, Mountain Dew o Diet Coke + Lays, Doritos o Ruffles</td><td>$2.38</td></tr>
+    <tr><td>Coke Zero</td><td>$1.00</td></tr>
+    <tr><td>Mountain Dew</td><td>$1.00</td></tr>
+    <tr><td>Diet Coke</td><td>$1.00</td></tr>
+   </tbody>
+            </table>
         </section>
 
         <!-- 🥤 Drinks / Bebidas -->
@@ -953,19 +959,19 @@ html, body {
                     </tr>
                 </thead>
                 <tbody>
+    <tr><td>Coke Zero</td><td>$1.00</td></tr>
+    <tr><td>Mountain Dew</td><td>$1.00</td></tr>
+    <tr><td>Diet Coke</td><td>$1.00</td></tr>
     <tr><td>Dasani Water</td><td>$1.00</td></tr>
     <tr><td>Sunkist</td><td>$1.25</td></tr>
-    <tr><td>Diet Coke</td><td>$1.49</td></tr>
     <tr><td>Fanta</td><td>$1.49</td></tr>
-    <tr><td>Mountain Dew</td><td>$1.49</td></tr>
     <tr><td>Sprite</td><td>$1.49</td></tr>
     <tr><td>Coca-Cola</td><td>$1.59</td></tr>
-    <tr><td>Coke Zero</td><td>$1.59</td></tr>
+    <tr><td>Pepsi</td><td>$1.49</td></tr>
     <tr><td>Inca Kola 12oz</td><td>$1.59</td></tr>
     <tr><td>Fiji Water</td><td>$2.29</td></tr>
     <tr><td>Pellegrino</td><td>$2.29</td></tr>
-    <tr><td>Pepsi</td><td>$2.50</td></tr>
-    <tr><td>Colombiana 10oz</td><td>$2.89</td></tr>
+    <tr><td>Colombiana</td><td>$2.89</td></tr>
     <tr><td>Country Club</td><td>$2.89</td></tr>
     <tr><td>Celsius</td><td>$3.49</td></tr>
     <tr><td>Red Bull Coconut Berry</td><td>$3.49</td></tr>
