@@ -1281,6 +1281,77 @@ html, body {
                 }
             });
         }
+// FEEDBACK MODAL
+        const modal = document.getElementById('feedbackModal');
+        const modalClose = document.getElementById('modalClose');
+        const feedbackForm = document.getElementById('feedbackForm');
+        const feedbackSuccess = document.getElementById('feedbackSuccess');
+        const feedbackTypeInput = document.getElementById('feedbackTypeInput');
+        const feedbackTypeBtns = document.querySelectorAll('.feedback-type-btn');
+        const feedbackTriggers = document.querySelectorAll('.feedback-trigger');
+
+        function openModal(presetType) {
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            feedbackForm.style.display = 'block';
+            feedbackSuccess.classList.remove('show');
+            if (presetType) {
+                feedbackTypeBtns.forEach(b => b.classList.remove('selected'));
+                const btn = document.querySelector(`.feedback-type-btn[data-type="${presetType}"]`);
+                if (btn) {
+                    btn.classList.add('selected');
+                    feedbackTypeInput.value = presetType;
+                }
+            }
+        }
+
+        function closeModal() {
+            modal.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        feedbackTriggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(trigger.dataset.type);
+            });
+        });
+
+        if (modalClose) modalClose.addEventListener('click', closeModal);
+        if (modal) modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal && modal.classList.contains('open')) closeModal(); });
+
+        feedbackTypeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                feedbackTypeBtns.forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                feedbackTypeInput.value = btn.dataset.type;
+            });
+        });
+
+        if (feedbackForm) {
+            feedbackForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const formData = new FormData(feedbackForm);
+                try {
+                    const response = await fetch(feedbackForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (response.ok) {
+                        feedbackForm.style.display = 'none';
+                        feedbackSuccess.classList.add('show');
+                        feedbackForm.reset();
+                        setTimeout(() => { if (modal.classList.contains('open')) closeModal(); }, 3000);
+                    } else {
+                        alert(document.documentElement.lang === 'es' ? 'Hubo un error. Por favor intenta de nuevo.' : 'There was an error. Please try again.');
+                    }
+                } catch (err) {
+                    alert(document.documentElement.lang === 'es' ? 'Error de conexión.' : 'Connection error.');
+                }
+            });
+        }
     </script>
 <!-- Footer -->
     <footer>
@@ -1357,76 +1428,6 @@ html, body {
             </div>
         </div>
     </div>
-// FEEDBACK MODAL
-        const modal = document.getElementById('feedbackModal');
-        const modalClose = document.getElementById('modalClose');
-        const feedbackForm = document.getElementById('feedbackForm');
-        const feedbackSuccess = document.getElementById('feedbackSuccess');
-        const feedbackTypeInput = document.getElementById('feedbackTypeInput');
-        const feedbackTypeBtns = document.querySelectorAll('.feedback-type-btn');
-        const feedbackTriggers = document.querySelectorAll('.feedback-trigger');
 
-        function openModal(presetType) {
-            modal.classList.add('open');
-            document.body.style.overflow = 'hidden';
-            feedbackForm.style.display = 'block';
-            feedbackSuccess.classList.remove('show');
-            if (presetType) {
-                feedbackTypeBtns.forEach(b => b.classList.remove('selected'));
-                const btn = document.querySelector(`.feedback-type-btn[data-type="${presetType}"]`);
-                if (btn) {
-                    btn.classList.add('selected');
-                    feedbackTypeInput.value = presetType;
-                }
-            }
-        }
-
-        function closeModal() {
-            modal.classList.remove('open');
-            document.body.style.overflow = '';
-        }
-
-        feedbackTriggers.forEach(trigger => {
-            trigger.addEventListener('click', (e) => {
-                e.preventDefault();
-                openModal(trigger.dataset.type);
-            });
-        });
-
-        if (modalClose) modalClose.addEventListener('click', closeModal);
-        if (modal) modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal && modal.classList.contains('open')) closeModal(); });
-
-        feedbackTypeBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                feedbackTypeBtns.forEach(b => b.classList.remove('selected'));
-                btn.classList.add('selected');
-                feedbackTypeInput.value = btn.dataset.type;
-            });
-        });
-
-        if (feedbackForm) {
-            feedbackForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const formData = new FormData(feedbackForm);
-                try {
-                    const response = await fetch(feedbackForm.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: { 'Accept': 'application/json' }
-                    });
-                    if (response.ok) {
-                        feedbackForm.style.display = 'none';
-                        feedbackSuccess.classList.add('show');
-                        feedbackForm.reset();
-                        setTimeout(() => { if (modal.classList.contains('open')) closeModal(); }, 3000);
-                    } else {
-                        alert(document.documentElement.lang === 'es' ? 'Hubo un error. Por favor intenta de nuevo.' : 'There was an error. Please try again.');
-                    }
-                } catch (err) {
-                    alert(document.documentElement.lang === 'es' ? 'Error de conexión.' : 'Connection error.');
-                }
-            });
-        }
 </body>
 </html>
