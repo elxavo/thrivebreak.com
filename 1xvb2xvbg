@@ -901,14 +901,18 @@ html, body {
                 <span class="promo-photo-hint" data-en="Tap, Grab & Go • Auto Checkout" data-es="Toca, Abre, Agarra y Listo • Cobro Automático">Tap, Grab &amp; Go • Auto Checkout</span>
             </div>
             
-            <!-- INSTRUCCIÓN: Para poner tu foto de promoción de hoy, reemplaza el bloque interno por:
-             <div class="promo-photo-placeholder" style="padding: 0; border: none; background: transparent; min-height: auto;">
+        <!-- TODAY'S PROMOTION PHOTO PLACEHOLDER -->
+        <div class="promo-photo-card" aria-label="Today's Promotion Banner">
+            <div class="promo-photo-header">
+                <span class="promo-photo-badge" data-en="🔥 Today's Promotion" data-es="🔥 Promoción de Hoy">🔥 Today's Promotion</span>
+                <span class="promo-photo-hint" data-en="Tap, Grab & Go • Auto Checkout" data-es="Toca, Toma y Listo • Cobro Automático">Tap, Grab &amp; Go • Auto Checkout</span>
+            </div>
+
+            <div class="promo-photo-placeholder" style="padding: 0; border: none; background: transparent; min-height: auto;">
                 <img src="2.38%20flyer.jpg" alt="Today's Promotion - Combo $2.38 / Promoción de Hoy - Combo $2.38">
             </div>
-                <div class="placeholder-title" data-en="Today's Promotion Photo Placeholder" data-es="Espacio para la Foto de Promoción de Hoy">Today's Promotion Photo Placeholder</div>
-                <div class="placeholder-sub" data-en="Recommended size: 1200 × 600 px (or 4:3 / 16:9 flyer image). Replace this container with your <img> tag." data-es="Tamaño recomendado: 1200 × 600 px (o imagen de póster 4:3 / 16:9). Reemplaza este contenedor con tu etiqueta <img>.">Recommended size: 1200 × 600 px (or 4:3 / 16:9 flyer image). Replace this container with your &lt;img&gt; tag.</div>
-            </div>
         </div>
+               
 
         <!-- Search & Category Filter Bar -->
         <div class="filter-bar">
