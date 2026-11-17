@@ -902,15 +902,9 @@ html, body {
             </div>
             
             <!-- INSTRUCCIÓN: Para poner tu foto de promoción de hoy, reemplaza el bloque interno por:
-                 <img src="https://github.com/elxavo/thrivebreak.com/blob/aa26d23b4a41034f548fb09f558c498243d1239a/2.38%20flyer.jpg" alt="Promoción de Hoy"> -->
-            <div class="promo-photo-placeholder">
-                <div class="placeholder-icon" aria-hidden="true">
-                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                        <circle cx="8.5" cy="8.5" r="1.5"/>
-                        <polyline points="21 15 16 10 5 21"/>
-                    </svg>
-                </div>
+             <div class="promo-photo-placeholder" style="padding: 0; border: none; background: transparent; min-height: auto;">
+                <img src="2.38%20flyer.jpg" alt="Today's Promotion - Combo $2.38 / Promoción de Hoy - Combo $2.38">
+            </div>
                 <div class="placeholder-title" data-en="Today's Promotion Photo Placeholder" data-es="Espacio para la Foto de Promoción de Hoy">Today's Promotion Photo Placeholder</div>
                 <div class="placeholder-sub" data-en="Recommended size: 1200 × 600 px (or 4:3 / 16:9 flyer image). Replace this container with your <img> tag." data-es="Tamaño recomendado: 1200 × 600 px (o imagen de póster 4:3 / 16:9). Reemplaza este contenedor con tu etiqueta <img>.">Recommended size: 1200 × 600 px (or 4:3 / 16:9 flyer image). Replace this container with your &lt;img&gt; tag.</div>
             </div>
