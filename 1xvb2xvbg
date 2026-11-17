@@ -913,7 +913,7 @@ html, body {
                 <input type="search" id="menuSearch" placeholder="Search product... / Buscar producto..." aria-label="Search product">
             </div>
             <div class="quick-pills">
-                <a href="#promo" class="quick-pill promo-jump" data-en="🔥 Promo (4)" data-es="🔥 Promoción (4)">🔥 Promo (4)</a>
+                <a href="#promo" class="quick-pill promo-jump" data-en="🔥 Promo (4)" data-es="🔥 Promoción (5)">🔥 Promo (5)</a>
                 <a href="#drinks" class="quick-pill" data-en="🥤 Drinks (22)" data-es="🥤 Bebidas (22)">🥤 Drinks (22)</a>
                 <a href="#snacks" class="quick-pill" data-en="🍿 Snacks (22)" data-es="🍿 Picaderas (22)">🍿 Snacks (22)</a>
             </div>
@@ -1280,5 +1280,80 @@ html, body {
             });
         }
     </script>
+<!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">ThriveBreak</div>
+            <div class="footer-links">
+                <a href="https://thrivebreak.com/" data-en="Main Website" data-es="Sitio Principal">Main Website</a>
+                <button type="button" class="feedback-trigger" data-type="product" data-en="Request a Product" data-es="Pedir un Producto">Request a Product</button>
+                <button type="button" class="feedback-trigger" data-type="suggestion" data-en="Suggestion" data-es="Sugerencia">Suggestion</button>
+                <button type="button" class="feedback-trigger" data-type="complaint" data-en="Report an Issue / Complaint" data-es="Reportar un Problema / Queja">Report an Issue / Complaint</button>
+            </div>
+            <p class="footer-copy" data-en="© 2026 ThriveBreak LLC. All rights reserved. Piscataway, New Jersey." data-es="© 2026 ThriveBreak LLC. Todos los derechos reservados. Piscataway, New Jersey.">© 2026 ThriveBreak LLC. All rights reserved. Piscataway, New Jersey.</p>
+        </div>
+    </footer>
+
+    <!-- Feedback Modal (Sugerencias, Pedidos y Quejas) -->
+    <div class="modal-overlay" id="feedbackModal" role="dialog" aria-modal="true" aria-labelledby="feedbackTitle">
+        <div class="modal">
+            <div class="modal-header">
+                <div>
+                    <h3 id="feedbackTitle" data-en="We're listening" data-es="Te escuchamos">We're listening</h3>
+                    <p data-en="Request a snack, send a suggestion, or report an issue with Unit 12G." data-es="Pide un snack, envía una sugerencia o reporta un problema con la Unidad 12G.">Request a snack, send a suggestion, or report an issue with Unit 12G.</p>
+                </div>
+                <button type="button" class="modal-close" id="modalClose" aria-label="Close">✕</button>
+            </div>
+
+            <div class="modal-body">
+                <form id="feedbackForm" action="https://formspree.io/f/mljddpvw" method="POST">
+                    <input type="hidden" name="form-type" value="feedback-12G">
+                    <input type="hidden" name="feedback-type" id="feedbackTypeInput" value="product">
+                    <input type="hidden" name="location" value="Unit 12G">
+
+                    <div class="form-group">
+                        <label data-en="What's this about?" data-es="¿Sobre qué es?">What's this about?</label>
+                        <div class="feedback-type-grid">
+                            <button type="button" class="feedback-type-btn selected" data-type="product">
+                                <span class="type-icon" aria-hidden="true">🛒</span>
+                                <span data-en="New Product" data-es="Nuevo Producto">New Product</span>
+                            </button>
+                            <button type="button" class="feedback-type-btn" data-type="suggestion">
+                                <span class="type-icon" aria-hidden="true">💡</span>
+                                <span data-en="Suggestion" data-es="Sugerencia">Suggestion</span>
+                            </button>
+                            <button type="button" class="feedback-type-btn" data-type="complaint">
+                                <span class="type-icon" aria-hidden="true">⚠️</span>
+                                <span data-en="Issue / Complaint" data-es="Problema / Queja">Issue / Complaint</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fb-name" data-en="Your Name *" data-es="Tu Nombre *">Your Name *</label>
+                        <input type="text" id="fb-name" name="name" required autocomplete="name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fb-email" data-en="Your Email *" data-es="Tu Correo *">Your Email *</label>
+                        <input type="email" id="fb-email" name="email" required autocomplete="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fb-message" data-en="Your message *" data-es="Tu mensaje *">Your message *</label>
+                        <textarea id="fb-message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn" data-en="Send Message" data-es="Enviar Mensaje">Send Message</button>
+                </form>
+
+                <div class="modal-success" id="feedbackSuccess">
+                    <div class="success-icon" aria-hidden="true">✓</div>
+                    <h4 data-en="Thank you. We got it." data-es="Gracias. Lo recibimos.">Thank you. We got it.</h4>
+                    <p data-en="We'll review your message and get back to you within 24 hours." data-es="Revisaremos tu mensaje y te responderemos en 24 horas.">We'll review your message and get back to you within 24 hours.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
