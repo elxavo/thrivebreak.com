@@ -257,6 +257,15 @@
             display: block;
         }
 
+        /* Divider between the two promo images */
+        .promo-photo-divider {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(217, 119, 6, 0.45), transparent);
+            margin: 1.2rem 0;
+            border-radius: 999px;
+        }
+
         .placeholder-icon {
             width: 52px;
             height: 52px;
@@ -862,9 +871,9 @@
     <!-- Header -->
     <header>
         <nav aria-label="Main navigation">
-            <a href="https://thrivebreak.com/" class="logo">
+            <span class="logo">
                 ThriveBreak <span class="machine-badge">400F</span>
-            </a>
+            </span>
             <div class="nav-links">
                 <a href="#promo" class="nav-link" data-en="Promos" data-es="Promociones">Promos</a>
                 <a href="#drinks" class="nav-link" data-en="Drinks" data-es="Bebidas">Drinks</a>
@@ -900,7 +909,9 @@
             </div>
 
             <div class="promo-photo-placeholder" style="padding: 0; border: none; background: transparent; min-height: auto;">
-                <img src="2.38%20flyer.jpg" alt="Today's Promotion - Combo $2.38 / Promoción de Hoy - Sodas for $1.00"><img src="coke 1.jpg" alt="Today's Promotion - Sodas for $1.00 / Promoción de Hoy - Sodas de $1.00">
+                <img src="2.38%20flyer.jpg" alt="Today's Promotion - Combo $2.38 / Promoción de Hoy - Sodas for $1.00">
+                <div class="promo-photo-divider" aria-hidden="true"></div>
+                <img src="coke 1.jpg" alt="Today's Promotion - Sodas for $1.00 / Promoción de Hoy - Sodas de $1.00">
             </div>
         </div>
 
@@ -1046,7 +1057,6 @@
         <div class="footer-inner">
             <div class="footer-brand">ThriveBreak</div>
             <div class="footer-links">
-                <a href="https://thrivebreak.com/" data-en="Main Website" data-es="Sitio Principal">Main Website</a>
                 <button type="button" class="feedback-trigger" data-type="product" data-en="Request a Product" data-es="Pedir un Producto">Request a Product</button>
                 <button type="button" class="feedback-trigger" data-type="suggestion" data-en="Suggestion" data-es="Sugerencia">Suggestion</button>
                 <button type="button" class="feedback-trigger" data-type="complaint" data-en="Report an Issue / Complaint" data-es="Reportar un Problema / Queja">Report an Issue / Complaint</button>
