@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- SEO -->
     <title>12G Price List | Lista de Precios 12G - ThriveBreak</title>
     <meta name="description" content="12G Price List | Lista de Precios 12G. Fresh snacks and beverages available daily. Snacks y bebidas frescas disponibles todos los días.">
     <meta name="robots" content="noindex, follow">
     <link rel="canonical" href="https://thrivebreak.com/12g">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f766e'/%3E%3Ctext x='50' y='68' font-size='60' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -248,7 +248,6 @@
             overflow: hidden;
         }
 
-        /* Cuando agregues tu etiqueta <img> dentro de .promo-photo-placeholder, ocupará todo el espacio limpiamente */
         .promo-photo-placeholder img {
             width: 100%;
             height: auto;
@@ -817,12 +816,11 @@
         }
 
         @media (max-width: 640px) {
-html, body {
-            max-width: 100%;
-            overflow-x: hidden;
-        }
+            html, body {
+                max-width: 100%;
+                overflow-x: hidden;
+            }
 
-        @media (max-width: 640px) {
             nav {
                 flex-direction: column;
                 padding: 0.75rem 1rem;
@@ -893,7 +891,7 @@ html, body {
 
     <!-- Main Content -->
     <main class="main-wrapper">
-         
+
         <!-- TODAY'S PROMOTION PHOTO PLACEHOLDER -->
         <div class="promo-photo-card" aria-label="Today's Promotion Banner">
             <div class="promo-photo-header">
@@ -904,7 +902,7 @@ html, body {
             <div class="promo-photo-placeholder" style="padding: 0; border: none; background: transparent; min-height: auto;">
                 <img src="2.38%20flyer.jpg" alt="Today's Promotion - Combo $2.38 / Promoción de Hoy - Sodas for $1.00"><img src="coke 1.jpg" alt="Today's Promotion - Sodas for $1.00 / Promoción de Hoy - Sodas de $1.00">
             </div>
-        </div>            
+        </div>
 
         <!-- Search & Category Filter Bar -->
         <div class="filter-bar">
@@ -913,7 +911,7 @@ html, body {
                 <input type="search" id="menuSearch" placeholder="Search product... / Buscar producto..." aria-label="Search product">
             </div>
             <div class="quick-pills">
-                <a href="#promo" class="quick-pill promo-jump" data-en="🔥 Promo (4)" data-es="🔥 Promoción (5)">🔥 Promo (5)</a>
+                <a href="#promo" class="quick-pill promo-jump" data-en="🔥 Promo (5)" data-es="🔥 Promoción (5)">🔥 Promo (5)</a>
                 <a href="#drinks" class="quick-pill" data-en="🥤 Drinks (22)" data-es="🥤 Bebidas (22)">🥤 Drinks (22)</a>
                 <a href="#snacks" class="quick-pill" data-en="🍿 Snacks (22)" data-es="🍿 Picaderas (22)">🍿 Snacks (22)</a>
             </div>
@@ -927,9 +925,9 @@ html, body {
         <section class="pricing-card promo-card" id="promo">
             <div class="card-header">
                 <h2 data-en="🔥 Promotion" data-es="🔥 Promoción">🔥 Promotion</h2>
-                <span class="item-count" data-en="4 items" data-es="4 productos">5 items</span>
+                <span class="item-count" data-en="5 items" data-es="5 productos">5 items</span>
             </div>
-                    <table class="price-table">
+            <table class="price-table">
                 <thead>
                     <tr>
                         <th data-en="Product" data-es="Producto">Product</th>
@@ -937,11 +935,11 @@ html, body {
                     </tr>
                 </thead>
                 <tbody>
-    <tr><td>Coke Zero, Mountain Dew o Diet Coke + Lays, Doritos o Ruffles</td><td>$2.38</td></tr>
-    <tr><td>Coke Zero</td><td>$1.00</td></tr>
-    <tr><td>Mountain Dew</td><td>$1.00</td></tr>
-    <tr><td>Diet Coke</td><td>$1.00</td></tr>
-   </tbody>
+                    <tr><td>Coke Zero, Mountain Dew o Diet Coke + Lays, Doritos o Ruffles</td><td>$2.38</td></tr>
+                    <tr><td>Coke Zero</td><td>$1.00</td></tr>
+                    <tr><td>Mountain Dew</td><td>$1.00</td></tr>
+                    <tr><td>Diet Coke</td><td>$1.00</td></tr>
+                </tbody>
             </table>
         </section>
 
@@ -958,7 +956,7 @@ html, body {
                         <th data-en="Price" data-es="Precio">Price</th>
                     </tr>
                 </thead>
-            <tbody>
+                <tbody>
                     <tr><td>Coke Zero</td><td>$1.00</td></tr>
                     <tr><td>Dasani Water</td><td>$1.00</td></tr>
                     <tr><td>Diet Coke</td><td>$1.00</td></tr>
@@ -1000,7 +998,7 @@ html, body {
                         <th data-en="Price" data-es="Precio">Price</th>
                     </tr>
                 </thead>
-<tbody>
+                <tbody>
                     <tr><td>David Sunflower Seeds</td><td>$0.69</td></tr>
                     <tr><td>Mini Loaf Cornbread</td><td>$0.99</td></tr>
                     <tr><td>Utz Thin Pretzels</td><td>$1.19</td></tr>
@@ -1030,26 +1028,40 @@ html, body {
         <!-- Notice / Aviso -->
         <div class="notice-box">
             <h3 data-en="Notice & Payment Info" data-es="Aviso e Información de Pago">Notice &amp; Payment Info</h3>
-            <p style="margin-bottom: 0.6rem;" 
-               data-en="<strong>Temporary $3.00 Pre-Authorization Hold:</strong> When you tap your card or phone to open the door, a temporary $3.00 hold is placed to verify your payment method. Once you close the door, you are only charged for the exact items you took—and the remaining hold is automatically released (typically within 1–3 business days depending on your bank)." 
+            <p style="margin-bottom: 0.6rem;"
+               data-en="<strong>Temporary $3.00 Pre-Authorization Hold:</strong> When you tap your card or phone to open the door, a temporary $3.00 hold is placed to verify your payment method. Once you close the door, you are only charged for the exact items you took—and the remaining hold is automatically released (typically within 1–3 business days depending on your bank)."
                data-es="<strong>Retención Temporal de $3.00 (Pre-Autorización):</strong> Al acercar tu tarjeta o teléfono para abrir la puerta, se aplica una retención temporal de $3.00 para verificar tu método de pago. Al cerrar la puerta, solo se te cobra el monto exacto de los productos que tomaste y el saldo restante se libera automáticamente (por lo general en 1 a 3 días hábiles según tu banco).">
                 <strong>Temporary $3.00 Pre-Authorization Hold:</strong> When you tap your card or phone to open the door, a temporary $3.00 hold is placed to verify your payment method. Once you close the door, you are only charged for the exact items you took—and the remaining hold is automatically released (typically within 1–3 business days depending on your bank).
             </p>
-            <p style="font-size: 0.85rem; color: var(--gray);" 
-               data-en="Prices are subject to change without notice." 
+            <p style="font-size: 0.85rem; color: var(--gray);"
+               data-en="Prices are subject to change without notice."
                data-es="Los precios pueden cambiar sin previo aviso.">
                 Prices are subject to change without notice.
             </p>
         </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">ThriveBreak</div>
+            <div class="footer-links">
+                <a href="https://thrivebreak.com/" data-en="Main Website" data-es="Sitio Principal">Main Website</a>
+                <button type="button" class="feedback-trigger" data-type="product" data-en="Request a Product" data-es="Pedir un Producto">Request a Product</button>
+                <button type="button" class="feedback-trigger" data-type="suggestion" data-en="Suggestion" data-es="Sugerencia">Suggestion</button>
+                <button type="button" class="feedback-trigger" data-type="complaint" data-en="Report an Issue / Complaint" data-es="Reportar un Problema / Queja">Report an Issue / Complaint</button>
+            </div>
+            <p class="footer-copy" data-en="© 2026 ThriveBreak LLC. All rights reserved. Piscataway, New Jersey." data-es="© 2026 ThriveBreak LLC. Todos los derechos reservados. Piscataway, New Jersey.">© 2026 ThriveBreak LLC. All rights reserved. Piscataway, New Jersey.</p>
+        </div>
     </footer>
 
-    <!-- Feedback Modal -->
+    <!-- Feedback Modal (single instance) -->
     <div class="modal-overlay" id="feedbackModal" role="dialog" aria-modal="true" aria-labelledby="feedbackTitle">
         <div class="modal">
             <div class="modal-header">
                 <div>
                     <h3 id="feedbackTitle" data-en="We're listening" data-es="Te escuchamos">We're listening</h3>
-                    <p data-en="Request a snack or report an issue with Unit 12G." data-es="Pide un snack o reporta un problema con la Unidad 12G.">Request a snack or report an issue with Unit 12G.</p>
+                    <p data-en="Request a snack, send a suggestion, or report an issue with Unit 12G." data-es="Pide un snack, envía una sugerencia o reporta un problema con la Unidad 12G.">Request a snack, send a suggestion, or report an issue with Unit 12G.</p>
                 </div>
                 <button type="button" class="modal-close" id="modalClose" aria-label="Close">✕</button>
             </div>
@@ -1058,6 +1070,7 @@ html, body {
                 <form id="feedbackForm" action="https://formspree.io/f/mljddpvw" method="POST">
                     <input type="hidden" name="form-type" value="feedback-12G">
                     <input type="hidden" name="feedback-type" id="feedbackTypeInput" value="product">
+                    <input type="hidden" name="location" value="Unit 12G">
 
                     <div class="form-group">
                         <label data-en="What's this about?" data-es="¿Sobre qué es?">What's this about?</label>
@@ -1072,7 +1085,7 @@ html, body {
                             </button>
                             <button type="button" class="feedback-type-btn" data-type="complaint">
                                 <span class="type-icon" aria-hidden="true">⚠️</span>
-                                <span data-en="Issue / Refund" data-es="Problema / Reembolso">Issue / Refund</span>
+                                <span data-en="Issue / Complaint" data-es="Problema / Queja">Issue / Complaint</span>
                             </button>
                         </div>
                     </div>
@@ -1086,8 +1099,6 @@ html, body {
                         <label for="fb-email" data-en="Your Email *" data-es="Tu Correo *">Your Email *</label>
                         <input type="email" id="fb-email" name="email" required autocomplete="email">
                     </div>
-
-                    <input type="hidden" name="location" value="Unit 12G">
 
                     <div class="form-group">
                         <label for="fb-message" data-en="Your message *" data-es="Tu mensaje *">Your message *</label>
@@ -1109,9 +1120,9 @@ html, body {
     <!-- Contact FAB -->
     <div class="contact-fab-container">
         <div class="contact-fab-menu" id="contactFabMenu">
-            <a href="https://wa.me/19085604646?text=Hi%20Josue%2C%20I%27m%20writing%20regarding%20Unit%2012G." 
-               class="contact-fab-item whatsapp" 
-               target="_blank" 
+            <a href="https://wa.me/19085604646?text=Hi%20Josue%2C%20I%27m%20writing%20regarding%20Unit%2012G."
+               class="contact-fab-item whatsapp"
+               target="_blank"
                rel="noopener"
                aria-label="WhatsApp">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -1194,76 +1205,6 @@ html, body {
             });
         }
 
-        // FEEDBACK MODAL
-        const modal = document.getElementById('feedbackModal');
-        const modalClose = document.getElementById('modalClose');
-        const feedbackForm = document.getElementById('feedbackForm');
-        const feedbackSuccess = document.getElementById('feedbackSuccess');
-        const feedbackTypeInput = document.getElementById('feedbackTypeInput');
-        const feedbackTypeBtns = document.querySelectorAll('.feedback-type-btn');
-        const feedbackTriggers = document.querySelectorAll('.feedback-trigger');
-
-        function openModal(presetType) {
-            modal.classList.add('open');
-            document.body.style.overflow = 'hidden';
-            feedbackForm.style.display = 'block';
-            feedbackSuccess.classList.remove('show');
-            if (presetType) {
-                feedbackTypeBtns.forEach(b => b.classList.remove('selected'));
-                const btn = document.querySelector(`.feedback-type-btn[data-type="${presetType}"]`);
-                if (btn) {
-                    btn.classList.add('selected');
-                    feedbackTypeInput.value = presetType;
-                }
-            }
-        }
-
-        function closeModal() {
-            modal.classList.remove('open');
-            document.body.style.overflow = '';
-        }
-
-        feedbackTriggers.forEach(trigger => {
-            trigger.addEventListener('click', (e) => {
-                e.preventDefault();
-                openModal(trigger.dataset.type);
-            });
-        });
-
-        modalClose.addEventListener('click', closeModal);
-        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
-
-        feedbackTypeBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                feedbackTypeBtns.forEach(b => b.classList.remove('selected'));
-                btn.classList.add('selected');
-                feedbackTypeInput.value = btn.dataset.type;
-            });
-        });
-
-        feedbackForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const formData = new FormData(feedbackForm);
-            try {
-                const response = await fetch(feedbackForm.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
-                if (response.ok) {
-                    feedbackForm.style.display = 'none';
-                    feedbackSuccess.classList.add('show');
-                    feedbackForm.reset();
-                    setTimeout(() => { if (modal.classList.contains('open')) closeModal(); }, 3000);
-                } else {
-                    alert(document.documentElement.lang === 'es' ? 'Hubo un error. Por favor intenta de nuevo.' : 'There was an error. Please try again.');
-                }
-            } catch (err) {
-                alert(document.documentElement.lang === 'es' ? 'Error de conexión.' : 'Connection error.');
-            }
-        });
-
         // CONTACT FAB
         const contactFabMain = document.getElementById('contactFabMain');
         const contactFabMenu = document.getElementById('contactFabMenu');
@@ -1281,7 +1222,8 @@ html, body {
                 }
             });
         }
-// FEEDBACK MODAL
+
+        // FEEDBACK MODAL (single definition)
         const modal = document.getElementById('feedbackModal');
         const modalClose = document.getElementById('modalClose');
         const feedbackForm = document.getElementById('feedbackForm');
@@ -1291,6 +1233,7 @@ html, body {
         const feedbackTriggers = document.querySelectorAll('.feedback-trigger');
 
         function openModal(presetType) {
+            if (!modal) return;
             modal.classList.add('open');
             document.body.style.overflow = 'hidden';
             feedbackForm.style.display = 'block';
@@ -1306,6 +1249,7 @@ html, body {
         }
 
         function closeModal() {
+            if (!modal) return;
             modal.classList.remove('open');
             document.body.style.overflow = '';
         }
@@ -1353,81 +1297,5 @@ html, body {
             });
         }
     </script>
-<!-- Footer -->
-    <footer>
-        <div class="footer-inner">
-            <div class="footer-brand">ThriveBreak</div>
-            <div class="footer-links">
-                <a href="https://thrivebreak.com/" data-en="Main Website" data-es="Sitio Principal">Main Website</a>
-                <button type="button" class="feedback-trigger" data-type="product" data-en="Request a Product" data-es="Pedir un Producto">Request a Product</button>
-                <button type="button" class="feedback-trigger" data-type="suggestion" data-en="Suggestion" data-es="Sugerencia">Suggestion</button>
-                <button type="button" class="feedback-trigger" data-type="complaint" data-en="Report an Issue / Complaint" data-es="Reportar un Problema / Queja">Report an Issue / Complaint</button>
-            </div>
-            <p class="footer-copy" data-en="© 2026 ThriveBreak LLC. All rights reserved. Piscataway, New Jersey." data-es="© 2026 ThriveBreak LLC. Todos los derechos reservados. Piscataway, New Jersey.">© 2026 ThriveBreak LLC. All rights reserved. Piscataway, New Jersey.</p>
-        </div>
-    </footer>
-
-    <!-- Feedback Modal (Sugerencias, Pedidos y Quejas) -->
-    <div class="modal-overlay" id="feedbackModal" role="dialog" aria-modal="true" aria-labelledby="feedbackTitle">
-        <div class="modal">
-            <div class="modal-header">
-                <div>
-                    <h3 id="feedbackTitle" data-en="We're listening" data-es="Te escuchamos">We're listening</h3>
-                    <p data-en="Request a snack, send a suggestion, or report an issue with Unit 12G." data-es="Pide un snack, envía una sugerencia o reporta un problema con la Unidad 12G.">Request a snack, send a suggestion, or report an issue with Unit 12G.</p>
-                </div>
-                <button type="button" class="modal-close" id="modalClose" aria-label="Close">✕</button>
-            </div>
-
-            <div class="modal-body">
-                <form id="feedbackForm" action="https://formspree.io/f/mljddpvw" method="POST">
-                    <input type="hidden" name="form-type" value="feedback-12G">
-                    <input type="hidden" name="feedback-type" id="feedbackTypeInput" value="product">
-                    <input type="hidden" name="location" value="Unit 12G">
-
-                    <div class="form-group">
-                        <label data-en="What's this about?" data-es="¿Sobre qué es?">What's this about?</label>
-                        <div class="feedback-type-grid">
-                            <button type="button" class="feedback-type-btn selected" data-type="product">
-                                <span class="type-icon" aria-hidden="true">🛒</span>
-                                <span data-en="New Product" data-es="Nuevo Producto">New Product</span>
-                            </button>
-                            <button type="button" class="feedback-type-btn" data-type="suggestion">
-                                <span class="type-icon" aria-hidden="true">💡</span>
-                                <span data-en="Suggestion" data-es="Sugerencia">Suggestion</span>
-                            </button>
-                            <button type="button" class="feedback-type-btn" data-type="complaint">
-                                <span class="type-icon" aria-hidden="true">⚠️</span>
-                                <span data-en="Issue / Complaint" data-es="Problema / Queja">Issue / Complaint</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="fb-name" data-en="Your Name *" data-es="Tu Nombre *">Your Name *</label>
-                        <input type="text" id="fb-name" name="name" required autocomplete="name">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="fb-email" data-en="Your Email *" data-es="Tu Correo *">Your Email *</label>
-                        <input type="email" id="fb-email" name="email" required autocomplete="email">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="fb-message" data-en="Your message *" data-es="Tu mensaje *">Your message *</label>
-                        <textarea id="fb-message" name="message" required></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-btn" data-en="Send Message" data-es="Enviar Mensaje">Send Message</button>
-                </form>
-
-                <div class="modal-success" id="feedbackSuccess">
-                    <div class="success-icon" aria-hidden="true">✓</div>
-                    <h4 data-en="Thank you. We got it." data-es="Gracias. Lo recibimos.">Thank you. We got it.</h4>
-                    <p data-en="We'll review your message and get back to you within 24 hours." data-es="Revisaremos tu mensaje y te responderemos en 24 horas.">We'll review your message and get back to you within 24 hours.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </body>
 </html>
